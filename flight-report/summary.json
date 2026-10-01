@@ -1,17 +1,17 @@
 {
   "phase": "2",
-  "generated_at": "2026-10-01T17:44:26.526042+00:00",
+  "generated_at": "2026-10-01T17:54:35.951834+00:00",
   "run": {
     "branch": "phase2",
-    "captured_at": "2026-10-01T17:44:26.526042+00:00",
-    "commit": "0613a50960ec64671b724da0060f1623d8b41eb2",
-    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/0613a50960ec64671b724da0060f1623d8b41eb2",
-    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/645154"
+    "captured_at": "2026-10-01T17:54:35.951834+00:00",
+    "commit": "4737bc0c6c71a2da5c4cdadd34824a5df9a36541",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/4737bc0c6c71a2da5c4cdadd34824a5df9a36541",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/645158"
   },
-  "total": 15,
+  "total": 17,
   "passed": 15,
-  "failed": 0,
-  "duration_seconds": 2.293,
+  "failed": 2,
+  "duration_seconds": 2.664,
   "tests": [
     {
       "name": "break for loop",
@@ -27,7 +27,7 @@
     {
       "name": "break_outside_loop_test",
       "file": "src/tests/phase2/break_outside_loop_test.json",
-      "duration": 0.092,
+      "duration": 0.089,
       "failure": "",
       "log": "ci-reports/logs/phase2-break_outside_loop_test.log",
       "kind": "Negative",
@@ -38,7 +38,7 @@
     {
       "name": "continue_outside_loop_test",
       "file": "src/tests/phase2/continue_outside_loop_test.json",
-      "duration": 0.097,
+      "duration": 0.092,
       "failure": "",
       "log": "ci-reports/logs/phase2-continue_outside_loop_test.log",
       "kind": "Negative",
@@ -49,7 +49,7 @@
     {
       "name": "crazy test with loops and ext fun call",
       "file": "src/tests/phase2/crazy_loops_external_funs_test.json",
-      "duration": 0.216,
+      "duration": 0.23,
       "failure": "",
       "log": "ci-reports/logs/phase2-crazy_loops_external_funs_test.log",
       "kind": "Positive",
@@ -60,7 +60,7 @@
     {
       "name": "empty/infinite for-loop with instant return",
       "file": "src/tests/phase2/empty_for_loop_test.json",
-      "duration": 0.218,
+      "duration": 0.225,
       "failure": "",
       "log": "ci-reports/logs/phase2-empty_for_loop_test.log",
       "kind": "Positive",
@@ -69,9 +69,20 @@
       "source_file": "ci-reports/sources/phase2-empty_for_loop_test.txt"
     },
     {
+      "name": "for continue runs the update before rechecking the condition",
+      "file": "src/tests/phase2/for_continue_update_test.json",
+      "duration": 0.1,
+      "failure": "Dolphin CLI exited with status 1",
+      "log": "ci-reports/logs/phase2-for_continue_update_test.log",
+      "kind": "Positive",
+      "expected": "3",
+      "actual": "Not reported",
+      "source_file": "ci-reports/sources/phase2-for_continue_update_test.txt"
+    },
+    {
       "name": "for_init_scope_escape_test",
       "file": "src/tests/phase2/for_init_scope_escape_test.json",
-      "duration": 0.088,
+      "duration": 0.096,
       "failure": "",
       "log": "ci-reports/logs/phase2-for_init_scope_escape_test.log",
       "kind": "Negative",
@@ -82,7 +93,7 @@
     {
       "name": "for_non_boolean_condition_test",
       "file": "src/tests/phase2/for_non_boolean_condition_test.json",
-      "duration": 0.092,
+      "duration": 0.094,
       "failure": "",
       "log": "ci-reports/logs/phase2-for_non_boolean_condition_test.log",
       "kind": "Negative",
@@ -93,7 +104,7 @@
     {
       "name": "for_update_type_mismatch_test",
       "file": "src/tests/phase2/for_update_type_mismatch_test.json",
-      "duration": 0.094,
+      "duration": 0.091,
       "failure": "",
       "log": "ci-reports/logs/phase2-for_update_type_mismatch_test.log",
       "kind": "Negative",
@@ -104,7 +115,7 @@
     {
       "name": "multi_variables_forward_reference_test",
       "file": "src/tests/phase2/multi_variables_forward_reference_test.json",
-      "duration": 0.1,
+      "duration": 0.103,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_forward_reference_test.log",
       "kind": "Negative",
@@ -115,7 +126,7 @@
     {
       "name": "multiple lines multiples variables",
       "file": "src/tests/phase2/multi_variables_normal_test.json",
-      "duration": 0.234,
+      "duration": 0.223,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_normal_test.log",
       "kind": "Positive",
@@ -126,7 +137,7 @@
     {
       "name": "ONE LINE multiples variables",
       "file": "src/tests/phase2/multi_variables_oneline_test.json",
-      "duration": 0.222,
+      "duration": 0.226,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_oneline_test.log",
       "kind": "Positive",
@@ -137,7 +148,7 @@
     {
       "name": "multi_variables_type_mismatch_test",
       "file": "src/tests/phase2/multi_variables_type_mismatch_test.json",
-      "duration": 0.097,
+      "duration": 0.098,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_type_mismatch_test.log",
       "kind": "Negative",
@@ -148,7 +159,7 @@
     {
       "name": "scoping for loop",
       "file": "src/tests/phase2/scoping_for_loop_test.json",
-      "duration": 0.226,
+      "duration": 0.214,
       "failure": "",
       "log": "ci-reports/logs/phase2-scoping_for_loop_test.log",
       "kind": "Positive",
@@ -157,9 +168,20 @@
       "source_file": "ci-reports/sources/phase2-scoping_for_loop_test.txt"
     },
     {
+      "name": "while continue rechecks the condition instead of breaking",
+      "file": "src/tests/phase2/while_continue_test.json",
+      "duration": 0.233,
+      "failure": "Dolphin CLI exited with status 1",
+      "log": "ci-reports/logs/phase2-while_continue_test.log",
+      "kind": "Positive",
+      "expected": "3",
+      "actual": "1",
+      "source_file": "ci-reports/sources/phase2-while_continue_test.txt"
+    },
+    {
       "name": "while increment with scope test",
       "file": "src/tests/phase2/while_increment_test.json",
-      "duration": 0.203,
+      "duration": 0.221,
       "failure": "",
       "log": "ci-reports/logs/phase2-while_increment_test.log",
       "kind": "Positive",
@@ -170,7 +192,7 @@
     {
       "name": "while_non_boolean_condition_test",
       "file": "src/tests/phase2/while_non_boolean_condition_test.json",
-      "duration": 0.093,
+      "duration": 0.108,
       "failure": "",
       "log": "ci-reports/logs/phase2-while_non_boolean_condition_test.log",
       "kind": "Negative",
