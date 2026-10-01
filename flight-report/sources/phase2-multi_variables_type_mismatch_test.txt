@@ -1,0 +1,2 @@
+var x = 1, flag: bool = x, y = 2;
+return y;

@@ -1,0 +1,6 @@
+
+--------------------
+🚂 | Running 'for_update_type_mismatch_test' ...
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'for_update_type_mismatch_test' failed as expected.
+

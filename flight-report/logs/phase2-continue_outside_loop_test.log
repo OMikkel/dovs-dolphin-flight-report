@@ -1,0 +1,6 @@
+
+--------------------
+🚂 | Running 'continue_outside_loop_test' ...
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'continue_outside_loop_test' failed as expected.
+
