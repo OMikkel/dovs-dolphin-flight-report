@@ -1,22 +1,22 @@
 {
   "phase": "2",
-  "generated_at": "2026-10-01T17:25:01.058395+00:00",
+  "generated_at": "2026-10-01T17:29:49.028506+00:00",
   "run": {
     "branch": "phase2",
-    "captured_at": "2026-10-01T17:25:01.058395+00:00",
-    "commit": "d50c0d150012da66375c745f4f08ba7070b09f2a",
-    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/d50c0d150012da66375c745f4f08ba7070b09f2a",
-    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/645140"
+    "captured_at": "2026-10-01T17:29:49.028506+00:00",
+    "commit": "b242315287f1b45d37bcf7bff93e9fbafbadaca1",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/b242315287f1b45d37bcf7bff93e9fbafbadaca1",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/645145"
   },
   "total": 7,
   "passed": 7,
   "failed": 0,
-  "duration_seconds": 1.633,
+  "duration_seconds": 1.325,
   "tests": [
     {
       "name": "break for loop",
       "file": "src/tests/phase2/break_for_loop_test.json",
-      "duration": 0.248,
+      "duration": 0.188,
       "failure": "",
       "log": "ci-reports/logs/phase2-break_for_loop_test.log",
       "kind": "Positive",
@@ -27,7 +27,7 @@
     {
       "name": "crazy test with loops and ext fun call",
       "file": "src/tests/phase2/crazy_loops_external_funs_test.json",
-      "duration": 0.235,
+      "duration": 0.193,
       "failure": "",
       "log": "ci-reports/logs/phase2-crazy_loops_external_funs_test.log",
       "kind": "Positive",
@@ -38,7 +38,7 @@
     {
       "name": "empty/infinite for-loop with instant return",
       "file": "src/tests/phase2/empty_for_loop_test.json",
-      "duration": 0.245,
+      "duration": 0.181,
       "failure": "",
       "log": "ci-reports/logs/phase2-empty_for_loop_test.log",
       "kind": "Positive",
@@ -49,7 +49,7 @@
     {
       "name": "multiple lines multiples variables",
       "file": "src/tests/phase2/multi_variables_normal_test.json",
-      "duration": 0.231,
+      "duration": 0.185,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_normal_test.log",
       "kind": "Positive",
@@ -60,7 +60,7 @@
     {
       "name": "ONE LINE multiples variables",
       "file": "src/tests/phase2/multi_variables_oneline_test.json",
-      "duration": 0.22,
+      "duration": 0.185,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_oneline_test.log",
       "kind": "Positive",
@@ -71,7 +71,7 @@
     {
       "name": "scoping for loop",
       "file": "src/tests/phase2/scoping_for_loop_test.json",
-      "duration": 0.224,
+      "duration": 0.191,
       "failure": "",
       "log": "ci-reports/logs/phase2-scoping_for_loop_test.log",
       "kind": "Positive",
@@ -82,7 +82,7 @@
     {
       "name": "while increment with scope test",
       "file": "src/tests/phase2/while_increment_test.json",
-      "duration": 0.23,
+      "duration": 0.202,
       "failure": "",
       "log": "ci-reports/logs/phase2-while_increment_test.log",
       "kind": "Positive",
