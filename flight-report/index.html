@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dolphin · Phase 2 of 5 · compiler flight report</title>
+<style>
+:root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#070d18;color:#e9f5f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 69% 5%,#123247 0%,transparent 47%),radial-gradient(ellipse at 2% 65%,#11242d 0%,transparent 38%),#070d18}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:linear-gradient(#8bcbdc 1px,transparent 1px),linear-gradient(90deg,#8bcbdc 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}
+main{position:relative;max-width:1240px;margin:auto;padding:35px 36px 90px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #294457;padding-bottom:22px}
+.brand{font-size:13px;letter-spacing:.18em;font-weight:800}.brand span{color:#64f2ce}.topmeta,.eyebrow,.kicker,h2{text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8fa9b5}
+.topmeta{text-align:right}.topmeta a{color:#64f2ce;text-decoration:none}.topmeta a:hover,.run-context a:hover{text-decoration:underline}.run-context{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:1px;background:#294457;border:1px solid #294457;margin-top:30px}.run-context>div{min-width:0;background:#0b1926;padding:16px 21px}
+.run-context small{display:block;color:#7e9aa7;text-transform:uppercase;letter-spacing:.18em;font-size:10px;margin-bottom:10px}.run-context strong,.run-context a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#e6f9f5;font-size:14px;font-weight:600;text-decoration:none}.run-context .ref{color:#64f2ce}.hero{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);min-height:650px;align-items:center;position:relative;border-bottom:1px solid #294457;background:radial-gradient(ellipse at 76% 48%,#1741503d,transparent 45%)}
+.intro{position:relative;z-index:2;padding:48px 0}.eyebrow{color:#64f2ce}h1.phase-panel{margin:24px 0 23px;padding:23px 29px 25px;width:max-content;max-width:100%;background:linear-gradient(135deg,#173b4bea,#0a1d2ddf 60%,#081323ed);border:1px solid #3d7c83;border-radius:5px;box-shadow:18px 22px 0 #030b1370,22px 30px 60px #0009,inset 0 1px 22px #3ceaca12;transform:perspective(1000px) rotateY(-7deg) rotateX(2deg);transform-origin:left center;transition:transform .4s,box-shadow .4s}
+h1.phase-panel:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(0deg);box-shadow:8px 13px 0 #030b1370,18px 25px 55px #0009,inset 0 1px 22px #3ceaca12}.phase-heading{display:flex;align-items:baseline;gap:14px;white-space:nowrap;line-height:1}
+.phase-heading span{color:#70b7bd;font-size:13px;font-weight:700;letter-spacing:.22em;align-self:center;writing-mode:vertical-rl;transform:rotate(180deg)}.phase-heading strong{font-size:clamp(108px,12vw,166px);line-height:.85;letter-spacing:-.095em;color:#f0fbfc;text-shadow:0 0 34px #67efdd56}.phase-heading small{color:#64f2ce;font-size:clamp(31px,3vw,48px);letter-spacing:-.04em;font-weight:600}.phase-heading.alternate strong{font-size:clamp(48px,6vw,80px);letter-spacing:-.06em}h1.phase-panel em{display:block;font-style:normal;color:#64f2ce;font-size:clamp(25px,3vw,39px);letter-spacing:-.055em;margin-top:16px;line-height:1.1}
+.subtitle{max-width:430px;font-size:14px;line-height:1.8;color:#a6bdc5}.chip{display:inline-flex;align-items:center;gap:10px;border:1px solid #336454;border-radius:100px;padding:10px 15px;margin-top:22px;color:#a4fbe4;font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:#102c2b}
+.chip:before{content:"";width:7px;height:7px;border-radius:50%;background:#64f2ce;box-shadow:0 0 12px #64f2ce}.chip.alert{border-color:#763b50;color:#ffc1ce;background:#331c2a}.chip.alert:before{background:#ff728d;box-shadow:0 0 12px #ff728d}
+.flight-plan{max-width:435px;margin-top:31px}.flight-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.flight-step{position:relative;padding:12px 11px 11px;background:#101f2e;border:1px solid #2b4652;transform:perspective(350px) rotateX(10deg);box-shadow:4px 6px 0 #030b1359}.flight-step small{display:block;color:#688c99;font-size:8px;letter-spacing:.13em}.flight-step strong{display:block;font-size:19px;color:#9bbbc0;margin-top:5px}.flight-step.past{opacity:.68}.flight-step.current{background:#13463f;border-color:#64f2ce;box-shadow:0 0 25px #41e3bd3a,5px 7px 0 #05221fa6;transform:perspective(350px) translateY(-5px) rotateX(5deg)}.flight-step.current small,.flight-step.current strong{color:#d3fff1}.flight-step.current:before{content:"";position:absolute;top:-4px;left:7px;right:7px;height:2px;background:#64f2ce;box-shadow:0 0 12px #64f2ce}
+.finishing-phase{display:flex;gap:10px;align-items:center;margin-top:16px;padding:10px 13px;border:1px dashed #385562;color:#91aeba;font-size:10px;letter-spacing:.1em}.finishing-phase>span{color:#64f2ce;font-size:17px}.finishing-phase strong{color:#c5e0de;white-space:nowrap}.finishing-phase small{margin-left:auto;color:#6e929f;text-align:right;font-size:9px}
+.visual{position:relative;height:650px;min-width:0;isolation:isolate}.visual:before{content:"";position:absolute;top:21%;left:7%;right:7%;height:70%;border:1px solid #3bafaf4f;border-radius:50%;transform:perspective(700px) rotateX(73deg);box-shadow:0 0 35px #26dbbd29,inset 0 0 65px #42e6ce17;pointer-events:none}.visual:after{content:"";position:absolute;inset:45px;background:linear-gradient(#56d2c38a,#56d2c38a) left top/26px 1px no-repeat,linear-gradient(#56d2c38a,#56d2c38a) left top/1px 26px no-repeat,linear-gradient(#56d2c38a,#56d2c38a) right bottom/26px 1px no-repeat,linear-gradient(#56d2c38a,#56d2c38a) right bottom/1px 26px no-repeat;pointer-events:none;opacity:.65}#globe{position:absolute;inset:0;cursor:grab;touch-action:none}#globe:active{cursor:grabbing}#globe canvas{display:block;width:100%;height:100%}
+.fallback{position:absolute;top:50%;left:50%;width:min(70%,370px);aspect-ratio:1;border:1px solid #3fa9b0;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 35% 32%,#1b6174,#0c2c41 45%,#071726 72%);box-shadow:0 0 0 16px #398ca00d,0 0 90px #37c2d228,inset -28px -15px 35px #0008}
+.fallback:after{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-linear-gradient(0deg,transparent 0 23px,#72e1df38 24px 25px),repeating-linear-gradient(90deg,transparent 0 35px,#72e1df2c 36px 37px);mask-image:radial-gradient(circle,#000 65%,transparent 71%)}#globe.ready .fallback{display:none}
+.orbital-label{position:absolute;z-index:2;left:5%;top:10%;pointer-events:none}.orbital-label.bottom{left:auto;right:5%;top:auto;bottom:10%;text-align:right}.orbital-label strong{display:block;font-size:11px;color:#c5f6ee;letter-spacing:.15em}.orbital-label small{display:block;color:#66919d;margin-top:8px;letter-spacing:.12em;font-size:10px}
+#globe-tooltip{position:absolute;z-index:5;pointer-events:none;max-width:250px;padding:9px 12px;background:#0a1c29ed;border:1px solid #64f2ce;color:#e9f5f6;font-size:11px;line-height:1.5;box-shadow:0 8px 32px #0008}#globe-tooltip[hidden]{display:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#294457;border:1px solid #294457;margin:34px 0 54px}.stat{background:#0b1926;padding:23px 27px}.stat b{display:block;font-size:36px;margin-top:12px;letter-spacing:-.06em}.stat small{color:#90aab9;text-transform:uppercase;letter-spacing:.16em;font-size:10px}
+.stat.fail b,.case.fail .status{color:#ff788f}.stat.pass b,.case.pass .status{color:#64f2ce}h2{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}h2 span{color:#64f2ce}
+.case{border:1px solid #284352;background:#0b1b28b9;margin:8px 0;overflow:hidden;transition:border-color .2s,background .2s}.case:hover{background:#112536}.case[open]{border-color:#64f2ce}.case.fail[open]{border-color:#ff788f}
+summary{cursor:pointer;display:flex;align-items:center;gap:18px;padding:20px;list-style:none}summary::-webkit-details-marker{display:none}summary strong{font-size:13px;font-weight:600}
+.status{font-size:11px;letter-spacing:.1em;min-width:42px}.kind{color:#93d5f3;border:1px solid #31566d;padding:4px 8px;text-transform:uppercase;letter-spacing:.1em;font-size:9px}.kind.negative{color:#fcb8ca;border-color:#73405a}.kind.unknown{color:#829eaf}
+.path{margin-left:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#829eaf;font-size:11px}.time{min-width:70px;text-align:right;color:#9ab3c0;font-size:12px}
+.details{padding:0 20px 20px}a{color:#64f2ce}.outcomes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#294457;border:1px solid #294457;margin-bottom:20px}.outcomes>div{background:#112534;padding:15px 19px}.outcomes small{display:block;color:#90aab9;text-transform:uppercase;letter-spacing:.15em;font-size:10px;margin-bottom:8px}.outcomes strong{font-size:18px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail-grid section{min-width:0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;height:30px}.section-head h3{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#90aab9;font-weight:500;margin:0}.section-head a{font-size:10px;white-space:nowrap}
+pre{background:#07111c;padding:20px;overflow:auto;white-space:pre-wrap;word-break:break-word;max-height:500px;font-size:12px;line-height:1.6;margin:0}pre.source{color:#b4f6e1;border-left:2px solid #3cbbab}.empty-source{background:#07111c;color:#7996a5;padding:25px;font-size:12px;font-style:italic}
+footer{border-top:1px solid #294457;padding-top:25px;margin-top:56px;color:#90a4bb;font-size:11px;letter-spacing:.08em}
+@media(max-width:800px){main{padding:22px 20px 65px}.hero{grid-template-columns:1fr}.intro{padding:55px 0 0}.visual{height:470px;margin-top:-30px}.stats{margin-top:25px}}
+@media(max-width:560px){.topmeta{font-size:9px}.run-context{grid-template-columns:1fr 1fr}.run-context>div:nth-child(2){grid-column:1 / -1;grid-row:2}.run-context strong,.run-context a{font-size:12px}h1.phase-panel{padding:19px 21px}.phase-heading strong{font-size:clamp(88px,26vw,120px)}.phase-heading small{font-size:31px}.visual{height:350px}.visual:after{inset:20px}.finishing-phase{flex-wrap:wrap}.finishing-phase small{width:100%;text-align:left;margin-left:27px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:16px}summary{flex-wrap:wrap;gap:10px}.path{width:100%;order:5;margin-left:52px}.detail-grid{grid-template-columns:1fr}.orbital-label{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.case,h1.phase-panel{transition:none}}
+</style></head><body><main><nav class="topbar"><div class="brand">◈ DOLPHIN <span>/</span> MISSION CONTROL</div><div class="topmeta"><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/645140">VIEW PIPELINE ↗</a></div></nav>
+<section class="run-context" aria-label="Run details"><div><small>Branch / ref</small><strong class="ref">phase2</strong></div>
+<div><small>Report captured · UTC</small><strong>01 Oct 2026 · 17:25:01</strong></div><div><small>Commit</small><strong><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/d50c0d150012da66375c745f4f08ba7070b09f2a" title="d50c0d150012da66375c745f4f08ba7070b09f2a">d50c0d150012 ↗</a></strong></div></section>
+<header class="hero"><div class="intro"><div class="eyebrow">◈ DOLPHIN / FLIGHT SEQUENCE</div><h1 class="phase-panel"><div class="phase-heading"><span>PHASE</span><strong>02</strong><small>/ 05</small></div><em>Flight report.</em></h1>
+<div class="subtitle">Each signal represents a real test flown through the Makefile, Dolphin CLI and test.ml.</div>
+<div class="chip ">All systems nominal / zero anomalies</div><div class="flight-plan"><div class="flight-steps" aria-label="Phase 2 of 5"><div class="flight-step past"><small>PHASE</small><strong>01</strong></div><div class="flight-step current"><small>PHASE</small><strong>02</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>03</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>04</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>05</strong></div></div><div class="finishing-phase"><span>↗</span><strong>FINISHING PHASE</strong><small>AFTER 05 · OUTSIDE THE FIVE PHASES</small></div></div></div>
+<div class="visual"><div class="orbital-label"><strong>ORBITAL TELEMETRY</strong><small>PHASE 02 / 05 / 07 SIGNALS</small></div>
+<div id="globe"><div class="fallback"></div><div id="globe-tooltip" hidden></div></div>
+<div class="orbital-label bottom"><strong>DRAG TO ROTATE</strong><small>HOVER A SIGNAL TO INSPECT</small></div></div></header>
+<section class="stats" aria-label="Test summary"><div class="stat"><small>Signals received</small><b>7</b></div><div class="stat pass"><small>Nominal</small><b>7</b></div>
+<div class="stat fail"><small>Anomalies</small><b>0</b></div><div class="stat"><small>Mission time</small><b>1.63s</b></div></section>
+<h2>Signal manifest <span>↘ INSPECT EACH FLIGHT</span></h2><details id="test-0" class="case pass"><summary><span class="status">PASS</span><strong>break for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase2/break_for_loop_test.json</span><span class="time">0.248s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase2-break_for_loop_test.txt">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+for (;;) {
+    break;
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase2-break_for_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;break for loop&#x27; ...
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test &#x27;break for loop&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-1" class="case pass"><summary><span class="status">PASS</span><strong>crazy test with loops and ext fun call</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase2/crazy_loops_external_funs_test.json</span><span class="time">0.235s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>43</strong></div><div><small>Actual</small><strong>43</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase2-crazy_loops_external_funs_test.txt">Download source ↗</a></div><pre class="source"><code>var x = 0;
+for (var i = 1; i &lt;= 100; i = i+1) {
+    while (true) { 
+        break;
+    }
+    for (var j = 0; i &lt; 10; j = j+1) {
+        i = i + j/5;
+        x = x + i;
+        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
+    }
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase2-crazy_loops_external_funs_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;crazy test with loops and ext fun call&#x27; ...
+DOLPHIN_TEST_RESULT expected=43 actual=43
+✅ | Test &#x27;crazy test with loops and ext fun call&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-2" class="case pass"><summary><span class="status">PASS</span><strong>empty/infinite for-loop with instant return</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase2/empty_for_loop_test.json</span><span class="time">0.245s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase2-empty_for_loop_test.txt">Download source ↗</a></div><pre class="source"><code>for (;;) {
+    return 0;
+}
+return 1;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase2-empty_for_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;empty/infinite for-loop with instant return&#x27; ...
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test &#x27;empty/infinite for-loop with instant return&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-3" class="case pass"><summary><span class="status">PASS</span><strong>multiple lines multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase2/multi_variables_normal_test.json</span><span class="time">0.231s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase2-multi_variables_normal_test.txt">Download source ↗</a></div><pre class="source"><code>var x = 1;
+var y = 2;
+var z = 3;
+var a = 4;
+var b = 5;
+return x-y+z-a+b;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase2-multi_variables_normal_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;multiple lines multiples variables&#x27; ...
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test &#x27;multiple lines multiples variables&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-4" class="case pass"><summary><span class="status">PASS</span><strong>ONE LINE multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase2/multi_variables_oneline_test.json</span><span class="time">0.220s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase2-multi_variables_oneline_test.txt">Download source ↗</a></div><pre class="source"><code>var x = 1, y = 2, z = 3, a = 4, b = 5;
+return x-y+z-a+b;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase2-multi_variables_oneline_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;ONE LINE multiples variables&#x27; ...
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test &#x27;ONE LINE multiples variables&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-5" class="case pass"><summary><span class="status">PASS</span><strong>scoping for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase2/scoping_for_loop_test.json</span><span class="time">0.224s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>9</strong></div><div><small>Actual</small><strong>9</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase2-scoping_for_loop_test.txt">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+for (var i = 0; i &lt; 5; i = i+1) {
+    i = i + 1;
+    x = x + i;
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase2-scoping_for_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;scoping for loop&#x27; ...
+DOLPHIN_TEST_RESULT expected=9 actual=9
+✅ | Test &#x27;scoping for loop&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-6" class="case pass"><summary><span class="status">PASS</span><strong>while increment with scope test</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase2/while_increment_test.json</span><span class="time">0.230s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>6</strong></div><div><small>Actual</small><strong>6</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase2-while_increment_test.txt">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+while (x &lt; 5) {
+    x = x + 2;
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase2-while_increment_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;while increment with scope test&#x27; ...
+DOLPHIN_TEST_RESULT expected=6 actual=6
+✅ | Test &#x27;while increment with scope test&#x27; passed!
+
+</pre></section></div></div></details><footer>DOLPHIN CI / SEQUENTIAL EXECUTION / <a href="junit.xml">JUNIT XML</a> / <a href="summary.json">JSON TELEMETRY</a></footer>
+</main><script id="telemetry-data" type="application/json">[{"index": 0, "name": "break for loop", "duration": 0.248, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 1, "name": "crazy test with loops and ext fun call", "duration": 0.235, "failed": false, "kind": "Positive", "expected": "43", "actual": "43"}, {"index": 2, "name": "empty/infinite for-loop with instant return", "duration": 0.245, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 3, "name": "multiple lines multiples variables", "duration": 0.231, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 4, "name": "ONE LINE multiples variables", "duration": 0.22, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 5, "name": "scoping for loop", "duration": 0.224, "failed": false, "kind": "Positive", "expected": "9", "actual": "9"}, {"index": 6, "name": "while increment with scope test", "duration": 0.23, "failed": false, "kind": "Positive", "expected": "6", "actual": "6"}]</script><script type="module">const root = document.getElementById("globe");
+const telemetry = JSON.parse(document.getElementById("telemetry-data").textContent);
+const tooltip = document.getElementById("globe-tooltip");
+
+async function launch() {
+  const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js");
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+  camera.position.set(0, 0, 7.5);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  root.appendChild(renderer.domElement);
+
+  const globe = new THREE.Group();
+  globe.rotation.set(-0.18, -0.45, 0.18);
+  scene.add(globe);
+  const radius = 1.68;
+  const sphere = new THREE.Mesh(
+    new THREE.SphereGeometry(radius, 64, 48),
+    new THREE.MeshPhongMaterial({ color: 0x071a2b, emissive: 0x092739, shininess: 42, transparent: true, opacity: 0.94 })
+  );
+  globe.add(sphere);
+  scene.add(new THREE.AmbientLight(0x98d8ee, 0.9));
+  const key = new THREE.PointLight(0x31eed8, 60, 16);
+  key.position.set(-3, 3, 5);
+  scene.add(key);
+  const rim = new THREE.PointLight(0x56a9ff, 80, 15);
+  rim.position.set(3, -2, -3);
+  scene.add(rim);
+
+  const position = (latitude, longitude, distance = radius) => {
+    const lat = latitude * Math.PI / 180;
+    const lon = longitude * Math.PI / 180;
+    return new THREE.Vector3(
+      distance * Math.cos(lat) * Math.sin(lon),
+      distance * Math.sin(lat),
+      distance * Math.cos(lat) * Math.cos(lon)
+    );
+  };
+  const trace = (points, color, opacity, group = globe) => {
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color, transparent: true, opacity, depthWrite: false }));
+    group.add(line);
+    return line;
+  };
+
+  for (let latitude = -75; latitude <= 75; latitude += 15) {
+    const points = [];
+    for (let longitude = -180; longitude <= 180; longitude += 3) points.push(position(latitude, longitude, radius * 1.006));
+    trace(points, 0x3b9da8, latitude === 0 ? 0.4 : 0.17);
+  }
+  for (let longitude = -180; longitude < 180; longitude += 15) {
+    const points = [];
+    for (let latitude = -90; latitude <= 90; latitude += 3) points.push(position(latitude, longitude, radius * 1.006));
+    trace(points, 0x3b9da8, longitude === 0 ? 0.34 : 0.14);
+  }
+
+  const coastlines = [
+    [[72,-165],[64,-150],[60,-141],[58,-135],[52,-129],[49,-124],[42,-124],[33,-117],[24,-110],[18,-98],[10,-83],[15,-88],[21,-86],[30,-89],[30,-97],[26,-97],[29,-103],[31,-106],[32,-111],[38,-112],[42,-119],[49,-124],[52,-130],[58,-136],[60,-151],[67,-163],[72,-165]],
+    [[72,-165],[72,-145],[68,-136],[63,-130],[60,-116],[54,-110],[51,-96],[45,-83],[42,-79],[38,-74],[30,-80],[25,-80],[18,-87]],
+    [[12,-72],[8,-77],[2,-80],[-5,-81],[-13,-77],[-18,-70],[-23,-70],[-30,-71],[-34,-72],[-42,-72],[-55,-68],[-52,-72],[-46,-75],[-39,-73],[-33,-71],[-27,-70],[-22,-70],[-18,-69],[-16,-75],[-12,-77],[-4,-81],[1,-78],[6,-77],[11,-73],[12,-72]],
+    [[37,-10],[43,-9],[48,-5],[51,2],[54,8],[58,11],[60,5],[64,10],[68,17],[71,26],[70,33],[65,29],[60,30],[56,38],[53,41],[50,30],[46,29],[43,24],[40,20],[38,16],[36,10],[38,0],[37,-10]],
+    [[37,-17],[35,-6],[32,10],[31,32],[26,35],[22,38],[12,44],[11,51],[2,42],[-5,40],[-12,41],[-19,36],[-27,33],[-34,26],[-35,18],[-29,16],[-22,14],[-18,12],[-11,14],[-5,11],[4,9],[5,2],[12,-16],[22,-17],[30,-10],[37,-17]],
+    [[37,-10],[43,-9],[51,2],[55,10],[55,22],[59,31],[57,43],[55,51],[59,61],[63,67],[66,77],[70,87],[73,100],[72,120],[66,135],[59,142],[53,142],[50,135],[46,142],[44,135],[39,128],[35,129],[32,121],[22,114],[17,109],[10,108],[1,104],[-6,107],[-9,114],[-7,118],[1,117],[7,125],[15,120],[22,110],[20,105],[11,104],[8,98],[13,92],[21,89],[24,83],[17,74],[8,77],[6,81],[8,75],[19,73],[25,69],[24,64],[28,58],[30,49],[37,49],[39,45],[37,36],[40,29],[37,20],[37,-10]],
+    [[-11,113],[-17,122],[-23,114],[-32,115],[-35,118],[-38,140],[-33,151],[-27,153],[-21,149],[-16,145],[-11,137],[-12,130],[-11,113]],
+    [[60,-45],[65,-53],[70,-52],[77,-43],[83,-40],[82,-20],[76,-18],[70,-23],[65,-38],[60,-45]]
+  ];
+  for (const outline of coastlines) {
+    trace(outline.map(([latitude, longitude]) => position(latitude, longitude, radius * 1.013)), 0x79d9d8, 0.58);
+  }
+
+  const atmosphere = new THREE.Mesh(
+    new THREE.SphereGeometry(radius * 1.13, 64, 32),
+    new THREE.ShaderMaterial({
+      transparent: true,
+      side: THREE.BackSide,
+      depthWrite: false,
+      uniforms: { glowColor: { value: new THREE.Color(0x21b9dd) } },
+      vertexShader: "varying vec3 vNormal; varying vec3 vPosition; void main(){vNormal=normalize(normalMatrix*normal);vPosition=normalize(-(modelViewMatrix*vec4(position,1.0)).xyz);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}",
+      fragmentShader: "uniform vec3 glowColor; varying vec3 vNormal; varying vec3 vPosition; void main(){float intensity=pow(0.68-dot(vNormal,vPosition),3.0);gl_FragColor=vec4(glowColor,clamp(intensity*0.62,0.0,0.43));}"
+    })
+  );
+  globe.add(atmosphere);
+
+  const orbit = new THREE.Group();
+  orbit.rotation.set(0.42, -0.3, -0.35);
+  globe.add(orbit);
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(radius * 1.47, 0.004, 4, 180),
+    new THREE.MeshBasicMaterial({ color: 0x53ccdc, transparent: true, opacity: 0.32 })
+  );
+  orbit.add(ring);
+  const satellite = new THREE.Mesh(new THREE.OctahedronGeometry(0.048), new THREE.MeshBasicMaterial({ color: 0xe3fcff }));
+  satellite.position.set(radius * 1.47, 0, 0);
+  orbit.add(satellite);
+  const secondOrbit = new THREE.Group();
+  secondOrbit.rotation.set(1.3, 0.25, 0.32);
+  globe.add(secondOrbit);
+  secondOrbit.add(new THREE.Mesh(
+    new THREE.TorusGeometry(radius * 1.65, 0.003, 4, 200),
+    new THREE.MeshBasicMaterial({ color: 0x3686b6, transparent: true, opacity: 0.28 })
+  ));
+  const secondSatellite = new THREE.Mesh(
+    new THREE.OctahedronGeometry(0.035),
+    new THREE.MeshBasicMaterial({ color: 0x80caf2 })
+  );
+  secondSatellite.position.set(Math.cos(2) * radius * 1.65, Math.sin(2) * radius * 1.65, 0);
+  secondOrbit.add(secondSatellite);
+
+  const markerGeometry = new THREE.SphereGeometry(0.052, 12, 8);
+  const haloGeometry = new THREE.RingGeometry(0.082, 0.092, 32);
+  const markers = [];
+  telemetry.forEach((test, index) => {
+    const latitude = 52 - (index * 137.508) % 104;
+    const longitude = ((index * 222.492 + 70) % 360) - 180;
+    const location = position(latitude, longitude, radius * 1.035);
+    const color = test.failed ? 0xff607f : 0x72f7d8;
+    const marker = new THREE.Mesh(markerGeometry, new THREE.MeshBasicMaterial({ color }));
+    marker.position.copy(location);
+    marker.userData = test;
+    globe.add(marker);
+    markers.push(marker);
+    const halo = new THREE.Mesh(haloGeometry, new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.55, side: THREE.DoubleSide, depthWrite: false }));
+    halo.position.copy(location.clone().multiplyScalar(1.014));
+    halo.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), location.clone().normalize());
+    globe.add(halo);
+    const start = position(23, -32, radius * 1.025);
+    const middle = start.clone().add(location).multiplyScalar(0.5).normalize().multiplyScalar(radius * 1.26);
+    const route = new THREE.QuadraticBezierCurve3(start, middle, location);
+    trace(route.getPoints(40), color, test.failed ? 0.72 : 0.24);
+  });
+
+  const stars = new Float32Array(900 * 3);
+  for (let index = 0; index < stars.length; index += 3) {
+    const distance = 12 + Math.random() * 18;
+    const angle = Math.random() * Math.PI * 2;
+    const height = Math.random() * 2 - 1;
+    stars[index] = Math.sqrt(1 - height * height) * Math.cos(angle) * distance;
+    stars[index + 1] = height * distance;
+    stars[index + 2] = Math.sqrt(1 - height * height) * Math.sin(angle) * distance;
+  }
+  const starGeometry = new THREE.BufferGeometry();
+  starGeometry.setAttribute("position", new THREE.BufferAttribute(stars, 3));
+  scene.add(new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0x9bcee5, size: 0.026, transparent: true, opacity: 0.68, sizeAttenuation: true })));
+
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let dragging = false;
+  let lastX = 0;
+  let lastY = 0;
+  let hovered = null;
+  let cameraX = 0;
+  let cameraY = 0;
+  root.addEventListener("pointerdown", (event) => {
+    dragging = true;
+    lastX = event.clientX;
+    lastY = event.clientY;
+    root.setPointerCapture(event.pointerId);
+  });
+  root.addEventListener("pointerup", () => { dragging = false; });
+  root.addEventListener("pointercancel", () => { dragging = false; });
+  root.addEventListener("pointerleave", () => {
+    if (!dragging) tooltip.hidden = true;
+    cameraX = 0;
+    cameraY = 0;
+  });
+  root.addEventListener("pointermove", (event) => {
+    const bounds = root.getBoundingClientRect();
+    cameraX = (event.clientX - bounds.left) / bounds.width * 2 - 1;
+    cameraY = (event.clientY - bounds.top) / bounds.height * 2 - 1;
+    if (dragging) {
+      globe.rotation.y += (event.clientX - lastX) * 0.006;
+      globe.rotation.x = THREE.MathUtils.clamp(globe.rotation.x + (event.clientY - lastY) * 0.006, -1.1, 1.1);
+      lastX = event.clientX;
+      lastY = event.clientY;
+      tooltip.hidden = true;
+      return;
+    }
+    pointer.set((event.clientX - bounds.left) / bounds.width * 2 - 1, -(event.clientY - bounds.top) / bounds.height * 2 + 1);
+    raycaster.setFromCamera(pointer, camera);
+    const hit = raycaster.intersectObjects([sphere, ...markers])[0];
+    hovered = hit && hit.object !== sphere ? hit.object : null;
+    if (hovered) {
+      tooltip.textContent = `${hovered.userData.failed ? "✕" : "✓"} ${hovered.userData.name} · ${hovered.userData.kind} · ${hovered.userData.actual} / ${hovered.userData.expected}`;
+      tooltip.style.left = `${event.clientX - bounds.left + 12}px`;
+      tooltip.style.top = `${event.clientY - bounds.top - 34}px`;
+      tooltip.hidden = false;
+    } else {
+      tooltip.hidden = true;
+    }
+    root.style.cursor = hovered ? "pointer" : "grab";
+  });
+  root.addEventListener("click", () => {
+    if (!hovered) return;
+    const row = document.getElementById(`test-${hovered.userData.index}`);
+    if (row) {
+      row.open = true;
+      row.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "center" });
+    }
+  });
+
+  const resize = () => {
+    const width = root.clientWidth;
+    const height = root.clientHeight;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  };
+  const observer = new ResizeObserver(resize);
+  observer.observe(root);
+  resize();
+  root.classList.add("ready");
+  const clock = new THREE.Clock();
+  const animate = () => {
+    requestAnimationFrame(animate);
+    const elapsed = clock.getElapsedTime();
+    if (document.hidden) return;
+    if (!reducedMotion.matches) {
+      if (!dragging) globe.rotation.y += 0.0018;
+      camera.position.x += (cameraX * 0.3 - camera.position.x) * 0.035;
+      camera.position.y += (-cameraY * 0.2 - camera.position.y) * 0.035;
+      camera.lookAt(0, 0, 0);
+      satellite.position.set(Math.cos(elapsed * 0.35) * radius * 1.47, Math.sin(elapsed * 0.35) * radius * 1.47, 0);
+      secondSatellite.position.set(Math.cos(elapsed * -0.23 + 2) * radius * 1.65, Math.sin(elapsed * -0.23 + 2) * radius * 1.65, 0);
+    }
+    markers.forEach((marker, index) => {
+      marker.scale.setScalar(1 + (reducedMotion.matches ? 0 : Math.sin(elapsed * 2.5 + index * 1.7) * 0.22));
+    });
+    renderer.render(scene, camera);
+  };
+  animate();
+}
+
+launch().catch(() => { root.classList.add("offline"); });
+</script></body></html>

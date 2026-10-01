@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="Dolphin phase 2" tests="7" failures="0" time="1.633"><testcase classname="phase2" name="break for loop" file="src/tests/phase2/break_for_loop_test.json" time="0.248"><system-out>
+--------------------
+🚂 | Running 'break for loop' ...
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test 'break for loop' passed!
+
+</system-out></testcase><testcase classname="phase2" name="crazy test with loops and ext fun call" file="src/tests/phase2/crazy_loops_external_funs_test.json" time="0.235"><system-out>
+--------------------
+🚂 | Running 'crazy test with loops and ext fun call' ...
+DOLPHIN_TEST_RESULT expected=43 actual=43
+✅ | Test 'crazy test with loops and ext fun call' passed!
+
+</system-out></testcase><testcase classname="phase2" name="empty/infinite for-loop with instant return" file="src/tests/phase2/empty_for_loop_test.json" time="0.245"><system-out>
+--------------------
+🚂 | Running 'empty/infinite for-loop with instant return' ...
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test 'empty/infinite for-loop with instant return' passed!
+
+</system-out></testcase><testcase classname="phase2" name="multiple lines multiples variables" file="src/tests/phase2/multi_variables_normal_test.json" time="0.231"><system-out>
+--------------------
+🚂 | Running 'multiple lines multiples variables' ...
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test 'multiple lines multiples variables' passed!
+
+</system-out></testcase><testcase classname="phase2" name="ONE LINE multiples variables" file="src/tests/phase2/multi_variables_oneline_test.json" time="0.22"><system-out>
+--------------------
+🚂 | Running 'ONE LINE multiples variables' ...
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test 'ONE LINE multiples variables' passed!
+
+</system-out></testcase><testcase classname="phase2" name="scoping for loop" file="src/tests/phase2/scoping_for_loop_test.json" time="0.224"><system-out>
+--------------------
+🚂 | Running 'scoping for loop' ...
+DOLPHIN_TEST_RESULT expected=9 actual=9
+✅ | Test 'scoping for loop' passed!
+
+</system-out></testcase><testcase classname="phase2" name="while increment with scope test" file="src/tests/phase2/while_increment_test.json" time="0.23"><system-out>
+--------------------
+🚂 | Running 'while increment with scope test' ...
+DOLPHIN_TEST_RESULT expected=6 actual=6
+✅ | Test 'while increment with scope test' passed!
+
+</system-out></testcase></testsuite>
