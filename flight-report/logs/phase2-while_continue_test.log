@@ -1,15 +1,6 @@
 
 --------------------
 🚂 | Running 'while continue rechecks the condition instead of breaking' ...
-DOLPHIN_TEST_RESULT expected=3 actual=1
-Source program:
-var i = 0;
-while (i < 3) {
-    i = i + 1;
-    continue;
-}
-return i;
-
-
-❌ | Test 'while continue rechecks the condition instead of breaking' failed: expected 3 but got 1.
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test 'while continue rechecks the condition instead of breaking' passed!
 
