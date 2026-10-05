@@ -1,103 +1,103 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="Dolphin phase 2" tests="17" failures="0" time="2.778"><testcase classname="phase2" name="break for loop" file="src/tests/phase2/break_for_loop_test.json" time="0.232"><system-out>
+<testsuite name="Dolphin phase 2" tests="17" failures="0" time="2.439"><testcase classname="phase2" name="break for loop" file="src/tests/phase2/break_for_loop_test.json" time="0.188"><system-out>
 --------------------
 🚂 | Running 'break for loop' ...
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'break for loop' passed!
 
-</system-out></testcase><testcase classname="phase2" name="break_outside_loop_test" file="src/tests/phase2/break_outside_loop_test.json" time="0.107"><system-out>
+</system-out></testcase><testcase classname="phase2" name="break_outside_loop_test" file="src/tests/phase2/break_outside_loop_test.json" time="0.108"><system-out>
 --------------------
 🚂 | Running 'break_outside_loop_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'break_outside_loop_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase2" name="continue_outside_loop_test" file="src/tests/phase2/continue_outside_loop_test.json" time="0.092"><system-out>
+</system-out></testcase><testcase classname="phase2" name="continue_outside_loop_test" file="src/tests/phase2/continue_outside_loop_test.json" time="0.081"><system-out>
 --------------------
 🚂 | Running 'continue_outside_loop_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'continue_outside_loop_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase2" name="crazy test with loops and ext fun call" file="src/tests/phase2/crazy_loops_external_funs_test.json" time="0.224"><system-out>
+</system-out></testcase><testcase classname="phase2" name="crazy test with loops and ext fun call" file="src/tests/phase2/crazy_loops_external_funs_test.json" time="0.193"><system-out>
 --------------------
 🚂 | Running 'crazy test with loops and ext fun call' ...
 DOLPHIN_TEST_RESULT expected=43 actual=43
 ✅ | Test 'crazy test with loops and ext fun call' passed!
 
-</system-out></testcase><testcase classname="phase2" name="empty/infinite for-loop with instant return" file="src/tests/phase2/empty_for_loop_test.json" time="0.221"><system-out>
+</system-out></testcase><testcase classname="phase2" name="empty/infinite for-loop with instant return" file="src/tests/phase2/empty_for_loop_test.json" time="0.19"><system-out>
 --------------------
 🚂 | Running 'empty/infinite for-loop with instant return' ...
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'empty/infinite for-loop with instant return' passed!
 
-</system-out></testcase><testcase classname="phase2" name="for continue runs the update before rechecking the condition" file="src/tests/phase2/for_continue_update_test.json" time="0.201"><system-out>
+</system-out></testcase><testcase classname="phase2" name="for continue runs the update before rechecking the condition" file="src/tests/phase2/for_continue_update_test.json" time="0.181"><system-out>
 --------------------
 🚂 | Running 'for continue runs the update before rechecking the condition' ...
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'for continue runs the update before rechecking the condition' passed!
 
-</system-out></testcase><testcase classname="phase2" name="for_init_scope_escape_test" file="src/tests/phase2/for_init_scope_escape_test.json" time="0.098"><system-out>
+</system-out></testcase><testcase classname="phase2" name="for_init_scope_escape_test" file="src/tests/phase2/for_init_scope_escape_test.json" time="0.084"><system-out>
 --------------------
 🚂 | Running 'for_init_scope_escape_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 Unbound identifier: limit
 ✅ | Test 'for_init_scope_escape_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase2" name="for_non_boolean_condition_test" file="src/tests/phase2/for_non_boolean_condition_test.json" time="0.096"><system-out>
+</system-out></testcase><testcase classname="phase2" name="for_non_boolean_condition_test" file="src/tests/phase2/for_non_boolean_condition_test.json" time="0.094"><system-out>
 --------------------
 🚂 | Running 'for_non_boolean_condition_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_non_boolean_condition_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase2" name="for_update_type_mismatch_test" file="src/tests/phase2/for_update_type_mismatch_test.json" time="0.092"><system-out>
+</system-out></testcase><testcase classname="phase2" name="for_update_type_mismatch_test" file="src/tests/phase2/for_update_type_mismatch_test.json" time="0.081"><system-out>
 --------------------
 🚂 | Running 'for_update_type_mismatch_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_update_type_mismatch_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase2" name="multi_variables_forward_reference_test" file="src/tests/phase2/multi_variables_forward_reference_test.json" time="0.096"><system-out>
+</system-out></testcase><testcase classname="phase2" name="multi_variables_forward_reference_test" file="src/tests/phase2/multi_variables_forward_reference_test.json" time="0.093"><system-out>
 --------------------
 🚂 | Running 'multi_variables_forward_reference_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 Unbound identifier: second
 ✅ | Test 'multi_variables_forward_reference_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase2" name="multiple lines multiples variables" file="src/tests/phase2/multi_variables_normal_test.json" time="0.222"><system-out>
+</system-out></testcase><testcase classname="phase2" name="multiple lines multiples variables" file="src/tests/phase2/multi_variables_normal_test.json" time="0.192"><system-out>
 --------------------
 🚂 | Running 'multiple lines multiples variables' ...
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'multiple lines multiples variables' passed!
 
-</system-out></testcase><testcase classname="phase2" name="ONE LINE multiples variables" file="src/tests/phase2/multi_variables_oneline_test.json" time="0.224"><system-out>
+</system-out></testcase><testcase classname="phase2" name="ONE LINE multiples variables" file="src/tests/phase2/multi_variables_oneline_test.json" time="0.197"><system-out>
 --------------------
 🚂 | Running 'ONE LINE multiples variables' ...
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'ONE LINE multiples variables' passed!
 
-</system-out></testcase><testcase classname="phase2" name="multi_variables_type_mismatch_test" file="src/tests/phase2/multi_variables_type_mismatch_test.json" time="0.103"><system-out>
+</system-out></testcase><testcase classname="phase2" name="multi_variables_type_mismatch_test" file="src/tests/phase2/multi_variables_type_mismatch_test.json" time="0.083"><system-out>
 --------------------
 🚂 | Running 'multi_variables_type_mismatch_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'multi_variables_type_mismatch_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase2" name="scoping for loop" file="src/tests/phase2/scoping_for_loop_test.json" time="0.22"><system-out>
+</system-out></testcase><testcase classname="phase2" name="scoping for loop" file="src/tests/phase2/scoping_for_loop_test.json" time="0.201"><system-out>
 --------------------
 🚂 | Running 'scoping for loop' ...
 DOLPHIN_TEST_RESULT expected=9 actual=9
 ✅ | Test 'scoping for loop' passed!
 
-</system-out></testcase><testcase classname="phase2" name="while continue rechecks the condition instead of breaking" file="src/tests/phase2/while_continue_test.json" time="0.221"><system-out>
+</system-out></testcase><testcase classname="phase2" name="while continue rechecks the condition instead of breaking" file="src/tests/phase2/while_continue_test.json" time="0.199"><system-out>
 --------------------
 🚂 | Running 'while continue rechecks the condition instead of breaking' ...
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'while continue rechecks the condition instead of breaking' passed!
 
-</system-out></testcase><testcase classname="phase2" name="while increment with scope test" file="src/tests/phase2/while_increment_test.json" time="0.231"><system-out>
+</system-out></testcase><testcase classname="phase2" name="while increment with scope test" file="src/tests/phase2/while_increment_test.json" time="0.19"><system-out>
 --------------------
 🚂 | Running 'while increment with scope test' ...
 DOLPHIN_TEST_RESULT expected=6 actual=6
 ✅ | Test 'while increment with scope test' passed!
 
-</system-out></testcase><testcase classname="phase2" name="while_non_boolean_condition_test" file="src/tests/phase2/while_non_boolean_condition_test.json" time="0.098"><system-out>
+</system-out></testcase><testcase classname="phase2" name="while_non_boolean_condition_test" file="src/tests/phase2/while_non_boolean_condition_test.json" time="0.084"><system-out>
 --------------------
 🚂 | Running 'while_non_boolean_condition_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
