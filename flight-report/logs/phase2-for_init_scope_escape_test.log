@@ -2,6 +2,5 @@
 --------------------
 🚂 | Running 'for_init_scope_escape_test' ...
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-Unbound identifier: limit
 ✅ | Test 'for_init_scope_escape_test' failed as expected.
 
