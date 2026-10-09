@@ -1,22 +1,22 @@
 {
   "phase": "2",
-  "generated_at": "2026-10-08T22:04:54.918061+00:00",
+  "generated_at": "2026-10-09T10:20:05.543426+00:00",
   "run": {
-    "branch": "main",
-    "captured_at": "2026-10-08T22:04:54.918061+00:00",
-    "commit": "112de1f16d74b965cbece6c51a447102646f4c06",
-    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/112de1f16d74b965cbece6c51a447102646f4c06",
-    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/651844"
+    "branch": "phase3",
+    "captured_at": "2026-10-09T10:20:05.543426+00:00",
+    "commit": "e53a050e90739e187bf2391f21731753c4758d29",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/e53a050e90739e187bf2391f21731753c4758d29",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/652453"
   },
   "total": 17,
   "passed": 17,
   "failed": 0,
-  "duration_seconds": 2.79,
+  "duration_seconds": 2.77,
   "tests": [
     {
       "name": "break for loop",
       "file": "src/tests/phase2/break_for_loop_test.json",
-      "duration": 0.237,
+      "duration": 0.231,
       "failure": "",
       "log": "ci-reports/logs/phase2-break_for_loop_test.log",
       "kind": "Positive",
@@ -27,7 +27,7 @@
     {
       "name": "break_outside_loop_test",
       "file": "src/tests/phase2/break_outside_loop_test.json",
-      "duration": 0.092,
+      "duration": 0.098,
       "failure": "",
       "log": "ci-reports/logs/phase2-break_outside_loop_test.log",
       "kind": "Negative",
@@ -38,7 +38,7 @@
     {
       "name": "continue_outside_loop_test",
       "file": "src/tests/phase2/continue_outside_loop_test.json",
-      "duration": 0.099,
+      "duration": 0.103,
       "failure": "",
       "log": "ci-reports/logs/phase2-continue_outside_loop_test.log",
       "kind": "Negative",
@@ -49,7 +49,7 @@
     {
       "name": "crazy test with loops and ext fun call",
       "file": "src/tests/phase2/crazy_loops_external_funs_test.json",
-      "duration": 0.237,
+      "duration": 0.207,
       "failure": "",
       "log": "ci-reports/logs/phase2-crazy_loops_external_funs_test.log",
       "kind": "Positive",
@@ -60,7 +60,7 @@
     {
       "name": "empty/infinite for-loop with instant return",
       "file": "src/tests/phase2/empty_for_loop_test.json",
-      "duration": 0.213,
+      "duration": 0.216,
       "failure": "",
       "log": "ci-reports/logs/phase2-empty_for_loop_test.log",
       "kind": "Positive",
@@ -82,7 +82,7 @@
     {
       "name": "for_init_scope_escape_test",
       "file": "src/tests/phase2/for_init_scope_escape_test.json",
-      "duration": 0.091,
+      "duration": 0.107,
       "failure": "",
       "log": "ci-reports/logs/phase2-for_init_scope_escape_test.log",
       "kind": "Negative",
@@ -93,7 +93,7 @@
     {
       "name": "for_non_boolean_condition_test",
       "file": "src/tests/phase2/for_non_boolean_condition_test.json",
-      "duration": 0.116,
+      "duration": 0.096,
       "failure": "",
       "log": "ci-reports/logs/phase2-for_non_boolean_condition_test.log",
       "kind": "Negative",
@@ -104,7 +104,7 @@
     {
       "name": "for_update_type_mismatch_test",
       "file": "src/tests/phase2/for_update_type_mismatch_test.json",
-      "duration": 0.091,
+      "duration": 0.098,
       "failure": "",
       "log": "ci-reports/logs/phase2-for_update_type_mismatch_test.log",
       "kind": "Negative",
@@ -115,7 +115,7 @@
     {
       "name": "multi_variables_forward_reference_test",
       "file": "src/tests/phase2/multi_variables_forward_reference_test.json",
-      "duration": 0.091,
+      "duration": 0.092,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_forward_reference_test.log",
       "kind": "Negative",
@@ -126,7 +126,7 @@
     {
       "name": "multiple lines multiples variables",
       "file": "src/tests/phase2/multi_variables_normal_test.json",
-      "duration": 0.231,
+      "duration": 0.219,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_normal_test.log",
       "kind": "Positive",
@@ -137,7 +137,7 @@
     {
       "name": "ONE LINE multiples variables",
       "file": "src/tests/phase2/multi_variables_oneline_test.json",
-      "duration": 0.216,
+      "duration": 0.218,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_oneline_test.log",
       "kind": "Positive",
@@ -148,7 +148,7 @@
     {
       "name": "multi_variables_type_mismatch_test",
       "file": "src/tests/phase2/multi_variables_type_mismatch_test.json",
-      "duration": 0.093,
+      "duration": 0.104,
       "failure": "",
       "log": "ci-reports/logs/phase2-multi_variables_type_mismatch_test.log",
       "kind": "Negative",
@@ -159,7 +159,7 @@
     {
       "name": "scoping for loop",
       "file": "src/tests/phase2/scoping_for_loop_test.json",
-      "duration": 0.217,
+      "duration": 0.233,
       "failure": "",
       "log": "ci-reports/logs/phase2-scoping_for_loop_test.log",
       "kind": "Positive",
@@ -170,7 +170,7 @@
     {
       "name": "while continue rechecks the condition instead of breaking",
       "file": "src/tests/phase2/while_continue_test.json",
-      "duration": 0.228,
+      "duration": 0.215,
       "failure": "",
       "log": "ci-reports/logs/phase2-while_continue_test.log",
       "kind": "Positive",
@@ -181,7 +181,7 @@
     {
       "name": "while increment with scope test",
       "file": "src/tests/phase2/while_increment_test.json",
-      "duration": 0.217,
+      "duration": 0.219,
       "failure": "",
       "log": "ci-reports/logs/phase2-while_increment_test.log",
       "kind": "Positive",
@@ -192,7 +192,7 @@
     {
       "name": "while_non_boolean_condition_test",
       "file": "src/tests/phase2/while_non_boolean_condition_test.json",
-      "duration": 0.101,
+      "duration": 0.094,
       "failure": "",
       "log": "ci-reports/logs/phase2-while_non_boolean_condition_test.log",
       "kind": "Negative",
