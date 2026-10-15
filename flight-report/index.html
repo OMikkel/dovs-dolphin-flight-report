@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="report-passed"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en" class="report-failed"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dolphin · Phase 3 of 5 · compiler flight report</title>
 <style>
 :root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#070d18;color:#e9f5f6}
@@ -55,18 +55,18 @@ footer{border-top:1px solid #294457;padding-top:25px;margin-top:56px;color:#90a4
 @media(max-width:800px){main{padding:22px 20px 65px}.hero{grid-template-columns:1fr}.intro{padding:55px 0 0}.visual{height:470px;margin-top:-30px}.stats{margin-top:25px}}
 @media(max-width:560px){.topmeta{font-size:9px}.run-context{grid-template-columns:1fr 1fr}.run-context>div:nth-child(2){grid-column:1 / -1;grid-row:2}.run-context strong,.run-context a{font-size:12px}h1.phase-panel{padding:19px 21px}.phase-heading strong{font-size:clamp(88px,26vw,120px)}.phase-heading small{font-size:31px}.visual{height:350px}.visual:after{inset:20px}.finishing-phase{flex-wrap:wrap}.finishing-phase small{width:100%;text-align:left;margin-left:27px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:16px}summary{flex-wrap:wrap;gap:10px}.path{width:100%;order:5;margin-left:52px}.detail-grid{grid-template-columns:1fr}.orbital-label{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.case,h1.phase-panel{transition:none}}
-</style><link data-flight-history="" rel="stylesheet" href="../flight-history/history.css"><script data-flight-history="" src="../flight-history/navigation.js" defer></script></head><body><nav id="flight-navigation" class="flight-nav" aria-label="Flight report history" data-history-root="../flight-history/" data-run-id="20261015T185547Z-phase-3-4c32e45f3331f824"><a class="flight-nav-home" href="../flight-history/">◈ ALL FLIGHTS</a><span class="flight-nav-current">LATEST FLIGHT <strong>Phase 3</strong></span><div class="flight-nav-links"><a data-flight-direction="older" hidden>← Previous report</a><a data-flight-direction="newer" hidden>Next report →</a><a class="flight-nav-latest" href="../flight-history/../flight-report/">Latest report ↗</a></div></nav><main><nav class="topbar"><div class="brand">◈ DOLPHIN <span>/</span> MISSION CONTROL</div><div class="topmeta"><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/658507">VIEW PIPELINE ↗</a></div></nav>
+</style><link data-flight-history="" rel="stylesheet" href="../flight-history/history.css"><script data-flight-history="" src="../flight-history/navigation.js" defer></script></head><body><nav id="flight-navigation" class="flight-nav flight-nav-alert" aria-label="Flight report history" data-history-root="../flight-history/" data-run-id="20261015T192405Z-phase-3-e6004d637c2e81dc"><a class="flight-nav-home" href="../flight-history/">◈ ALL FLIGHTS</a><span class="flight-nav-current">LATEST FLIGHT <strong>Phase 3</strong></span><div class="flight-nav-links"><a data-flight-direction="older" hidden>← Previous report</a><a data-flight-direction="newer" hidden>Next report →</a><a class="flight-nav-latest" href="../flight-history/../flight-report/">Latest report ↗</a></div></nav><main><nav class="topbar"><div class="brand">◈ DOLPHIN <span>/</span> MISSION CONTROL</div><div class="topmeta"><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/658524">VIEW PIPELINE ↗</a></div></nav>
 <section class="run-context" aria-label="Run details"><div><small>Branch / ref</small><strong class="ref">phase3</strong></div>
-<div><small>Report captured · UTC</small><strong>15 Oct 2026 · 18:55:47</strong></div><div><small>Commit</small><strong><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/1dbe3880695d6c831e86cbc126ac9bca118081db" title="1dbe3880695d6c831e86cbc126ac9bca118081db">1dbe3880695d ↗</a></strong></div></section>
+<div><small>Report captured · UTC</small><strong>15 Oct 2026 · 19:24:05</strong></div><div><small>Commit</small><strong><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/38365844a6767d726786d3adb6d7e6f32a48d779" title="38365844a6767d726786d3adb6d7e6f32a48d779">38365844a676 ↗</a></strong></div></section>
 <header class="hero"><div class="intro"><div class="eyebrow">◈ DOLPHIN / FLIGHT SEQUENCE</div><h1 class="phase-panel"><div class="phase-heading"><span>PHASE</span><strong>03</strong><small>/ 05</small></div><em>Flight report.</em></h1>
 <div class="subtitle">End-to-end tests flown through the Dolphin CLI. Failed source tests include an automatic Menhir traced rerun.</div>
-<div class="chip ">All tests passed / zero failures</div><div class="flight-plan"><div class="flight-steps" aria-label="Phase 3 of 5"><div class="flight-step past"><small>PHASE</small><strong>01</strong></div><div class="flight-step past"><small>PHASE</small><strong>02</strong></div><div class="flight-step current"><small>PHASE</small><strong>03</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>04</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>05</strong></div></div><div class="finishing-phase"><span>↗</span><strong>FINISHING PHASE</strong><small>AFTER 05 · OUTSIDE THE FIVE PHASES</small></div></div></div>
+<div class="chip alert">4 tests failed / review red cards</div><div class="flight-plan"><div class="flight-steps" aria-label="Phase 3 of 5"><div class="flight-step past"><small>PHASE</small><strong>01</strong></div><div class="flight-step past"><small>PHASE</small><strong>02</strong></div><div class="flight-step current"><small>PHASE</small><strong>03</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>04</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>05</strong></div></div><div class="finishing-phase"><span>↗</span><strong>FINISHING PHASE</strong><small>AFTER 05 · OUTSIDE THE FIVE PHASES</small></div></div></div>
 <div class="visual"><div class="orbital-label"><strong>ORBITAL TELEMETRY</strong><small>PHASE 03 / 05 / 28 SIGNALS</small></div>
 <div id="globe"><div class="fallback"></div><div id="globe-tooltip" hidden></div></div>
 <div class="orbital-label bottom"><strong>DRAG TO ROTATE</strong><small>HOVER A SIGNAL TO INSPECT</small></div></div></header>
-<section class="stats" aria-label="Test summary"><div class="stat"><small>Total tests</small><b>28</b></div><div class="stat pass"><small>Tests passed</small><b>28</b></div>
-<div class="stat fail"><small>Tests failed</small><b>0</b></div><div class="stat"><small>Mission time</small><b>4.25s</b></div></section>
-<h2>Signal manifest <span>↘ INSPECT EACH FLIGHT</span></h2><details id="test-0" class="case pass"><summary><span class="status">PASS</span><strong>break for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/break_for_loop_test.json</span><span class="time">0.263s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-break_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+<section class="stats" aria-label="Test summary"><div class="stat"><small>Total tests</small><b>28</b></div><div class="stat pass"><small>Tests passed</small><b>24</b></div>
+<div class="stat fail"><small>Tests failed</small><b>4</b></div><div class="stat"><small>Mission time</small><b>4.09s</b></div></section>
+<h2>Signal manifest <span>↘ INSPECT EACH FLIGHT</span></h2><details id="test-0" class="case pass"><summary><span class="status">PASS</span><strong>break for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/break_for_loop_test.json</span><span class="time">0.234s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-break_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
 for (;;) {
     break;
 }
@@ -78,7 +78,7 @@ DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test &#x27;break for loop&#x27; passed!
 
 </pre></section></div></div></details>
-<details id="test-1" class="case pass"><summary><span class="status">PASS</span><strong>break_outside_loop_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/break_outside_loop_test.json</span><span class="time">0.097s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-break_outside_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>break;
+<details id="test-1" class="case pass"><summary><span class="status">PASS</span><strong>break_outside_loop_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/break_outside_loop_test.json</span><span class="time">0.095s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-break_outside_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>break;
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-break_outside_loop_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -88,7 +88,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;break_outside_loop_test&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-2" class="case pass"><summary><span class="status">PASS</span><strong>continue_outside_loop_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/continue_outside_loop_test.json</span><span class="time">0.109s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-continue_outside_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>continue;
+<details id="test-2" class="case pass"><summary><span class="status">PASS</span><strong>continue_outside_loop_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/continue_outside_loop_test.json</span><span class="time">0.104s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-continue_outside_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>continue;
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-continue_outside_loop_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -98,7 +98,8 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;continue_outside_loop_test&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-3" class="case pass"><summary><span class="status">PASS</span><strong>crazy test with loops and ext fun call</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/crazy_loops_external_funs_test.json</span><span class="time">0.234s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>43</strong></div><div><small>Actual</small><strong>43</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-crazy_loops_external_funs_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0;
+<details id="test-3" class="case fail"><summary><span class="status">FAIL</span><strong>crazy test with loops and ext fun call</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/crazy_loops_external_funs_test.json</span><span class="time">0.203s</span></summary><div class="details"><div class="failure-message">❌ | Test &#x27;crazy test with loops and ext fun call&#x27; failed unexpectedly:
+src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token &quot;=&quot;</div><div class="outcomes"><div><small>Expected</small><strong>43</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-crazy_loops_external_funs_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0;
 for (var i = 1; i &lt;= 100; i = i+1) {
     while (true) { 
         break;
@@ -112,21 +113,147 @@ for (var i = 1; i &lt;= 100; i = i+1) {
 return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-crazy_loops_external_funs_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;crazy test with loops and ext fun call&#x27; ...
-1
-3
-5
-7
-10
-19
-25
-33
-43
-Program returned: &lt;RESULT__START&gt;43&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=43 actual=43
-✅ | Test &#x27;crazy test with loops and ext fun call&#x27; passed!
+DOLPHIN_TEST_RESULT expected=43 actual=rejected
+Source program:
+var x = 0;
+for (var i = 1; i &lt;= 100; i = i+1) {
+    while (true) { 
+        break;
+    }
+    for (var j = 0; i &lt; 10; j = j+1) {
+        i = i + j/5;
+        x = x + i;
+        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
+    }
+}
+return x;
 
-</pre></section></div></div></details>
-<details id="test-4" class="case pass"><summary><span class="status">PASS</span><strong>empty/infinite for-loop with instant return</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/empty_for_loop_test.json</span><span class="time">0.244s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-empty_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>for (;;) {
+❌ | Test &#x27;crazy test with loops and ext fun call&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div><section class="trace"><div class="section-head"><h3>Menhir traced rerun · diagnostic only</h3><a href="logs/phase3-crazy_loops_external_funs_test-trace.log">Download trace ↗</a></div><pre>Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running &#x27;crazy test with loops and ext fun call&#x27; ...
+State 0:
+Lookahead token is now VAR (0-3)
+Shifting (VAR) to state 63
+State 63:
+Lookahead token is now IDENT (4-5)
+Shifting (IDENT) to state 64
+State 64:
+Lookahead token is now ASSIGN (6-7)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 68:
+Shifting (ASSIGN) to state 69
+State 69:
+Lookahead token is now INT_LIT (8-9)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (9-10)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 70:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 71:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 74:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 75:
+Shifting (SEMICOLON) to state 76
+State 76:
+Lookahead token is now FOR (11-14)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 125:
+Shifting (FOR) to state 103
+State 103:
+Lookahead token is now LPAREN (15-16)
+Shifting (LPAREN) to state 104
+State 104:
+Lookahead token is now VAR (16-19)
+Shifting (VAR) to state 105
+State 105:
+Lookahead token is now IDENT (20-21)
+Shifting (IDENT) to state 64
+State 64:
+Lookahead token is now ASSIGN (22-23)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 68:
+Shifting (ASSIGN) to state 69
+State 69:
+Lookahead token is now INT_LIT (24-25)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (25-26)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 70:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 71:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 74:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 106:
+Reducing production option(for_init) -&gt; VAR declaration_block
+State 107:
+Shifting (SEMICOLON) to state 108
+State 108:
+Lookahead token is now IDENT (27-28)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now LE (29-31)
+Reducing production expr_base -&gt; IDENT
+State 20:
+Reducing production expr -&gt; expr_base
+State 120:
+Shifting (LE) to state 38
+State 38:
+Lookahead token is now INT_LIT (32-35)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (35-36)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 39:
+Reducing production expr_base -&gt; expr LE expr
+State 20:
+Reducing production expr -&gt; expr_base
+State 120:
+Reducing production option(expr) -&gt; expr
+State 109:
+Shifting (SEMICOLON) to state 110
+State 110:
+Lookahead token is now IDENT (37-38)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now ASSIGN (39-40)
+Initiating error handling
+DOLPHIN_TEST_RESULT expected=43 actual=rejected
+Source program:
+var x = 0;
+for (var i = 1; i &lt;= 100; i = i+1) {
+    while (true) { 
+        break;
+    }
+    for (var j = 0; i &lt; 10; j = j+1) {
+        i = i + j/5;
+        x = x + i;
+        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
+    }
+}
+return x;
+
+❌ | Test &#x27;crazy test with loops and ext fun call&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div></details>
+<details id="test-4" class="case pass"><summary><span class="status">PASS</span><strong>empty/infinite for-loop with instant return</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/empty_for_loop_test.json</span><span class="time">0.238s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-empty_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>for (;;) {
     return 0;
 }
 return 1;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-empty_for_loop_test.log">Download log ↗</a></div><pre>
@@ -137,7 +264,8 @@ DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test &#x27;empty/infinite for-loop with instant return&#x27; passed!
 
 </pre></section></div></div></details>
-<details id="test-5" class="case pass"><summary><span class="status">PASS</span><strong>for continue runs the update before rechecking the condition</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/for_continue_update_test.json</span><span class="time">0.259s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_continue_update_test.dlp">Download source ↗</a></div><pre class="source"><code>var i = 0, updates = 0;
+<details id="test-5" class="case fail"><summary><span class="status">FAIL</span><strong>for continue runs the update before rechecking the condition</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/for_continue_update_test.json</span><span class="time">0.218s</span></summary><div class="details"><div class="failure-message">❌ | Test &#x27;for continue runs the update before rechecking the condition&#x27; failed unexpectedly:
+src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token &quot;=&quot;</div><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_continue_update_test.dlp">Download source ↗</a></div><pre class="source"><code>var i = 0, updates = 0;
 for (; i &lt; 3; updates = updates + 1) {
     i = i + 1;
     continue;
@@ -146,12 +274,135 @@ return updates;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_continue_update_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;for continue runs the update before rechecking the condition&#x27; ...
-Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=3 actual=3
-✅ | Test &#x27;for continue runs the update before rechecking the condition&#x27; passed!
+DOLPHIN_TEST_RESULT expected=3 actual=rejected
+Source program:
+var i = 0, updates = 0;
+for (; i &lt; 3; updates = updates + 1) {
+    i = i + 1;
+    continue;
+}
+return updates;
 
-</pre></section></div></div></details>
-<details id="test-6" class="case pass"><summary><span class="status">PASS</span><strong>for_init_scope_escape_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_init_scope_escape_test.json</span><span class="time">0.102s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_init_scope_escape_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0, limit = 2; i &lt; limit; i = i + 1) {
+
+❌ | Test &#x27;for continue runs the update before rechecking the condition&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div><section class="trace"><div class="section-head"><h3>Menhir traced rerun · diagnostic only</h3><a href="logs/phase3-for_continue_update_test-trace.log">Download trace ↗</a></div><pre>Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running &#x27;for continue runs the update before rechecking the condition&#x27; ...
+State 0:
+Lookahead token is now VAR (0-3)
+Shifting (VAR) to state 63
+State 63:
+Lookahead token is now IDENT (4-5)
+Shifting (IDENT) to state 64
+State 64:
+Lookahead token is now ASSIGN (6-7)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 68:
+Shifting (ASSIGN) to state 69
+State 69:
+Lookahead token is now INT_LIT (8-9)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now COMMA (9-10)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 70:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 71:
+Shifting (COMMA) to state 72
+State 72:
+Lookahead token is now IDENT (11-18)
+Shifting (IDENT) to state 64
+State 64:
+Lookahead token is now ASSIGN (19-20)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 68:
+Shifting (ASSIGN) to state 69
+State 69:
+Lookahead token is now INT_LIT (21-22)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (22-23)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 70:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 71:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 73:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration COMMA separated_nonempty_list(COMMA,single_declaration)
+State 74:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 75:
+Shifting (SEMICOLON) to state 76
+State 76:
+Lookahead token is now FOR (24-27)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 125:
+Shifting (FOR) to state 103
+State 103:
+Lookahead token is now LPAREN (28-29)
+Shifting (LPAREN) to state 104
+State 104:
+Lookahead token is now SEMICOLON (29-30)
+Reducing production option(for_init) -&gt;
+State 107:
+Shifting (SEMICOLON) to state 108
+State 108:
+Lookahead token is now IDENT (31-32)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now LT (33-34)
+Reducing production expr_base -&gt; IDENT
+State 20:
+Reducing production expr -&gt; expr_base
+State 120:
+Shifting (LT) to state 34
+State 34:
+Lookahead token is now INT_LIT (35-36)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (36-37)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 35:
+Reducing production expr_base -&gt; expr LT expr
+State 20:
+Reducing production expr -&gt; expr_base
+State 120:
+Reducing production option(expr) -&gt; expr
+State 109:
+Shifting (SEMICOLON) to state 110
+State 110:
+Lookahead token is now IDENT (38-45)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now ASSIGN (46-47)
+Initiating error handling
+DOLPHIN_TEST_RESULT expected=3 actual=rejected
+Source program:
+var i = 0, updates = 0;
+for (; i &lt; 3; updates = updates + 1) {
+    i = i + 1;
+    continue;
+}
+return updates;
+
+
+❌ | Test &#x27;for continue runs the update before rechecking the condition&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div></details>
+<details id="test-6" class="case pass"><summary><span class="status">PASS</span><strong>for_init_scope_escape_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_init_scope_escape_test.json</span><span class="time">0.106s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_init_scope_escape_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0, limit = 2; i &lt; limit; i = i + 1) {
     break;
 }
 var after = limit;
@@ -159,36 +410,36 @@ return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_init_scope_escape_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;for_init_scope_escape_test&#x27; ...
-Error: ([36m&quot;src/tests/phase3/for_init_scope_escape_test.dlp&quot; @ 4:12-17[0m): Unbound identifier: limit
+src/tests/phase3/for_init_scope_escape_test.dlp:1:41: Parser error: Unexpected token &quot;=&quot;
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;for_init_scope_escape_test&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-7" class="case pass"><summary><span class="status">PASS</span><strong>for_non_boolean_condition_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_non_boolean_condition_test.json</span><span class="time">0.106s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_non_boolean_condition_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0; i + 1; i = i + 1) {
+<details id="test-7" class="case pass"><summary><span class="status">PASS</span><strong>for_non_boolean_condition_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_non_boolean_condition_test.json</span><span class="time">0.095s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_non_boolean_condition_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0; i + 1; i = i + 1) {
     break;
 }
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_non_boolean_condition_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;for_non_boolean_condition_test&#x27; ...
-Error: ([36m&quot;src/tests/phase3/for_non_boolean_condition_test.dlp&quot; @ 1:0-3:1[0m): Type mismatch: expected bool but found int.
+src/tests/phase3/for_non_boolean_condition_test.dlp:1:26: Parser error: Unexpected token &quot;=&quot;
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;for_non_boolean_condition_test&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-8" class="case pass"><summary><span class="status">PASS</span><strong>for_update_type_mismatch_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_update_type_mismatch_test.json</span><span class="time">0.106s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_update_type_mismatch_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0; i &lt; 2; i = true) {
+<details id="test-8" class="case pass"><summary><span class="status">PASS</span><strong>for_update_type_mismatch_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_update_type_mismatch_test.json</span><span class="time">0.110s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_update_type_mismatch_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0; i &lt; 2; i = true) {
     break;
 }
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_update_type_mismatch_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;for_update_type_mismatch_test&#x27; ...
-Error: ([36m&quot;src/tests/phase3/for_update_type_mismatch_test.dlp&quot; @ 1:23-31[0m): Type mismatch: expected int but found bool.
+src/tests/phase3/for_update_type_mismatch_test.dlp:1:26: Parser error: Unexpected token &quot;=&quot;
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;for_update_type_mismatch_test&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-9" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an out-of-range integer literal</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_integer_overflow_test.json</span><span class="time">0.098s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_integer_overflow_test.dlp">Download source ↗</a></div><pre class="source"><code>return 999999999999999999999999999999999999;
+<details id="test-9" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an out-of-range integer literal</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_integer_overflow_test.json</span><span class="time">0.095s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_integer_overflow_test.dlp">Download source ↗</a></div><pre class="source"><code>return 999999999999999999999999999999999999;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_integer_overflow_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;lexer rejects an out-of-range integer literal&#x27; ...
@@ -197,7 +448,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;lexer rejects an out-of-range integer literal&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-10" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects a single ampersand</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_single_ampersand_test.json</span><span class="time">0.105s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_single_ampersand_test.dlp">Download source ↗</a></div><pre class="source"><code>return true &amp; false;
+<details id="test-10" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects a single ampersand</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_single_ampersand_test.json</span><span class="time">0.104s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_single_ampersand_test.dlp">Download source ↗</a></div><pre class="source"><code>return true &amp; false;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_single_ampersand_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;lexer rejects a single ampersand&#x27; ...
@@ -215,7 +466,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;lexer rejects a single pipe&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-12" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an unexpected character</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_unexpected_character_test.json</span><span class="time">0.096s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_unexpected_character_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = @;
+<details id="test-12" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an unexpected character</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_unexpected_character_test.json</span><span class="time">0.117s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_unexpected_character_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = @;
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_unexpected_character_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -225,7 +476,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;lexer rejects an unexpected character&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-13" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an unterminated block comment</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_unterminated_comment_test.json</span><span class="time">0.093s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_unterminated_comment_test.dlp">Download source ↗</a></div><pre class="source"><code>/* This comment never closes
+<details id="test-13" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an unterminated block comment</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_unterminated_comment_test.json</span><span class="time">0.099s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_unterminated_comment_test.dlp">Download source ↗</a></div><pre class="source"><code>/* This comment never closes
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_unterminated_comment_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -235,7 +486,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;lexer rejects an unterminated block comment&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-14" class="case pass"><summary><span class="status">PASS</span><strong>multi_variables_forward_reference_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/multi_variables_forward_reference_test.json</span><span class="time">0.091s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_forward_reference_test.dlp">Download source ↗</a></div><pre class="source"><code>var first = second, second = 2;
+<details id="test-14" class="case pass"><summary><span class="status">PASS</span><strong>multi_variables_forward_reference_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/multi_variables_forward_reference_test.json</span><span class="time">0.094s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_forward_reference_test.dlp">Download source ↗</a></div><pre class="source"><code>var first = second, second = 2;
 return second;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-multi_variables_forward_reference_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -245,7 +496,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;multi_variables_forward_reference_test&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-15" class="case pass"><summary><span class="status">PASS</span><strong>multiple lines multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/multi_variables_normal_test.json</span><span class="time">0.237s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_normal_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1;
+<details id="test-15" class="case pass"><summary><span class="status">PASS</span><strong>multiple lines multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/multi_variables_normal_test.json</span><span class="time">0.239s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_normal_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1;
 var y = 2;
 var z = 3;
 var a = 4;
@@ -258,7 +509,7 @@ DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test &#x27;multiple lines multiples variables&#x27; passed!
 
 </pre></section></div></div></details>
-<details id="test-16" class="case pass"><summary><span class="status">PASS</span><strong>ONE LINE multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/multi_variables_oneline_test.json</span><span class="time">0.227s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_oneline_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1, y = 2, z = 3, a = 4, b = 5;
+<details id="test-16" class="case pass"><summary><span class="status">PASS</span><strong>ONE LINE multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/multi_variables_oneline_test.json</span><span class="time">0.251s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_oneline_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1, y = 2, z = 3, a = 4, b = 5;
 return x-y+z-a+b;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-multi_variables_oneline_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;ONE LINE multiples variables&#x27; ...
@@ -267,7 +518,7 @@ DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test &#x27;ONE LINE multiples variables&#x27; passed!
 
 </pre></section></div></div></details>
-<details id="test-17" class="case pass"><summary><span class="status">PASS</span><strong>multi_variables_type_mismatch_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/multi_variables_type_mismatch_test.json</span><span class="time">0.106s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_type_mismatch_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1, flag: bool = x, y = 2;
+<details id="test-17" class="case pass"><summary><span class="status">PASS</span><strong>multi_variables_type_mismatch_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/multi_variables_type_mismatch_test.json</span><span class="time">0.101s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_type_mismatch_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1, flag: bool = x, y = 2;
 return y;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-multi_variables_type_mismatch_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -277,7 +528,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;multi_variables_type_mismatch_test&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-18" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects an unclosed loop body</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_brace_test.json</span><span class="time">0.092s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_brace_test.dlp">Download source ↗</a></div><pre class="source"><code>while (true) { break;
+<details id="test-18" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects an unclosed loop body</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_brace_test.json</span><span class="time">0.106s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_brace_test.dlp">Download source ↗</a></div><pre class="source"><code>while (true) { break;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_brace_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;parser rejects an unclosed loop body&#x27; ...
@@ -286,7 +537,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;parser rejects an unclosed loop body&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-19" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing variable initializer</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_initializer_test.json</span><span class="time">0.096s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_initializer_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = ;
+<details id="test-19" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing variable initializer</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_initializer_test.json</span><span class="time">0.108s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_initializer_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = ;
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_initializer_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -296,7 +547,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;parser rejects a missing variable initializer&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-20" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing binary operand</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_operand_test.json</span><span class="time">0.107s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_operand_test.dlp">Download source ↗</a></div><pre class="source"><code>return 1 + ;
+<details id="test-20" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing binary operand</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_operand_test.json</span><span class="time">0.102s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_operand_test.dlp">Download source ↗</a></div><pre class="source"><code>return 1 + ;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_operand_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;parser rejects a missing binary operand&#x27; ...
@@ -305,7 +556,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;parser rejects a missing binary operand&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-21" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects an unclosed condition parenthesis</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_parenthesis_test.json</span><span class="time">0.127s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_parenthesis_test.dlp">Download source ↗</a></div><pre class="source"><code>if (true { return 0; }
+<details id="test-21" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects an unclosed condition parenthesis</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_parenthesis_test.json</span><span class="time">0.105s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_parenthesis_test.dlp">Download source ↗</a></div><pre class="source"><code>if (true { return 0; }
 return 0;
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_parenthesis_test.log">Download log ↗</a></div><pre>
 --------------------
@@ -315,7 +566,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;parser rejects an unclosed condition parenthesis&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-22" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing return semicolon</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_semicolon_test.json</span><span class="time">0.102s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_semicolon_test.dlp">Download source ↗</a></div><pre class="source"><code>return 0
+<details id="test-22" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing return semicolon</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_semicolon_test.json</span><span class="time">0.098s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_semicolon_test.dlp">Download source ↗</a></div><pre class="source"><code>return 0
 </code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_semicolon_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;parser rejects a missing return semicolon&#x27; ...
@@ -324,16 +575,75 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;parser rejects a missing return semicolon&#x27; failed as expected.
 
 </pre></section></div></div></details>
-<details id="test-23" class="case pass"><summary><span class="status">PASS</span><strong>return_assignment_expr_test</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/return_assignment_expr_test.json</span><span class="time">0.237s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>2</strong></div><div><small>Actual</small><strong>2</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-return_assignment_expr_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1;
+<details id="test-23" class="case fail"><summary><span class="status">FAIL</span><strong>return_assignment_expr_test</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/return_assignment_expr_test.json</span><span class="time">0.214s</span></summary><div class="details"><div class="failure-message">❌ | Test &#x27;return_assignment_expr_test&#x27; failed unexpectedly:
+src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token &quot;=&quot;</div><div class="outcomes"><div><small>Expected</small><strong>2</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-return_assignment_expr_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1;
 return x = x+1;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-return_assignment_expr_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;return_assignment_expr_test&#x27; ...
-Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=2 actual=2
-✅ | Test &#x27;return_assignment_expr_test&#x27; passed!
+DOLPHIN_TEST_RESULT expected=2 actual=rejected
+Source program:
+var x = 1;
+return x = x+1;
 
-</pre></section></div></div></details>
-<details id="test-24" class="case pass"><summary><span class="status">PASS</span><strong>scoping for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/scoping_for_loop_test.json</span><span class="time">0.235s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>9</strong></div><div><small>Actual</small><strong>9</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-scoping_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+❌ | Test &#x27;return_assignment_expr_test&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div><section class="trace"><div class="section-head"><h3>Menhir traced rerun · diagnostic only</h3><a href="logs/phase3-return_assignment_expr_test-trace.log">Download trace ↗</a></div><pre>Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running &#x27;return_assignment_expr_test&#x27; ...
+State 0:
+Lookahead token is now VAR (0-3)
+Shifting (VAR) to state 63
+State 63:
+Lookahead token is now IDENT (4-5)
+Shifting (IDENT) to state 64
+State 64:
+Lookahead token is now ASSIGN (6-7)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 68:
+Shifting (ASSIGN) to state 69
+State 69:
+Lookahead token is now INT_LIT (8-9)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (9-10)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 70:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 71:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 74:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 75:
+Shifting (SEMICOLON) to state 76
+State 76:
+Lookahead token is now RETURN (11-17)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 125:
+Shifting (RETURN) to state 77
+State 77:
+Lookahead token is now IDENT (18-19)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now ASSIGN (20-21)
+Initiating error handling
+DOLPHIN_TEST_RESULT expected=2 actual=rejected
+Source program:
+var x = 1;
+return x = x+1;
+
+❌ | Test &#x27;return_assignment_expr_test&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div></details>
+<details id="test-24" class="case fail"><summary><span class="status">FAIL</span><strong>scoping for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/scoping_for_loop_test.json</span><span class="time">0.194s</span></summary><div class="details"><div class="failure-message">❌ | Test &#x27;scoping for loop&#x27; failed unexpectedly:
+src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token &quot;=&quot;</div><div class="outcomes"><div><small>Expected</small><strong>9</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-scoping_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
 for (var i = 0; i &lt; 5; i = i+1) {
     i = i + 1;
     x = x + i;
@@ -341,12 +651,135 @@ for (var i = 0; i &lt; 5; i = i+1) {
 return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-scoping_for_loop_test.log">Download log ↗</a></div><pre>
 --------------------
 🚂 | Running &#x27;scoping for loop&#x27; ...
-Program returned: &lt;RESULT__START&gt;9&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=9 actual=9
-✅ | Test &#x27;scoping for loop&#x27; passed!
+DOLPHIN_TEST_RESULT expected=9 actual=rejected
+Source program:
+var x = 0; 
+for (var i = 0; i &lt; 5; i = i+1) {
+    i = i + 1;
+    x = x + i;
+}
+return x;
 
-</pre></section></div></div></details>
-<details id="test-25" class="case pass"><summary><span class="status">PASS</span><strong>while continue rechecks the condition instead of breaking</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/while_continue_test.json</span><span class="time">0.233s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_continue_test.dlp">Download source ↗</a></div><pre class="source"><code>var i = 0;
+❌ | Test &#x27;scoping for loop&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div><section class="trace"><div class="section-head"><h3>Menhir traced rerun · diagnostic only</h3><a href="logs/phase3-scoping_for_loop_test-trace.log">Download trace ↗</a></div><pre>Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running &#x27;scoping for loop&#x27; ...
+State 0:
+Lookahead token is now VAR (0-3)
+Shifting (VAR) to state 63
+State 63:
+Lookahead token is now IDENT (4-5)
+Shifting (IDENT) to state 64
+State 64:
+Lookahead token is now ASSIGN (6-7)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 68:
+Shifting (ASSIGN) to state 69
+State 69:
+Lookahead token is now INT_LIT (8-9)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (9-10)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 70:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 71:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 74:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 75:
+Shifting (SEMICOLON) to state 76
+State 76:
+Lookahead token is now FOR (12-15)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 125:
+Shifting (FOR) to state 103
+State 103:
+Lookahead token is now LPAREN (16-17)
+Shifting (LPAREN) to state 104
+State 104:
+Lookahead token is now VAR (17-20)
+Shifting (VAR) to state 105
+State 105:
+Lookahead token is now IDENT (21-22)
+Shifting (IDENT) to state 64
+State 64:
+Lookahead token is now ASSIGN (23-24)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 68:
+Shifting (ASSIGN) to state 69
+State 69:
+Lookahead token is now INT_LIT (25-26)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (26-27)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 70:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 71:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 74:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 106:
+Reducing production option(for_init) -&gt; VAR declaration_block
+State 107:
+Shifting (SEMICOLON) to state 108
+State 108:
+Lookahead token is now IDENT (28-29)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now LT (30-31)
+Reducing production expr_base -&gt; IDENT
+State 20:
+Reducing production expr -&gt; expr_base
+State 120:
+Shifting (LT) to state 34
+State 34:
+Lookahead token is now INT_LIT (32-33)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (33-34)
+Reducing production expr_base -&gt; INT_LIT
+State 20:
+Reducing production expr -&gt; expr_base
+State 35:
+Reducing production expr_base -&gt; expr LT expr
+State 20:
+Reducing production expr -&gt; expr_base
+State 120:
+Reducing production option(expr) -&gt; expr
+State 109:
+Shifting (SEMICOLON) to state 110
+State 110:
+Lookahead token is now IDENT (35-36)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now ASSIGN (37-38)
+Initiating error handling
+DOLPHIN_TEST_RESULT expected=9 actual=rejected
+Source program:
+var x = 0; 
+for (var i = 0; i &lt; 5; i = i+1) {
+    i = i + 1;
+    x = x + i;
+}
+return x;
+
+❌ | Test &#x27;scoping for loop&#x27; failed unexpectedly:
+--------------------
+src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token &quot;=&quot;
+
+</pre></section></div></details>
+<details id="test-25" class="case pass"><summary><span class="status">PASS</span><strong>while continue rechecks the condition instead of breaking</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/while_continue_test.json</span><span class="time">0.240s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_continue_test.dlp">Download source ↗</a></div><pre class="source"><code>var i = 0;
 while (i &lt; 3) {
     i = i + 1;
     continue;
@@ -360,7 +793,7 @@ DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test &#x27;while continue rechecks the condition instead of breaking&#x27; passed!
 
 </pre></section></div></div></details>
-<details id="test-26" class="case pass"><summary><span class="status">PASS</span><strong>while increment with scope test</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/while_increment_test.json</span><span class="time">0.243s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>6</strong></div><div><small>Actual</small><strong>6</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_increment_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+<details id="test-26" class="case pass"><summary><span class="status">PASS</span><strong>while increment with scope test</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/while_increment_test.json</span><span class="time">0.229s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>6</strong></div><div><small>Actual</small><strong>6</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_increment_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
 while (x &lt; 5) {
     x = x + 2;
 }
@@ -372,7 +805,7 @@ DOLPHIN_TEST_RESULT expected=6 actual=6
 ✅ | Test &#x27;while increment with scope test&#x27; passed!
 
 </pre></section></div></div></details>
-<details id="test-27" class="case pass"><summary><span class="status">PASS</span><strong>while_non_boolean_condition_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/while_non_boolean_condition_test.json</span><span class="time">0.111s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_non_boolean_condition_test.dlp">Download source ↗</a></div><pre class="source"><code>while (1) {
+<details id="test-27" class="case pass"><summary><span class="status">PASS</span><strong>while_non_boolean_condition_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/while_non_boolean_condition_test.json</span><span class="time">0.096s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_non_boolean_condition_test.dlp">Download source ↗</a></div><pre class="source"><code>while (1) {
     break;
 }
 return 0;
@@ -384,7 +817,7 @@ DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test &#x27;while_non_boolean_condition_test&#x27; failed as expected.
 
 </pre></section></div></div></details><footer>DOLPHIN CI / SEQUENTIAL EXECUTION / <a href="junit.xml">JUNIT XML</a> / <a href="summary.json">JSON TELEMETRY</a></footer>
-</main><script id="telemetry-data" type="application/json">[{"index": 0, "name": "break for loop", "duration": 0.263, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 1, "name": "break_outside_loop_test", "duration": 0.097, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 2, "name": "continue_outside_loop_test", "duration": 0.109, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 3, "name": "crazy test with loops and ext fun call", "duration": 0.234, "failed": false, "kind": "Positive", "expected": "43", "actual": "43"}, {"index": 4, "name": "empty/infinite for-loop with instant return", "duration": 0.244, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 5, "name": "for continue runs the update before rechecking the condition", "duration": 0.259, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 6, "name": "for_init_scope_escape_test", "duration": 0.102, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 7, "name": "for_non_boolean_condition_test", "duration": 0.106, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 8, "name": "for_update_type_mismatch_test", "duration": 0.106, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 9, "name": "lexer rejects an out-of-range integer literal", "duration": 0.098, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 10, "name": "lexer rejects a single ampersand", "duration": 0.105, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 11, "name": "lexer rejects a single pipe", "duration": 0.094, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 12, "name": "lexer rejects an unexpected character", "duration": 0.096, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 13, "name": "lexer rejects an unterminated block comment", "duration": 0.093, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 14, "name": "multi_variables_forward_reference_test", "duration": 0.091, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 15, "name": "multiple lines multiples variables", "duration": 0.237, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 16, "name": "ONE LINE multiples variables", "duration": 0.227, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 17, "name": "multi_variables_type_mismatch_test", "duration": 0.106, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 18, "name": "parser rejects an unclosed loop body", "duration": 0.092, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 19, "name": "parser rejects a missing variable initializer", "duration": 0.096, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 20, "name": "parser rejects a missing binary operand", "duration": 0.107, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 21, "name": "parser rejects an unclosed condition parenthesis", "duration": 0.127, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 22, "name": "parser rejects a missing return semicolon", "duration": 0.102, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 23, "name": "return_assignment_expr_test", "duration": 0.237, "failed": false, "kind": "Positive", "expected": "2", "actual": "2"}, {"index": 24, "name": "scoping for loop", "duration": 0.235, "failed": false, "kind": "Positive", "expected": "9", "actual": "9"}, {"index": 25, "name": "while continue rechecks the condition instead of breaking", "duration": 0.233, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 26, "name": "while increment with scope test", "duration": 0.243, "failed": false, "kind": "Positive", "expected": "6", "actual": "6"}, {"index": 27, "name": "while_non_boolean_condition_test", "duration": 0.111, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}]</script><script type="module">export async function mountGlobe(root, telemetry, tooltip, options = {}) {
+</main><script id="telemetry-data" type="application/json">[{"index": 0, "name": "break for loop", "duration": 0.234, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 1, "name": "break_outside_loop_test", "duration": 0.095, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 2, "name": "continue_outside_loop_test", "duration": 0.104, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 3, "name": "crazy test with loops and ext fun call", "duration": 0.203, "failed": true, "kind": "Positive", "expected": "43", "actual": "Compiler rejection"}, {"index": 4, "name": "empty/infinite for-loop with instant return", "duration": 0.238, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 5, "name": "for continue runs the update before rechecking the condition", "duration": 0.218, "failed": true, "kind": "Positive", "expected": "3", "actual": "Compiler rejection"}, {"index": 6, "name": "for_init_scope_escape_test", "duration": 0.106, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 7, "name": "for_non_boolean_condition_test", "duration": 0.095, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 8, "name": "for_update_type_mismatch_test", "duration": 0.11, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 9, "name": "lexer rejects an out-of-range integer literal", "duration": 0.095, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 10, "name": "lexer rejects a single ampersand", "duration": 0.104, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 11, "name": "lexer rejects a single pipe", "duration": 0.094, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 12, "name": "lexer rejects an unexpected character", "duration": 0.117, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 13, "name": "lexer rejects an unterminated block comment", "duration": 0.099, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 14, "name": "multi_variables_forward_reference_test", "duration": 0.094, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 15, "name": "multiple lines multiples variables", "duration": 0.239, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 16, "name": "ONE LINE multiples variables", "duration": 0.251, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 17, "name": "multi_variables_type_mismatch_test", "duration": 0.101, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 18, "name": "parser rejects an unclosed loop body", "duration": 0.106, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 19, "name": "parser rejects a missing variable initializer", "duration": 0.108, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 20, "name": "parser rejects a missing binary operand", "duration": 0.102, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 21, "name": "parser rejects an unclosed condition parenthesis", "duration": 0.105, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 22, "name": "parser rejects a missing return semicolon", "duration": 0.098, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 23, "name": "return_assignment_expr_test", "duration": 0.214, "failed": true, "kind": "Positive", "expected": "2", "actual": "Compiler rejection"}, {"index": 24, "name": "scoping for loop", "duration": 0.194, "failed": true, "kind": "Positive", "expected": "9", "actual": "Compiler rejection"}, {"index": 25, "name": "while continue rechecks the condition instead of breaking", "duration": 0.24, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 26, "name": "while increment with scope test", "duration": 0.229, "failed": false, "kind": "Positive", "expected": "6", "actual": "6"}, {"index": 27, "name": "while_non_boolean_condition_test", "duration": 0.096, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}]</script><script type="module">export async function mountGlobe(root, telemetry, tooltip, options = {}) {
   const failed = options.failed ?? telemetry.some((test) => test.failed);
   const palette = failed
   ? { surface: 0x290d19, emissive: 0x431321, ambient: 0xffb6a6, key: 0xff645a, rim: 0xe64a77, grid: 0xb75064, coast: 0xffaa94, glow: 0xff4b68, orbit: 0xf47d82, secondOrbit: 0xb85375, satellite: 0xffdfce, secondSatellite: 0xf299b1, stars: 0xdba2ac }

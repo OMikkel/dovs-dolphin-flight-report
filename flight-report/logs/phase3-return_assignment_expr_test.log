@@ -1,7 +1,12 @@
 
 --------------------
 🚂 | Running 'return_assignment_expr_test' ...
-Program returned: <RESULT__START>2<RESULT__END>
-DOLPHIN_TEST_RESULT expected=2 actual=2
-✅ | Test 'return_assignment_expr_test' passed!
+DOLPHIN_TEST_RESULT expected=2 actual=rejected
+Source program:
+var x = 1;
+return x = x+1;
+
+❌ | Test 'return_assignment_expr_test' failed unexpectedly:
+--------------------
+src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token "="
 
