@@ -1,0 +1,6 @@
+
+--------------------
+🚂 | Running 'multi_variables_type_mismatch_test' ...
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'multi_variables_type_mismatch_test' failed as expected.
+

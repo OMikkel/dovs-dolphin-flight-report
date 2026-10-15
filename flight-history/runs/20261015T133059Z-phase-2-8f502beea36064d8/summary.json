@@ -1,0 +1,204 @@
+{
+  "phase": "2",
+  "generated_at": "2026-10-15T13:30:59.663384+00:00",
+  "run": {
+    "branch": "phase3",
+    "captured_at": "2026-10-15T13:30:59.663384+00:00",
+    "commit": "4febba619934cb0af6b7519e2ceb71263775f888",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/4febba619934cb0af6b7519e2ceb71263775f888",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/658276"
+  },
+  "total": 17,
+  "passed": 17,
+  "failed": 0,
+  "duration_seconds": 2.81,
+  "tests": [
+    {
+      "name": "break for loop",
+      "file": "src/tests/phase2/break_for_loop_test.json",
+      "duration": 0.214,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-break_for_loop_test.log",
+      "kind": "Positive",
+      "expected": "0",
+      "actual": "0",
+      "source_file": "ci-reports/sources/phase2-break_for_loop_test.txt"
+    },
+    {
+      "name": "break_outside_loop_test",
+      "file": "src/tests/phase2/break_outside_loop_test.json",
+      "duration": 0.098,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-break_outside_loop_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-break_outside_loop_test.txt"
+    },
+    {
+      "name": "continue_outside_loop_test",
+      "file": "src/tests/phase2/continue_outside_loop_test.json",
+      "duration": 0.092,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-continue_outside_loop_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-continue_outside_loop_test.txt"
+    },
+    {
+      "name": "crazy test with loops and ext fun call",
+      "file": "src/tests/phase2/crazy_loops_external_funs_test.json",
+      "duration": 0.226,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-crazy_loops_external_funs_test.log",
+      "kind": "Positive",
+      "expected": "43",
+      "actual": "43",
+      "source_file": "ci-reports/sources/phase2-crazy_loops_external_funs_test.txt"
+    },
+    {
+      "name": "empty/infinite for-loop with instant return",
+      "file": "src/tests/phase2/empty_for_loop_test.json",
+      "duration": 0.232,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-empty_for_loop_test.log",
+      "kind": "Positive",
+      "expected": "0",
+      "actual": "0",
+      "source_file": "ci-reports/sources/phase2-empty_for_loop_test.txt"
+    },
+    {
+      "name": "for continue runs the update before rechecking the condition",
+      "file": "src/tests/phase2/for_continue_update_test.json",
+      "duration": 0.235,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-for_continue_update_test.log",
+      "kind": "Positive",
+      "expected": "3",
+      "actual": "3",
+      "source_file": "ci-reports/sources/phase2-for_continue_update_test.txt"
+    },
+    {
+      "name": "for_init_scope_escape_test",
+      "file": "src/tests/phase2/for_init_scope_escape_test.json",
+      "duration": 0.098,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-for_init_scope_escape_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-for_init_scope_escape_test.txt"
+    },
+    {
+      "name": "for_non_boolean_condition_test",
+      "file": "src/tests/phase2/for_non_boolean_condition_test.json",
+      "duration": 0.11,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-for_non_boolean_condition_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-for_non_boolean_condition_test.txt"
+    },
+    {
+      "name": "for_update_type_mismatch_test",
+      "file": "src/tests/phase2/for_update_type_mismatch_test.json",
+      "duration": 0.103,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-for_update_type_mismatch_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-for_update_type_mismatch_test.txt"
+    },
+    {
+      "name": "multi_variables_forward_reference_test",
+      "file": "src/tests/phase2/multi_variables_forward_reference_test.json",
+      "duration": 0.092,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-multi_variables_forward_reference_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-multi_variables_forward_reference_test.txt"
+    },
+    {
+      "name": "multiple lines multiples variables",
+      "file": "src/tests/phase2/multi_variables_normal_test.json",
+      "duration": 0.224,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-multi_variables_normal_test.log",
+      "kind": "Positive",
+      "expected": "3",
+      "actual": "3",
+      "source_file": "ci-reports/sources/phase2-multi_variables_normal_test.txt"
+    },
+    {
+      "name": "ONE LINE multiples variables",
+      "file": "src/tests/phase2/multi_variables_oneline_test.json",
+      "duration": 0.227,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-multi_variables_oneline_test.log",
+      "kind": "Positive",
+      "expected": "3",
+      "actual": "3",
+      "source_file": "ci-reports/sources/phase2-multi_variables_oneline_test.txt"
+    },
+    {
+      "name": "multi_variables_type_mismatch_test",
+      "file": "src/tests/phase2/multi_variables_type_mismatch_test.json",
+      "duration": 0.099,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-multi_variables_type_mismatch_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-multi_variables_type_mismatch_test.txt"
+    },
+    {
+      "name": "scoping for loop",
+      "file": "src/tests/phase2/scoping_for_loop_test.json",
+      "duration": 0.219,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-scoping_for_loop_test.log",
+      "kind": "Positive",
+      "expected": "9",
+      "actual": "9",
+      "source_file": "ci-reports/sources/phase2-scoping_for_loop_test.txt"
+    },
+    {
+      "name": "while continue rechecks the condition instead of breaking",
+      "file": "src/tests/phase2/while_continue_test.json",
+      "duration": 0.211,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-while_continue_test.log",
+      "kind": "Positive",
+      "expected": "3",
+      "actual": "3",
+      "source_file": "ci-reports/sources/phase2-while_continue_test.txt"
+    },
+    {
+      "name": "while increment with scope test",
+      "file": "src/tests/phase2/while_increment_test.json",
+      "duration": 0.224,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-while_increment_test.log",
+      "kind": "Positive",
+      "expected": "6",
+      "actual": "6",
+      "source_file": "ci-reports/sources/phase2-while_increment_test.txt"
+    },
+    {
+      "name": "while_non_boolean_condition_test",
+      "file": "src/tests/phase2/while_non_boolean_condition_test.json",
+      "duration": 0.106,
+      "failure": "",
+      "log": "ci-reports/logs/phase2-while_non_boolean_condition_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase2-while_non_boolean_condition_test.txt"
+    }
+  ]
+}

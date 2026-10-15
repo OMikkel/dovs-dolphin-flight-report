@@ -1,0 +1,6 @@
+
+--------------------
+🚂 | Running 'while_non_boolean_condition_test' ...
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'while_non_boolean_condition_test' failed as expected.
+

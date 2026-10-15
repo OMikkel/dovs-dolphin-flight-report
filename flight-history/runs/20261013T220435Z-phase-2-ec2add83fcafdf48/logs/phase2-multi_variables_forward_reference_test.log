@@ -1,0 +1,7 @@
+
+--------------------
+🚂 | Running 'multi_variables_forward_reference_test' ...
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+Unbound identifier: second
+✅ | Test 'multi_variables_forward_reference_test' failed as expected.
+

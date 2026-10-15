@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en" class="report-failed"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dolphin · Compiler flight report</title>
 <style>
 :root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#070d18;color:#e9f5f6}
@@ -28,30 +28,52 @@ summary{cursor:pointer;display:flex;align-items:center;gap:18px;padding:20px;lis
 .status{font-size:11px;letter-spacing:.1em;min-width:42px}.kind{color:#93d5f3;border:1px solid #31566d;padding:4px 8px;text-transform:uppercase;letter-spacing:.1em;font-size:9px}.kind.negative{color:#fcb8ca;border-color:#73405a}.kind.unknown{color:#829eaf}
 .path{margin-left:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#829eaf;font-size:11px}.time{min-width:70px;text-align:right;color:#9ab3c0;font-size:12px}
 .details{padding:0 20px 20px}a{color:#64f2ce}.outcomes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#294457;border:1px solid #294457;margin-bottom:20px}.outcomes>div{background:#112534;padding:15px 19px}.outcomes small{display:block;color:#90aab9;text-transform:uppercase;letter-spacing:.15em;font-size:10px;margin-bottom:8px}.outcomes strong{font-size:18px}
+.failure-message{color:#ffc1ce;background:#331c2a;border-left:2px solid #ff788f;padding:14px 18px;margin-bottom:20px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.trace{margin-top:20px}
 .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail-grid section{min-width:0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;height:30px}.section-head h3{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#90aab9;font-weight:500;margin:0}.section-head a{font-size:10px;white-space:nowrap}
 pre{background:#07111c;padding:20px;overflow:auto;white-space:pre-wrap;word-break:break-word;max-height:500px;font-size:12px;line-height:1.6;margin:0}pre.source{color:#b4f6e1;border-left:2px solid #3cbbab}.empty-source{background:#07111c;color:#7996a5;padding:25px;font-size:12px;font-style:italic}
 footer{border-top:1px solid #294457;padding-top:25px;margin-top:56px;color:#90a4bb;font-size:11px;letter-spacing:.08em}
+.report-failed{background:#16090d;color:#fff0ed}.report-failed body{background:radial-gradient(ellipse at 69% 5%,#63242b 0%,transparent 47%),radial-gradient(ellipse at 2% 65%,#3b151e 0%,transparent 38%),#16090d}
+.report-failed body:before{background-image:linear-gradient(#f59b9b 1px,transparent 1px),linear-gradient(90deg,#f59b9b 1px,transparent 1px)}.report-failed .topbar,.report-failed .hero,.report-failed footer{border-color:#71343d}
+.report-failed .brand span,.report-failed .topmeta a,.report-failed .eyebrow,.report-failed h1.phase-panel em,.report-failed .phase-heading small,.report-failed .run-context .ref,.report-failed h2 span,.report-failed a{color:#ff8d8d}
+.report-failed .topmeta,.report-failed h2,.report-failed .subtitle,.report-failed footer{color:#d3a6aa}.report-failed .hero{background:radial-gradient(ellipse at 76% 48%,#ed4b4930,transparent 45%)}
+.report-failed .run-context,.report-failed .stats{background:#71343d;border-color:#71343d}.report-failed .run-context>div,.report-failed .stat{background:#281217}.report-failed .run-context small,.report-failed .stat small{color:#cc9da3}
+.report-failed h1.phase-panel{background:linear-gradient(135deg,#682b32ed,#35151de8 60%,#210e14ed);border-color:#d15b64;box-shadow:18px 22px 0 #10050870,22px 30px 60px #0009,inset 0 1px 22px #ff6a4b20}
+.report-failed .phase-heading span{color:#ef9b9e}.report-failed .phase-heading strong{color:#fff2eb;text-shadow:0 0 34px #ff655b70}.report-failed .chip.alert{background:#60202b;border-color:#ff6b77;color:#ffe2df;font-weight:800;box-shadow:0 0 28px #ff4b4b24}
+.report-failed .flight-step{background:#301820;border-color:#6f3640}.report-failed .flight-step small,.report-failed .finishing-phase small{color:#bd868e}.report-failed .flight-step strong,.report-failed .finishing-phase{color:#d7a5ab}
+.report-failed .flight-step.current{background:#6a2531;border-color:#ff7b83;box-shadow:0 0 25px #ff4b4b38,5px 7px 0 #240810a6}.report-failed .flight-step.current:before{background:#ff8d8d;box-shadow:0 0 12px #ff8d8d}.report-failed .flight-step.current small,.report-failed .flight-step.current strong,.report-failed .finishing-phase strong{color:#ffe4de}
+.report-failed .finishing-phase{border-color:#71343d}.report-failed .finishing-phase>span{color:#ff8d8d}.report-failed .visual:before{border-color:#ed6b6b70;box-shadow:0 0 35px #ef4e4e32,inset 0 0 65px #ff6c6c20}
+.report-failed .visual:after{background:linear-gradient(#ef8888aa,#ef8888aa) left top/26px 1px no-repeat,linear-gradient(#ef8888aa,#ef8888aa) left top/1px 26px no-repeat,linear-gradient(#ef8888aa,#ef8888aa) right bottom/26px 1px no-repeat,linear-gradient(#ef8888aa,#ef8888aa) right bottom/1px 26px no-repeat}
+.report-failed .orbital-label strong{color:#ffd4cc}.report-failed .orbital-label small{color:#c58891}.report-failed #globe-tooltip{background:#2b1019ed;border-color:#ff8d8d;color:#fff0ed}
+.report-failed .fallback{border-color:#ef8888;background:radial-gradient(circle at 35% 32%,#944149,#491d29 45%,#210e18 72%);box-shadow:0 0 0 16px #e0737312,0 0 90px #ef4e4e40,inset -28px -15px 35px #0008}.report-failed .fallback:after{background:repeating-linear-gradient(0deg,transparent 0 23px,#ffad9c38 24px 25px),repeating-linear-gradient(90deg,transparent 0 35px,#ffad9c2c 36px 37px)}
+.report-failed .stat.fail{background:#5a1d29;box-shadow:inset 0 3px 0 #ff6b77}.report-failed .stat.fail small{color:#ffb8b8}.report-failed .stat.fail b{color:#ff9393}
+.report-failed .case{background:#25151cd9;border-color:#63313d}.report-failed .case:hover{background:#35202a}
+.case.fail{border-color:#dc5263;border-left:5px solid #ff6174;background:linear-gradient(110deg,#571e2cf2,#32141ef2);box-shadow:0 4px 22px #cc203b12}
+.case.fail:hover,.report-failed .case.fail:hover{background:linear-gradient(110deg,#722638,#471b29);border-color:#ff8d9b}.case.fail[open],.report-failed .case.fail[open]{border-color:#ff8d9b;background:#35141f;box-shadow:0 0 0 1px #ff61742b,0 8px 28px #cc203b1c}
+.case.fail>summary{background:#8b25351f}.case.fail summary strong{color:#ffe0df}.case.fail .status{background:#b72e44;border:1px solid #ff8d9b;color:#fff1ed;padding:6px 9px;font-weight:800;text-align:center;letter-spacing:.12em}
+.case.fail .kind{background:#4b1d2d;border-color:#a95166;color:#ffd0d6}.case.fail .path,.case.fail .time,.case.fail .section-head h3,.case.fail .outcomes small{color:#dfa4af}
+.case.fail .outcomes{background:#854052;border-color:#854052}.case.fail .outcomes>div{background:#4a1d2b}.case.fail .outcomes strong{color:#ffe0df}.case.fail pre,.case.fail .empty-source{background:#210e16}.case.fail pre.source{color:#ffe1d4;border-color:#ee7d8f}.case.fail a{color:#ffafad}
 @media(max-width:800px){main{padding:22px 20px 65px}.hero{grid-template-columns:1fr}.intro{padding:55px 0 0}.visual{height:470px;margin-top:-30px}.stats{margin-top:25px}}
 @media(max-width:560px){.topmeta{font-size:9px}.run-context{grid-template-columns:1fr 1fr}.run-context>div:nth-child(2){grid-column:1 / -1;grid-row:2}.run-context strong,.run-context a{font-size:12px}h1.phase-panel{padding:19px 21px}.phase-heading strong{font-size:clamp(88px,26vw,120px)}.phase-heading small{font-size:31px}.visual{height:350px}.visual:after{inset:20px}.finishing-phase{flex-wrap:wrap}.finishing-phase small{width:100%;text-align:left;margin-left:27px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:16px}summary{flex-wrap:wrap;gap:10px}.path{width:100%;order:5;margin-left:52px}.detail-grid{grid-template-columns:1fr}.orbital-label{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.case,h1.phase-panel{transition:none}}
-</style></head><body><main><nav class="topbar"><div class="brand">◈ DOLPHIN <span>/</span> MISSION CONTROL</div><div class="topmeta"><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/658453">VIEW PIPELINE ↗</a></div></nav>
+</style><link data-flight-history="" rel="stylesheet" href="../flight-history/history.css"><script data-flight-history="" src="../flight-history/navigation.js" defer></script></head><body><nav id="flight-navigation" class="flight-nav flight-nav-alert" aria-label="Flight report history" data-history-root="../flight-history/" data-run-id="20261015T175529Z-phase-build-06341b327e4556a2"><a class="flight-nav-home" href="../flight-history/">◈ ALL FLIGHTS</a><span class="flight-nav-current">LATEST FLIGHT <strong>Build failure</strong></span><div class="flight-nav-links"><a data-flight-direction="older" hidden>← Previous report</a><a data-flight-direction="newer" hidden>Next report →</a><a class="flight-nav-latest" href="../flight-history/../flight-report/">Latest report ↗</a></div></nav><main><nav class="topbar"><div class="brand">◈ DOLPHIN <span>/</span> MISSION CONTROL</div><div class="topmeta"><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/658464">VIEW PIPELINE ↗</a></div></nav>
 <section class="run-context" aria-label="Run details"><div><small>Branch / ref</small><strong class="ref">phase3</strong></div>
-<div><small>Report captured · UTC</small><strong>15 Oct 2026 · 17:35:54</strong></div><div><small>Commit</small><strong><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/be6f2f48efb98688be60ee03e7d71aee476d7903" title="be6f2f48efb98688be60ee03e7d71aee476d7903">be6f2f48efb9 ↗</a></strong></div></section>
+<div><small>Report captured · UTC</small><strong>15 Oct 2026 · 17:55:29</strong></div><div><small>Commit</small><strong><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/8a51c4e70cec536188d907537e503f4ea681cf52" title="8a51c4e70cec536188d907537e503f4ea681cf52">8a51c4e70cec ↗</a></strong></div></section>
 <header class="hero"><div class="intro"><div class="eyebrow">◈ DOLPHIN / FLIGHT SEQUENCE</div><h1 class="phase-panel"><div class="phase-heading alternate"><span>MISSION</span><strong>BUILD</strong></div><em>Flight report.</em></h1>
-<div class="subtitle">Each signal represents a real test flown through the Makefile, Dolphin CLI and test.ml.</div>
-<div class="chip alert">Anomalies detected / review signals</div></div>
+<div class="subtitle">End-to-end tests flown through the Dolphin CLI. Failed source tests include an automatic Menhir traced rerun.</div>
+<div class="chip alert">1 test failed / review red cards</div></div>
 <div class="visual"><div class="orbital-label"><strong>ORBITAL TELEMETRY</strong><small>COMPILER TELEMETRY / 01 SIGNALS</small></div>
 <div id="globe"><div class="fallback"></div><div id="globe-tooltip" hidden></div></div>
 <div class="orbital-label bottom"><strong>DRAG TO ROTATE</strong><small>HOVER A SIGNAL TO INSPECT</small></div></div></header>
-<section class="stats" aria-label="Test summary"><div class="stat"><small>Signals received</small><b>1</b></div><div class="stat pass"><small>Nominal</small><b>0</b></div>
-<div class="stat fail"><small>Anomalies</small><b>1</b></div><div class="stat"><small>Mission time</small><b>0.00s</b></div></section>
-<h2>Signal manifest <span>↘ INSPECT EACH FLIGHT</span></h2><details id="test-0" class="case fail"><summary><span class="status">FAIL</span><strong>compiler build</strong><span class="kind build">Build</span><span class="path">dolphin/Makefile</span><span class="time">0.000s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Successful build</strong></div><div><small>Actual</small><strong>Build failed</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3></div><div class="empty-source">No source file supplied for this test.</div></section><section><div class="section-head"><h3>Execution log</h3></div><pre>The compiler build failed before tests could run. See the CI job log for the build error.
+<section class="stats" aria-label="Test summary"><div class="stat"><small>Total tests</small><b>1</b></div><div class="stat pass"><small>Tests passed</small><b>0</b></div>
+<div class="stat fail"><small>Tests failed</small><b>1</b></div><div class="stat"><small>Mission time</small><b>0.00s</b></div></section>
+<h2>Signal manifest <span>↘ INSPECT EACH FLIGHT</span></h2><details id="test-0" class="case fail"><summary><span class="status">FAIL</span><strong>compiler build</strong><span class="kind build">Build</span><span class="path">dolphin/Makefile</span><span class="time">0.000s</span></summary><div class="details"><div class="failure-message">make build failed; see the CI job log</div><div class="outcomes"><div><small>Expected</small><strong>Successful build</strong></div><div><small>Actual</small><strong>Build failed</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3></div><div class="empty-source">No source file supplied for this test.</div></section><section><div class="section-head"><h3>Execution log</h3></div><pre>The compiler build failed before tests could run. See the CI job log for the build error.
 </pre></section></div></div></details><footer>DOLPHIN CI / SEQUENTIAL EXECUTION / <a href="junit.xml">JUNIT XML</a> / <a href="summary.json">JSON TELEMETRY</a></footer>
-</main><script id="telemetry-data" type="application/json">[{"index": 0, "name": "compiler build", "duration": 0.0, "failed": true, "kind": "Build", "expected": "Successful build", "actual": "Build failed"}]</script><script type="module">const root = document.getElementById("globe");
-const telemetry = JSON.parse(document.getElementById("telemetry-data").textContent);
-const tooltip = document.getElementById("globe-tooltip");
+</main><script id="telemetry-data" type="application/json">[{"index": 0, "name": "compiler build", "duration": 0.0, "failed": true, "kind": "Build", "expected": "Successful build", "actual": "Build failed"}]</script><script type="module">export async function mountGlobe(root, telemetry, tooltip, options = {}) {
+  const failed = options.failed ?? telemetry.some((test) => test.failed);
+  const palette = failed
+  ? { surface: 0x290d19, emissive: 0x431321, ambient: 0xffb6a6, key: 0xff645a, rim: 0xe64a77, grid: 0xb75064, coast: 0xffaa94, glow: 0xff4b68, orbit: 0xf47d82, secondOrbit: 0xb85375, satellite: 0xffdfce, secondSatellite: 0xf299b1, stars: 0xdba2ac }
+  : { surface: 0x071a2b, emissive: 0x092739, ambient: 0x98d8ee, key: 0x31eed8, rim: 0x56a9ff, grid: 0x3b9da8, coast: 0x79d9d8, glow: 0x21b9dd, orbit: 0x53ccdc, secondOrbit: 0x3686b6, satellite: 0xe3fcff, secondSatellite: 0x80caf2, stars: 0x9bcee5 };
 
-async function launch() {
   const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js");
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
@@ -68,14 +90,14 @@ async function launch() {
   const radius = 1.68;
   const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(radius, 64, 48),
-    new THREE.MeshPhongMaterial({ color: 0x071a2b, emissive: 0x092739, shininess: 42, transparent: true, opacity: 0.94 })
+    new THREE.MeshPhongMaterial({ color: palette.surface, emissive: palette.emissive, shininess: 42, transparent: true, opacity: 0.94 })
   );
   globe.add(sphere);
-  scene.add(new THREE.AmbientLight(0x98d8ee, 0.9));
-  const key = new THREE.PointLight(0x31eed8, 60, 16);
+  scene.add(new THREE.AmbientLight(palette.ambient, 0.9));
+  const key = new THREE.PointLight(palette.key, 60, 16);
   key.position.set(-3, 3, 5);
   scene.add(key);
-  const rim = new THREE.PointLight(0x56a9ff, 80, 15);
+  const rim = new THREE.PointLight(palette.rim, 80, 15);
   rim.position.set(3, -2, -3);
   scene.add(rim);
 
@@ -98,12 +120,12 @@ async function launch() {
   for (let latitude = -75; latitude <= 75; latitude += 15) {
     const points = [];
     for (let longitude = -180; longitude <= 180; longitude += 3) points.push(position(latitude, longitude, radius * 1.006));
-    trace(points, 0x3b9da8, latitude === 0 ? 0.4 : 0.17);
+    trace(points, palette.grid, latitude === 0 ? 0.4 : 0.17);
   }
   for (let longitude = -180; longitude < 180; longitude += 15) {
     const points = [];
     for (let latitude = -90; latitude <= 90; latitude += 3) points.push(position(latitude, longitude, radius * 1.006));
-    trace(points, 0x3b9da8, longitude === 0 ? 0.34 : 0.14);
+    trace(points, palette.grid, longitude === 0 ? 0.34 : 0.14);
   }
 
   const coastlines = [
@@ -117,7 +139,7 @@ async function launch() {
     [[60,-45],[65,-53],[70,-52],[77,-43],[83,-40],[82,-20],[76,-18],[70,-23],[65,-38],[60,-45]]
   ];
   for (const outline of coastlines) {
-    trace(outline.map(([latitude, longitude]) => position(latitude, longitude, radius * 1.013)), 0x79d9d8, 0.58);
+    trace(outline.map(([latitude, longitude]) => position(latitude, longitude, radius * 1.013)), palette.coast, 0.58);
   }
 
   const atmosphere = new THREE.Mesh(
@@ -126,7 +148,7 @@ async function launch() {
       transparent: true,
       side: THREE.BackSide,
       depthWrite: false,
-      uniforms: { glowColor: { value: new THREE.Color(0x21b9dd) } },
+      uniforms: { glowColor: { value: new THREE.Color(palette.glow) } },
       vertexShader: "varying vec3 vNormal; varying vec3 vPosition; void main(){vNormal=normalize(normalMatrix*normal);vPosition=normalize(-(modelViewMatrix*vec4(position,1.0)).xyz);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}",
       fragmentShader: "uniform vec3 glowColor; varying vec3 vNormal; varying vec3 vPosition; void main(){float intensity=pow(0.68-dot(vNormal,vPosition),3.0);gl_FragColor=vec4(glowColor,clamp(intensity*0.62,0.0,0.43));}"
     })
@@ -138,10 +160,10 @@ async function launch() {
   globe.add(orbit);
   const ring = new THREE.Mesh(
     new THREE.TorusGeometry(radius * 1.47, 0.004, 4, 180),
-    new THREE.MeshBasicMaterial({ color: 0x53ccdc, transparent: true, opacity: 0.32 })
+    new THREE.MeshBasicMaterial({ color: palette.orbit, transparent: true, opacity: 0.32 })
   );
   orbit.add(ring);
-  const satellite = new THREE.Mesh(new THREE.OctahedronGeometry(0.048), new THREE.MeshBasicMaterial({ color: 0xe3fcff }));
+  const satellite = new THREE.Mesh(new THREE.OctahedronGeometry(0.048), new THREE.MeshBasicMaterial({ color: palette.satellite }));
   satellite.position.set(radius * 1.47, 0, 0);
   orbit.add(satellite);
   const secondOrbit = new THREE.Group();
@@ -149,11 +171,11 @@ async function launch() {
   globe.add(secondOrbit);
   secondOrbit.add(new THREE.Mesh(
     new THREE.TorusGeometry(radius * 1.65, 0.003, 4, 200),
-    new THREE.MeshBasicMaterial({ color: 0x3686b6, transparent: true, opacity: 0.28 })
+    new THREE.MeshBasicMaterial({ color: palette.secondOrbit, transparent: true, opacity: 0.28 })
   ));
   const secondSatellite = new THREE.Mesh(
     new THREE.OctahedronGeometry(0.035),
-    new THREE.MeshBasicMaterial({ color: 0x80caf2 })
+    new THREE.MeshBasicMaterial({ color: palette.secondSatellite })
   );
   secondSatellite.position.set(Math.cos(2) * radius * 1.65, Math.sin(2) * radius * 1.65, 0);
   secondOrbit.add(secondSatellite);
@@ -192,12 +214,13 @@ async function launch() {
   }
   const starGeometry = new THREE.BufferGeometry();
   starGeometry.setAttribute("position", new THREE.BufferAttribute(stars, 3));
-  scene.add(new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0x9bcee5, size: 0.026, transparent: true, opacity: 0.68, sizeAttenuation: true })));
+  scene.add(new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: palette.stars, size: 0.026, transparent: true, opacity: 0.68, sizeAttenuation: true })));
 
   const raycaster = new THREE.Raycaster();
   const pointer = new THREE.Vector2();
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let dragging = false;
+  let dragDistance = 0;
   let lastX = 0;
   let lastY = 0;
   let hovered = null;
@@ -205,6 +228,7 @@ async function launch() {
   let cameraY = 0;
   root.addEventListener("pointerdown", (event) => {
     dragging = true;
+    dragDistance = 0;
     lastX = event.clientX;
     lastY = event.clientY;
     root.setPointerCapture(event.pointerId);
@@ -221,6 +245,7 @@ async function launch() {
     cameraX = (event.clientX - bounds.left) / bounds.width * 2 - 1;
     cameraY = (event.clientY - bounds.top) / bounds.height * 2 - 1;
     if (dragging) {
+      dragDistance += Math.abs(event.clientX - lastX) + Math.abs(event.clientY - lastY);
       globe.rotation.y += (event.clientX - lastX) * 0.006;
       globe.rotation.x = THREE.MathUtils.clamp(globe.rotation.x + (event.clientY - lastY) * 0.006, -1.1, 1.1);
       lastX = event.clientX;
@@ -233,7 +258,7 @@ async function launch() {
     const hit = raycaster.intersectObjects([sphere, ...markers])[0];
     hovered = hit && hit.object !== sphere ? hit.object : null;
     if (hovered) {
-      tooltip.textContent = `${hovered.userData.failed ? "✕" : "✓"} ${hovered.userData.name} · ${hovered.userData.kind} · ${hovered.userData.actual} / ${hovered.userData.expected}`;
+      tooltip.textContent = hovered.userData.description || `${hovered.userData.failed ? "✕" : "✓"} ${hovered.userData.name} · ${hovered.userData.kind} · ${hovered.userData.actual} / ${hovered.userData.expected}`;
       tooltip.style.left = `${event.clientX - bounds.left + 12}px`;
       tooltip.style.top = `${event.clientY - bounds.top - 34}px`;
       tooltip.hidden = false;
@@ -243,7 +268,11 @@ async function launch() {
     root.style.cursor = hovered ? "pointer" : "grab";
   });
   root.addEventListener("click", () => {
-    if (!hovered) return;
+    if (!hovered || dragDistance > 5) return;
+    if (options.onSelect) {
+      options.onSelect(hovered.userData);
+      return;
+    }
     const row = document.getElementById(`test-${hovered.userData.index}`);
     if (row) {
       row.open = true;
@@ -283,5 +312,10 @@ async function launch() {
   animate();
 }
 
-launch().catch(() => { root.classList.add("offline"); });
+const root = document.getElementById("globe");
+const data = document.getElementById("telemetry-data");
+if (root && data) {
+  mountGlobe(root, JSON.parse(data.textContent), document.getElementById("globe-tooltip"))
+    .catch(() => { root.classList.add("offline"); });
+}
 </script></body></html>

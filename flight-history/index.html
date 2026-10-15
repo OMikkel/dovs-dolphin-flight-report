@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dolphin · Flight history</title>
+  <link rel="stylesheet" href="history.css">
+  <script src="history.js" defer></script>
+</head>
+<body class="history-page">
+  <main class="history-shell">
+    <nav class="history-topbar" aria-label="Main navigation">
+      <a class="history-brand" href="../flight-report/">◈ DOLPHIN <span>/</span> FLIGHT RECORDER</a>
+      <a class="history-latest" href="../flight-report/">LATEST FLIGHT ↗</a>
+    </nav>
+    <header class="history-hero">
+      <div class="history-intro-panel">
+        <p class="history-eyebrow">◈ DOLPHIN / FLIGHT SEQUENCE</p>
+        <h1 class="history-phase-panel"><span class="history-phase-heading"><span id="phase-heading-label">PHASE</span><strong id="phase-heading-number">—</strong><small id="phase-heading-total">/ 05</small></span><em>Flight history.</em></h1>
+        <p class="history-intro">Every signal is a saved flight. Select a phase or explore the globe to revisit the source, the tests, and every step of the mission.</p>
+        <div class="history-signal"><span></span><strong id="flight-count">CONNECTING TO THE FLIGHT RECORDER</strong></div>
+        <div class="history-flight-plan">
+          <div class="history-phase-topline"><span>FLIGHT SEQUENCE</span><button id="all-phases" type="button" aria-pressed="true">ALL FLIGHTS ↗</button></div>
+          <nav class="history-phase-strip" aria-label="Filter flight history by phase">
+            <button type="button" data-phase="1" aria-pressed="false"><small>PHASE</small><strong>01</strong><span>— FLIGHTS</span></button>
+            <button type="button" data-phase="2" aria-pressed="false"><small>PHASE</small><strong>02</strong><span>— FLIGHTS</span></button>
+            <button type="button" data-phase="3" aria-pressed="false"><small>PHASE</small><strong>03</strong><span>— FLIGHTS</span></button>
+            <button type="button" data-phase="4" aria-pressed="false"><small>PHASE</small><strong>04</strong><span>— FLIGHTS</span></button>
+            <button type="button" data-phase="5" aria-pressed="false"><small>PHASE</small><strong>05</strong><span>— FLIGHTS</span></button>
+          </nav>
+          <div class="history-finishing-phase"><span>↗</span><strong>FINISHING PHASE</strong><small>AFTER 05 · BEYOND THE FIVE PHASES</small></div>
+        </div>
+      </div>
+      <div class="history-visual">
+        <div class="history-orbital-label"><strong>ORBITAL TELEMETRY</strong><small id="globe-signal-count">CONNECTING / FLIGHT ARCHIVE</small></div>
+        <div id="globe" class="history-globe" aria-label="Interactive globe of archived flight reports"><div class="history-globe-fallback"></div></div>
+        <div id="globe-tooltip" hidden></div>
+        <div class="history-orbital-label bottom"><strong>DRAG TO ROTATE</strong><small>HOVER A SIGNAL / CLICK TO OPEN A FLIGHT</small></div>
+      </div>
+    </header>
+    <section class="history-stats" aria-label="Archive summary">
+      <div><small>Flights archived</small><strong id="archive-total">—</strong></div>
+      <div class="history-clean"><small>Clean flights</small><strong id="archive-passed">—</strong></div>
+      <div class="history-failures"><small>Failed flights</small><strong id="archive-failed">—</strong></div>
+      <div><small>Phases flown</small><strong id="archive-phases">—</strong></div>
+    </section>
+    <section aria-labelledby="logbook-heading">
+      <div class="history-section-heading"><h2 id="logbook-heading">The flight log</h2><span>NEWEST FIRST / ALL TIMES UTC</span></div>
+      <form id="history-filters" class="history-filters" role="search">
+        <label>Phase<select id="phase-filter" name="phase"><option value="">All phases</option></select></label>
+        <label>Result<select id="result-filter" name="status"><option value="">All results</option><option value="passed">Passed</option><option value="failed">Failed</option></select></label>
+        <label class="history-search">Find a flight<input id="flight-search" name="q" type="search" placeholder="Branch or commit…" autocomplete="off"></label>
+        <button type="reset">Reset filters ↺</button>
+      </form>
+      <p id="history-status" class="history-status" role="status">Loading the flight log…</p>
+      <div id="history-runs" class="history-runs"></div>
+      <div id="history-empty" class="history-empty" hidden><strong>No flights on this route.</strong><p>Try another phase or clear your filters.</p></div>
+      <noscript><p class="history-empty">Enable JavaScript to filter and browse the flight log. <a href="../flight-report/">Open the latest report ↗</a></p></noscript>
+    </section>
+    <footer class="history-footer"><span>DOLPHIN / FLIGHT RECORDER</span><span>ORIGINAL REPORTS · SOURCES · LOGS · TRACES</span></footer>
+  </main>
+</body>
+</html>
