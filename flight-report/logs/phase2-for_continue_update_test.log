@@ -1,7 +1,6 @@
 
 --------------------
 🚂 | Running 'for continue runs the update before rechecking the condition' ...
-Program returned: <RESULT__START>3<RESULT__END>
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'for continue runs the update before rechecking the condition' passed!
 

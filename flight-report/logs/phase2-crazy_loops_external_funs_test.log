@@ -1,16 +1,6 @@
 
 --------------------
 🚂 | Running 'crazy test with loops and ext fun call' ...
-1
-3
-5
-7
-10
-19
-25
-33
-43
-Program returned: <RESULT__START>43<RESULT__END>
 DOLPHIN_TEST_RESULT expected=43 actual=43
 ✅ | Test 'crazy test with loops and ext fun call' passed!
 
