@@ -1,17 +1,7 @@
 
 --------------------
 🚂 | Running 'while continue rechecks the condition instead of breaking' ...
-DOLPHIN_TEST_RESULT expected=3 actual=rejected
-Source program:
-var i = 0;
-while (i < 3) {
-    i = i + 1;
-    continue;
-}
-return i;
-
-
-❌ | Test 'while continue rechecks the condition instead of breaking' failed unexpectedly:
---------------------
-src/tests/phase3/while_continue_test.dlp:4:5: Parser error: Unexpected token "continue"
+Program returned: <RESULT__START>3<RESULT__END>
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test 'while continue rechecks the condition instead of breaking' passed!
 

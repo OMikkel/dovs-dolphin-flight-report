@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "latest_id": "20261015T183847Z-phase-3-f04295db935a5350",
+  "latest_id": "20261015T185547Z-phase-3-4c32e45f3331f824",
   "reports": [
+    {
+      "id": "20261015T185547Z-phase-3-4c32e45f3331f824",
+      "path": "runs/20261015T185547Z-phase-3-4c32e45f3331f824/",
+      "phase": "3",
+      "generated_at": "2026-10-15T18:55:47.399317+00:00",
+      "branch": "phase3",
+      "commit": "1dbe3880695d6c831e86cbc126ac9bca118081db",
+      "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/1dbe3880695d6c831e86cbc126ac9bca118081db",
+      "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/658507",
+      "total": 28,
+      "passed": 28,
+      "failed": 0,
+      "duration_seconds": 4.25
+    },
     {
       "id": "20261015T183847Z-phase-3-f04295db935a5350",
       "path": "runs/20261015T183847Z-phase-3-f04295db935a5350/",
