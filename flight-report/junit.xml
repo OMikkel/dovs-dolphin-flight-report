@@ -1,1122 +1,203 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="Dolphin phase 3" tests="28" failures="4" time="4.089"><testcase classname="phase3" name="break for loop" file="src/tests/phase3/break_for_loop_test.json" time="0.234"><system-out>
+<testsuite name="Dolphin phase 3" tests="28" failures="0" time="4.254"><testcase classname="phase3" name="break for loop" file="src/tests/phase3/break_for_loop_test.json" time="0.241"><system-out>
 --------------------
 🚂 | Running 'break for loop' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'break for loop' passed!
 
-</system-out></testcase><testcase classname="phase3" name="break_outside_loop_test" file="src/tests/phase3/break_outside_loop_test.json" time="0.095"><system-out>
+</system-out></testcase><testcase classname="phase3" name="break_outside_loop_test" file="src/tests/phase3/break_outside_loop_test.json" time="0.1"><system-out>
 --------------------
 🚂 | Running 'break_outside_loop_test' ...
 Error: ([36m"src/tests/phase3/break_outside_loop_test.dlp" @ 1:0-6[0m): Invalid loop-exiting break outside of a loop.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'break_outside_loop_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="continue_outside_loop_test" file="src/tests/phase3/continue_outside_loop_test.json" time="0.104"><system-out>
+</system-out></testcase><testcase classname="phase3" name="continue_outside_loop_test" file="src/tests/phase3/continue_outside_loop_test.json" time="0.116"><system-out>
 --------------------
 🚂 | Running 'continue_outside_loop_test' ...
 Error: ([36m"src/tests/phase3/continue_outside_loop_test.dlp" @ 1:0-9[0m): Invalid loop-exiting continue outside of a loop.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'continue_outside_loop_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="crazy test with loops and ext fun call" file="src/tests/phase3/crazy_loops_external_funs_test.json" time="0.203"><failure message="❌ | Test 'crazy test with loops and ext fun call' failed unexpectedly:&#10;src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token &quot;=&quot;">
+</system-out></testcase><testcase classname="phase3" name="crazy test with loops and ext fun call" file="src/tests/phase3/crazy_loops_external_funs_test.json" time="0.254"><system-out>
 --------------------
 🚂 | Running 'crazy test with loops and ext fun call' ...
-DOLPHIN_TEST_RESULT expected=43 actual=rejected
-Source program:
-var x = 0;
-for (var i = 1; i &lt;= 100; i = i+1) {
-    while (true) { 
-        break;
-    }
-    for (var j = 0; i &lt; 10; j = j+1) {
-        i = i + j/5;
-        x = x + i;
-        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
-    }
-}
-return x;
+1
+3
+5
+7
+10
+19
+25
+33
+43
+Program returned: &lt;RESULT__START&gt;43&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=43 actual=43
+✅ | Test 'crazy test with loops and ext fun call' passed!
 
-❌ | Test 'crazy test with loops and ext fun call' failed unexpectedly:
---------------------
-src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'crazy test with loops and ext fun call' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now FOR (11-14)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (FOR) to state 103
-State 103:
-Lookahead token is now LPAREN (15-16)
-Shifting (LPAREN) to state 104
-State 104:
-Lookahead token is now VAR (16-19)
-Shifting (VAR) to state 105
-State 105:
-Lookahead token is now IDENT (20-21)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (22-23)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (24-25)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (25-26)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 106:
-Reducing production option(for_init) -&gt; VAR declaration_block
-State 107:
-Shifting (SEMICOLON) to state 108
-State 108:
-Lookahead token is now IDENT (27-28)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now LE (29-31)
-Reducing production expr_base -&gt; IDENT
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Shifting (LE) to state 38
-State 38:
-Lookahead token is now INT_LIT (32-35)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (35-36)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 39:
-Reducing production expr_base -&gt; expr LE expr
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Reducing production option(expr) -&gt; expr
-State 109:
-Shifting (SEMICOLON) to state 110
-State 110:
-Lookahead token is now IDENT (37-38)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (39-40)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=43 actual=rejected
-Source program:
-var x = 0;
-for (var i = 1; i &lt;= 100; i = i+1) {
-    while (true) { 
-        break;
-    }
-    for (var j = 0; i &lt; 10; j = j+1) {
-        i = i + j/5;
-        x = x + i;
-        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
-    }
-}
-return x;
-
-❌ | Test 'crazy test with loops and ext fun call' failed unexpectedly:
---------------------
-src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token "="
-
-</failure><system-out>
---------------------
-🚂 | Running 'crazy test with loops and ext fun call' ...
-DOLPHIN_TEST_RESULT expected=43 actual=rejected
-Source program:
-var x = 0;
-for (var i = 1; i &lt;= 100; i = i+1) {
-    while (true) { 
-        break;
-    }
-    for (var j = 0; i &lt; 10; j = j+1) {
-        i = i + j/5;
-        x = x + i;
-        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
-    }
-}
-return x;
-
-❌ | Test 'crazy test with loops and ext fun call' failed unexpectedly:
---------------------
-src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'crazy test with loops and ext fun call' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now FOR (11-14)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (FOR) to state 103
-State 103:
-Lookahead token is now LPAREN (15-16)
-Shifting (LPAREN) to state 104
-State 104:
-Lookahead token is now VAR (16-19)
-Shifting (VAR) to state 105
-State 105:
-Lookahead token is now IDENT (20-21)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (22-23)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (24-25)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (25-26)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 106:
-Reducing production option(for_init) -&gt; VAR declaration_block
-State 107:
-Shifting (SEMICOLON) to state 108
-State 108:
-Lookahead token is now IDENT (27-28)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now LE (29-31)
-Reducing production expr_base -&gt; IDENT
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Shifting (LE) to state 38
-State 38:
-Lookahead token is now INT_LIT (32-35)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (35-36)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 39:
-Reducing production expr_base -&gt; expr LE expr
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Reducing production option(expr) -&gt; expr
-State 109:
-Shifting (SEMICOLON) to state 110
-State 110:
-Lookahead token is now IDENT (37-38)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (39-40)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=43 actual=rejected
-Source program:
-var x = 0;
-for (var i = 1; i &lt;= 100; i = i+1) {
-    while (true) { 
-        break;
-    }
-    for (var j = 0; i &lt; 10; j = j+1) {
-        i = i + j/5;
-        x = x + i;
-        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
-    }
-}
-return x;
-
-❌ | Test 'crazy test with loops and ext fun call' failed unexpectedly:
---------------------
-src/tests/phase3/crazy_loops_external_funs_test.dlp:2:29: Parser error: Unexpected token "="
-
-</system-out></testcase><testcase classname="phase3" name="empty/infinite for-loop with instant return" file="src/tests/phase3/empty_for_loop_test.json" time="0.238"><system-out>
+</system-out></testcase><testcase classname="phase3" name="empty/infinite for-loop with instant return" file="src/tests/phase3/empty_for_loop_test.json" time="0.24"><system-out>
 --------------------
 🚂 | Running 'empty/infinite for-loop with instant return' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'empty/infinite for-loop with instant return' passed!
 
-</system-out></testcase><testcase classname="phase3" name="for continue runs the update before rechecking the condition" file="src/tests/phase3/for_continue_update_test.json" time="0.218"><failure message="❌ | Test 'for continue runs the update before rechecking the condition' failed unexpectedly:&#10;src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token &quot;=&quot;">
+</system-out></testcase><testcase classname="phase3" name="for continue runs the update before rechecking the condition" file="src/tests/phase3/for_continue_update_test.json" time="0.234"><system-out>
 --------------------
 🚂 | Running 'for continue runs the update before rechecking the condition' ...
-DOLPHIN_TEST_RESULT expected=3 actual=rejected
-Source program:
-var i = 0, updates = 0;
-for (; i &lt; 3; updates = updates + 1) {
-    i = i + 1;
-    continue;
-}
-return updates;
+Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test 'for continue runs the update before rechecking the condition' passed!
 
-
-❌ | Test 'for continue runs the update before rechecking the condition' failed unexpectedly:
---------------------
-src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'for continue runs the update before rechecking the condition' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now COMMA (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Shifting (COMMA) to state 72
-State 72:
-Lookahead token is now IDENT (11-18)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (19-20)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (21-22)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (22-23)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 73:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration COMMA separated_nonempty_list(COMMA,single_declaration)
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now FOR (24-27)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (FOR) to state 103
-State 103:
-Lookahead token is now LPAREN (28-29)
-Shifting (LPAREN) to state 104
-State 104:
-Lookahead token is now SEMICOLON (29-30)
-Reducing production option(for_init) -&gt;
-State 107:
-Shifting (SEMICOLON) to state 108
-State 108:
-Lookahead token is now IDENT (31-32)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now LT (33-34)
-Reducing production expr_base -&gt; IDENT
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Shifting (LT) to state 34
-State 34:
-Lookahead token is now INT_LIT (35-36)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (36-37)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 35:
-Reducing production expr_base -&gt; expr LT expr
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Reducing production option(expr) -&gt; expr
-State 109:
-Shifting (SEMICOLON) to state 110
-State 110:
-Lookahead token is now IDENT (38-45)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (46-47)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=3 actual=rejected
-Source program:
-var i = 0, updates = 0;
-for (; i &lt; 3; updates = updates + 1) {
-    i = i + 1;
-    continue;
-}
-return updates;
-
-
-❌ | Test 'for continue runs the update before rechecking the condition' failed unexpectedly:
---------------------
-src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token "="
-
-</failure><system-out>
---------------------
-🚂 | Running 'for continue runs the update before rechecking the condition' ...
-DOLPHIN_TEST_RESULT expected=3 actual=rejected
-Source program:
-var i = 0, updates = 0;
-for (; i &lt; 3; updates = updates + 1) {
-    i = i + 1;
-    continue;
-}
-return updates;
-
-
-❌ | Test 'for continue runs the update before rechecking the condition' failed unexpectedly:
---------------------
-src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'for continue runs the update before rechecking the condition' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now COMMA (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Shifting (COMMA) to state 72
-State 72:
-Lookahead token is now IDENT (11-18)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (19-20)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (21-22)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (22-23)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 73:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration COMMA separated_nonempty_list(COMMA,single_declaration)
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now FOR (24-27)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (FOR) to state 103
-State 103:
-Lookahead token is now LPAREN (28-29)
-Shifting (LPAREN) to state 104
-State 104:
-Lookahead token is now SEMICOLON (29-30)
-Reducing production option(for_init) -&gt;
-State 107:
-Shifting (SEMICOLON) to state 108
-State 108:
-Lookahead token is now IDENT (31-32)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now LT (33-34)
-Reducing production expr_base -&gt; IDENT
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Shifting (LT) to state 34
-State 34:
-Lookahead token is now INT_LIT (35-36)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (36-37)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 35:
-Reducing production expr_base -&gt; expr LT expr
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Reducing production option(expr) -&gt; expr
-State 109:
-Shifting (SEMICOLON) to state 110
-State 110:
-Lookahead token is now IDENT (38-45)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (46-47)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=3 actual=rejected
-Source program:
-var i = 0, updates = 0;
-for (; i &lt; 3; updates = updates + 1) {
-    i = i + 1;
-    continue;
-}
-return updates;
-
-
-❌ | Test 'for continue runs the update before rechecking the condition' failed unexpectedly:
---------------------
-src/tests/phase3/for_continue_update_test.dlp:2:23: Parser error: Unexpected token "="
-
-</system-out></testcase><testcase classname="phase3" name="for_init_scope_escape_test" file="src/tests/phase3/for_init_scope_escape_test.json" time="0.106"><system-out>
+</system-out></testcase><testcase classname="phase3" name="for_init_scope_escape_test" file="src/tests/phase3/for_init_scope_escape_test.json" time="0.1"><system-out>
 --------------------
 🚂 | Running 'for_init_scope_escape_test' ...
-src/tests/phase3/for_init_scope_escape_test.dlp:1:41: Parser error: Unexpected token "="
+Error: ([36m"src/tests/phase3/for_init_scope_escape_test.dlp" @ 4:12-17[0m): Unbound identifier: limit
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_init_scope_escape_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="for_non_boolean_condition_test" file="src/tests/phase3/for_non_boolean_condition_test.json" time="0.095"><system-out>
+</system-out></testcase><testcase classname="phase3" name="for_non_boolean_condition_test" file="src/tests/phase3/for_non_boolean_condition_test.json" time="0.1"><system-out>
 --------------------
 🚂 | Running 'for_non_boolean_condition_test' ...
-src/tests/phase3/for_non_boolean_condition_test.dlp:1:26: Parser error: Unexpected token "="
+Error: ([36m"src/tests/phase3/for_non_boolean_condition_test.dlp" @ 1:0-3:1[0m): Type mismatch: expected bool but found int.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_non_boolean_condition_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="for_update_type_mismatch_test" file="src/tests/phase3/for_update_type_mismatch_test.json" time="0.11"><system-out>
+</system-out></testcase><testcase classname="phase3" name="for_update_type_mismatch_test" file="src/tests/phase3/for_update_type_mismatch_test.json" time="0.1"><system-out>
 --------------------
 🚂 | Running 'for_update_type_mismatch_test' ...
-src/tests/phase3/for_update_type_mismatch_test.dlp:1:26: Parser error: Unexpected token "="
+Error: ([36m"src/tests/phase3/for_update_type_mismatch_test.dlp" @ 1:23-31[0m): Type mismatch: expected int but found bool.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_update_type_mismatch_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects an out-of-range integer literal" file="src/tests/phase3/lexer_integer_overflow_test.json" time="0.095"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects an out-of-range integer literal" file="src/tests/phase3/lexer_integer_overflow_test.json" time="0.096"><system-out>
 --------------------
 🚂 | Running 'lexer rejects an out-of-range integer literal' ...
 src/tests/phase3/lexer_integer_overflow_test.dlp:1:8: Lexer error: Integer literal out of range: 999999999999999999999999999999999999
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects an out-of-range integer literal' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects a single ampersand" file="src/tests/phase3/lexer_single_ampersand_test.json" time="0.104"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects a single ampersand" file="src/tests/phase3/lexer_single_ampersand_test.json" time="0.106"><system-out>
 --------------------
 🚂 | Running 'lexer rejects a single ampersand' ...
 src/tests/phase3/lexer_single_ampersand_test.dlp:1:13: Lexer error: Unexpected character: &amp;
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects a single ampersand' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects a single pipe" file="src/tests/phase3/lexer_single_pipe_test.json" time="0.094"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects a single pipe" file="src/tests/phase3/lexer_single_pipe_test.json" time="0.1"><system-out>
 --------------------
 🚂 | Running 'lexer rejects a single pipe' ...
 src/tests/phase3/lexer_single_pipe_test.dlp:1:13: Lexer error: Unexpected character: |
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects a single pipe' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects an unexpected character" file="src/tests/phase3/lexer_unexpected_character_test.json" time="0.117"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects an unexpected character" file="src/tests/phase3/lexer_unexpected_character_test.json" time="0.098"><system-out>
 --------------------
 🚂 | Running 'lexer rejects an unexpected character' ...
 src/tests/phase3/lexer_unexpected_character_test.dlp:1:9: Lexer error: Unexpected character: @
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects an unexpected character' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects an unterminated block comment" file="src/tests/phase3/lexer_unterminated_comment_test.json" time="0.099"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects an unterminated block comment" file="src/tests/phase3/lexer_unterminated_comment_test.json" time="0.102"><system-out>
 --------------------
 🚂 | Running 'lexer rejects an unterminated block comment' ...
 src/tests/phase3/lexer_unterminated_comment_test.dlp:3:1: Lexer error: Unterminated comment
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects an unterminated block comment' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="multi_variables_forward_reference_test" file="src/tests/phase3/multi_variables_forward_reference_test.json" time="0.094"><system-out>
+</system-out></testcase><testcase classname="phase3" name="multi_variables_forward_reference_test" file="src/tests/phase3/multi_variables_forward_reference_test.json" time="0.095"><system-out>
 --------------------
 🚂 | Running 'multi_variables_forward_reference_test' ...
 Error: ([36m"src/tests/phase3/multi_variables_forward_reference_test.dlp" @ 1:12-18[0m): Unbound identifier: second
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'multi_variables_forward_reference_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="multiple lines multiples variables" file="src/tests/phase3/multi_variables_normal_test.json" time="0.239"><system-out>
+</system-out></testcase><testcase classname="phase3" name="multiple lines multiples variables" file="src/tests/phase3/multi_variables_normal_test.json" time="0.244"><system-out>
 --------------------
 🚂 | Running 'multiple lines multiples variables' ...
 Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'multiple lines multiples variables' passed!
 
-</system-out></testcase><testcase classname="phase3" name="ONE LINE multiples variables" file="src/tests/phase3/multi_variables_oneline_test.json" time="0.251"><system-out>
+</system-out></testcase><testcase classname="phase3" name="ONE LINE multiples variables" file="src/tests/phase3/multi_variables_oneline_test.json" time="0.233"><system-out>
 --------------------
 🚂 | Running 'ONE LINE multiples variables' ...
 Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'ONE LINE multiples variables' passed!
 
-</system-out></testcase><testcase classname="phase3" name="multi_variables_type_mismatch_test" file="src/tests/phase3/multi_variables_type_mismatch_test.json" time="0.101"><system-out>
+</system-out></testcase><testcase classname="phase3" name="multi_variables_type_mismatch_test" file="src/tests/phase3/multi_variables_type_mismatch_test.json" time="0.111"><system-out>
 --------------------
 🚂 | Running 'multi_variables_type_mismatch_test' ...
 Error: ([36m"src/tests/phase3/multi_variables_type_mismatch_test.dlp" @ 1:11-25[0m): Type mismatch: expected bool but found int.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'multi_variables_type_mismatch_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed loop body" file="src/tests/phase3/parser_missing_brace_test.json" time="0.106"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed loop body" file="src/tests/phase3/parser_missing_brace_test.json" time="0.103"><system-out>
 --------------------
 🚂 | Running 'parser rejects an unclosed loop body' ...
 src/tests/phase3/parser_missing_brace_test.dlp:2:1: Parser error: Unexpected end of file
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects an unclosed loop body' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects a missing variable initializer" file="src/tests/phase3/parser_missing_initializer_test.json" time="0.108"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects a missing variable initializer" file="src/tests/phase3/parser_missing_initializer_test.json" time="0.107"><system-out>
 --------------------
 🚂 | Running 'parser rejects a missing variable initializer' ...
 src/tests/phase3/parser_missing_initializer_test.dlp:1:9: Parser error: Unexpected token ";"
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects a missing variable initializer' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects a missing binary operand" file="src/tests/phase3/parser_missing_operand_test.json" time="0.102"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects a missing binary operand" file="src/tests/phase3/parser_missing_operand_test.json" time="0.096"><system-out>
 --------------------
 🚂 | Running 'parser rejects a missing binary operand' ...
 src/tests/phase3/parser_missing_operand_test.dlp:1:12: Parser error: Unexpected token ";"
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects a missing binary operand' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed condition parenthesis" file="src/tests/phase3/parser_missing_parenthesis_test.json" time="0.105"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed condition parenthesis" file="src/tests/phase3/parser_missing_parenthesis_test.json" time="0.104"><system-out>
 --------------------
 🚂 | Running 'parser rejects an unclosed condition parenthesis' ...
 src/tests/phase3/parser_missing_parenthesis_test.dlp:1:10: Parser error: Unexpected token "{"
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects an unclosed condition parenthesis' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects a missing return semicolon" file="src/tests/phase3/parser_missing_semicolon_test.json" time="0.098"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects a missing return semicolon" file="src/tests/phase3/parser_missing_semicolon_test.json" time="0.101"><system-out>
 --------------------
 🚂 | Running 'parser rejects a missing return semicolon' ...
 src/tests/phase3/parser_missing_semicolon_test.dlp:2:1: Parser error: Unexpected end of file
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects a missing return semicolon' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="return_assignment_expr_test" file="src/tests/phase3/return_assignment_expr_test.json" time="0.214"><failure message="❌ | Test 'return_assignment_expr_test' failed unexpectedly:&#10;src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token &quot;=&quot;">
+</system-out></testcase><testcase classname="phase3" name="return_assignment_expr_test" file="src/tests/phase3/return_assignment_expr_test.json" time="0.238"><system-out>
 --------------------
 🚂 | Running 'return_assignment_expr_test' ...
-DOLPHIN_TEST_RESULT expected=2 actual=rejected
-Source program:
-var x = 1;
-return x = x+1;
+Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test 'return_assignment_expr_test' passed!
 
-❌ | Test 'return_assignment_expr_test' failed unexpectedly:
---------------------
-src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'return_assignment_expr_test' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now RETURN (11-17)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (RETURN) to state 77
-State 77:
-Lookahead token is now IDENT (18-19)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (20-21)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=2 actual=rejected
-Source program:
-var x = 1;
-return x = x+1;
-
-❌ | Test 'return_assignment_expr_test' failed unexpectedly:
---------------------
-src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token "="
-
-</failure><system-out>
---------------------
-🚂 | Running 'return_assignment_expr_test' ...
-DOLPHIN_TEST_RESULT expected=2 actual=rejected
-Source program:
-var x = 1;
-return x = x+1;
-
-❌ | Test 'return_assignment_expr_test' failed unexpectedly:
---------------------
-src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'return_assignment_expr_test' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now RETURN (11-17)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (RETURN) to state 77
-State 77:
-Lookahead token is now IDENT (18-19)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (20-21)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=2 actual=rejected
-Source program:
-var x = 1;
-return x = x+1;
-
-❌ | Test 'return_assignment_expr_test' failed unexpectedly:
---------------------
-src/tests/phase3/return_assignment_expr_test.dlp:2:10: Parser error: Unexpected token "="
-
-</system-out></testcase><testcase classname="phase3" name="scoping for loop" file="src/tests/phase3/scoping_for_loop_test.json" time="0.194"><failure message="❌ | Test 'scoping for loop' failed unexpectedly:&#10;src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token &quot;=&quot;">
+</system-out></testcase><testcase classname="phase3" name="scoping for loop" file="src/tests/phase3/scoping_for_loop_test.json" time="0.24"><system-out>
 --------------------
 🚂 | Running 'scoping for loop' ...
-DOLPHIN_TEST_RESULT expected=9 actual=rejected
-Source program:
-var x = 0; 
-for (var i = 0; i &lt; 5; i = i+1) {
-    i = i + 1;
-    x = x + i;
-}
-return x;
+Program returned: &lt;RESULT__START&gt;9&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=9 actual=9
+✅ | Test 'scoping for loop' passed!
 
-❌ | Test 'scoping for loop' failed unexpectedly:
---------------------
-src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'scoping for loop' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now FOR (12-15)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (FOR) to state 103
-State 103:
-Lookahead token is now LPAREN (16-17)
-Shifting (LPAREN) to state 104
-State 104:
-Lookahead token is now VAR (17-20)
-Shifting (VAR) to state 105
-State 105:
-Lookahead token is now IDENT (21-22)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (23-24)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (25-26)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (26-27)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 106:
-Reducing production option(for_init) -&gt; VAR declaration_block
-State 107:
-Shifting (SEMICOLON) to state 108
-State 108:
-Lookahead token is now IDENT (28-29)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now LT (30-31)
-Reducing production expr_base -&gt; IDENT
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Shifting (LT) to state 34
-State 34:
-Lookahead token is now INT_LIT (32-33)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (33-34)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 35:
-Reducing production expr_base -&gt; expr LT expr
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Reducing production option(expr) -&gt; expr
-State 109:
-Shifting (SEMICOLON) to state 110
-State 110:
-Lookahead token is now IDENT (35-36)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (37-38)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=9 actual=rejected
-Source program:
-var x = 0; 
-for (var i = 0; i &lt; 5; i = i+1) {
-    i = i + 1;
-    x = x + i;
-}
-return x;
-
-❌ | Test 'scoping for loop' failed unexpectedly:
---------------------
-src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token "="
-
-</failure><system-out>
---------------------
-🚂 | Running 'scoping for loop' ...
-DOLPHIN_TEST_RESULT expected=9 actual=rejected
-Source program:
-var x = 0; 
-for (var i = 0; i &lt; 5; i = i+1) {
-    i = i + 1;
-    x = x + i;
-}
-return x;
-
-❌ | Test 'scoping for loop' failed unexpectedly:
---------------------
-src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token "="
-
-
-
---- Menhir traced rerun ---
-Traced rerun exited with status 1 (original verdict retained)
-
-
---------------------
-🚂 | Running 'scoping for loop' ...
-State 0:
-Lookahead token is now VAR (0-3)
-Shifting (VAR) to state 63
-State 63:
-Lookahead token is now IDENT (4-5)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (6-7)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (8-9)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (9-10)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 75:
-Shifting (SEMICOLON) to state 76
-State 76:
-Lookahead token is now FOR (12-15)
-Reducing production statement -&gt; VAR declaration_block SEMICOLON
-State 125:
-Shifting (FOR) to state 103
-State 103:
-Lookahead token is now LPAREN (16-17)
-Shifting (LPAREN) to state 104
-State 104:
-Lookahead token is now VAR (17-20)
-Shifting (VAR) to state 105
-State 105:
-Lookahead token is now IDENT (21-22)
-Shifting (IDENT) to state 64
-State 64:
-Lookahead token is now ASSIGN (23-24)
-Reducing production option(preceded(COLON,vtype)) -&gt;
-State 68:
-Shifting (ASSIGN) to state 69
-State 69:
-Lookahead token is now INT_LIT (25-26)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (26-27)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 70:
-Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
-State 71:
-Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
-State 74:
-Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
-State 106:
-Reducing production option(for_init) -&gt; VAR declaration_block
-State 107:
-Shifting (SEMICOLON) to state 108
-State 108:
-Lookahead token is now IDENT (28-29)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now LT (30-31)
-Reducing production expr_base -&gt; IDENT
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Shifting (LT) to state 34
-State 34:
-Lookahead token is now INT_LIT (32-33)
-Shifting (INT_LIT) to state 7
-State 7:
-Lookahead token is now SEMICOLON (33-34)
-Reducing production expr_base -&gt; INT_LIT
-State 20:
-Reducing production expr -&gt; expr_base
-State 35:
-Reducing production expr_base -&gt; expr LT expr
-State 20:
-Reducing production expr -&gt; expr_base
-State 120:
-Reducing production option(expr) -&gt; expr
-State 109:
-Shifting (SEMICOLON) to state 110
-State 110:
-Lookahead token is now IDENT (35-36)
-Shifting (IDENT) to state 8
-State 8:
-Lookahead token is now ASSIGN (37-38)
-Initiating error handling
-DOLPHIN_TEST_RESULT expected=9 actual=rejected
-Source program:
-var x = 0; 
-for (var i = 0; i &lt; 5; i = i+1) {
-    i = i + 1;
-    x = x + i;
-}
-return x;
-
-❌ | Test 'scoping for loop' failed unexpectedly:
---------------------
-src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token "="
-
-</system-out></testcase><testcase classname="phase3" name="while continue rechecks the condition instead of breaking" file="src/tests/phase3/while_continue_test.json" time="0.24"><system-out>
+</system-out></testcase><testcase classname="phase3" name="while continue rechecks the condition instead of breaking" file="src/tests/phase3/while_continue_test.json" time="0.248"><system-out>
 --------------------
 🚂 | Running 'while continue rechecks the condition instead of breaking' ...
 Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'while continue rechecks the condition instead of breaking' passed!
 
-</system-out></testcase><testcase classname="phase3" name="while increment with scope test" file="src/tests/phase3/while_increment_test.json" time="0.229"><system-out>
+</system-out></testcase><testcase classname="phase3" name="while increment with scope test" file="src/tests/phase3/while_increment_test.json" time="0.23"><system-out>
 --------------------
 🚂 | Running 'while increment with scope test' ...
 Program returned: &lt;RESULT__START&gt;6&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=6 actual=6
 ✅ | Test 'while increment with scope test' passed!
 
-</system-out></testcase><testcase classname="phase3" name="while_non_boolean_condition_test" file="src/tests/phase3/while_non_boolean_condition_test.json" time="0.096"><system-out>
+</system-out></testcase><testcase classname="phase3" name="while_non_boolean_condition_test" file="src/tests/phase3/while_non_boolean_condition_test.json" time="0.117"><system-out>
 --------------------
 🚂 | Running 'while_non_boolean_condition_test' ...
 Error: ([36m"src/tests/phase3/while_non_boolean_condition_test.dlp" @ 1:0-3:1[0m): Type mismatch: expected bool but found int.

@@ -1,16 +1,7 @@
 
 --------------------
 🚂 | Running 'scoping for loop' ...
-DOLPHIN_TEST_RESULT expected=9 actual=rejected
-Source program:
-var x = 0; 
-for (var i = 0; i < 5; i = i+1) {
-    i = i + 1;
-    x = x + i;
-}
-return x;
-
-❌ | Test 'scoping for loop' failed unexpectedly:
---------------------
-src/tests/phase3/scoping_for_loop_test.dlp:2:26: Parser error: Unexpected token "="
+Program returned: <RESULT__START>9<RESULT__END>
+DOLPHIN_TEST_RESULT expected=9 actual=9
+✅ | Test 'scoping for loop' passed!
 
