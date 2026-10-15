@@ -1,0 +1,118 @@
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'while continue rechecks the condition instead of breaking' ...
+State 0:
+Lookahead token is now VAR (0-3)
+Shifting (VAR) to state 54
+State 54:
+Lookahead token is now IDENT (4-5)
+Shifting (IDENT) to state 55
+State 55:
+Lookahead token is now ASSIGN (6-7)
+Reducing production option(preceded(COLON,vtype)) ->
+State 59:
+Shifting (ASSIGN) to state 60
+State 60:
+Lookahead token is now INT_LIT (8-9)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (9-10)
+Reducing production expr_base -> INT_LIT
+State 14:
+Reducing production expr -> expr_base
+State 61:
+Reducing production single_declaration -> IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 62:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -> single_declaration
+State 65:
+Reducing production declaration_block -> separated_nonempty_list(COMMA,single_declaration)
+State 66:
+Shifting (SEMICOLON) to state 67
+State 67:
+Lookahead token is now WHILE (11-16)
+Reducing production statement -> VAR declaration_block SEMICOLON
+State 111:
+Shifting (WHILE) to state 1
+State 1:
+Lookahead token is now LPAREN (17-18)
+Shifting (LPAREN) to state 2
+State 2:
+Lookahead token is now IDENT (18-19)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now LT (20-21)
+Reducing production expr_base -> IDENT
+State 14:
+Reducing production expr -> expr_base
+State 51:
+Shifting (LT) to state 28
+State 28:
+Lookahead token is now INT_LIT (22-23)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now RPAREN (23-24)
+Reducing production expr_base -> INT_LIT
+State 14:
+Reducing production expr -> expr_base
+State 29:
+Reducing production expr_base -> expr LT expr
+State 14:
+Reducing production expr -> expr_base
+State 51:
+Shifting (RPAREN) to state 52
+State 52:
+Lookahead token is now LBRACE (25-26)
+Shifting (LBRACE) to state 53
+State 53:
+Lookahead token is now IDENT (31-32)
+Shifting (IDENT) to state 77
+State 77:
+Lookahead token is now ASSIGN (33-34)
+Shifting (ASSIGN) to state 81
+State 81:
+Lookahead token is now IDENT (35-36)
+Shifting (IDENT) to state 8
+State 8:
+Lookahead token is now PLUS (37-38)
+Reducing production expr_base -> IDENT
+State 14:
+Reducing production expr -> expr_base
+State 82:
+Shifting (PLUS) to state 18
+State 18:
+Lookahead token is now INT_LIT (39-40)
+Shifting (INT_LIT) to state 7
+State 7:
+Lookahead token is now SEMICOLON (40-41)
+Reducing production expr_base -> INT_LIT
+State 14:
+Reducing production expr -> expr_base
+State 19:
+Reducing production expr_base -> expr PLUS expr
+State 14:
+Reducing production expr -> expr_base
+State 82:
+Reducing production option(expr_stmt) -> IDENT ASSIGN expr
+State 100:
+Shifting (SEMICOLON) to state 101
+State 101:
+Lookahead token is now CONTINUE (46-54)
+Reducing production statement -> option(expr_stmt) SEMICOLON
+State 115:
+Initiating error handling
+DOLPHIN_TEST_RESULT expected=3 actual=rejected
+Source program:
+var i = 0;
+while (i < 3) {
+    i = i + 1;
+    continue;
+}
+return i;
+
+
+❌ | Test 'while continue rechecks the condition instead of breaking' failed unexpectedly:
+--------------------
+src/tests/phase3/while_continue_test.dlp:4:5: Parser error: Unexpected token "continue"
+
