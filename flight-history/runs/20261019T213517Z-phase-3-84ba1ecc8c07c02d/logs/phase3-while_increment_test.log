@@ -1,0 +1,7 @@
+
+--------------------
+🚂 | Running 'while increment with scope test' ...
+Program returned: <RESULT__START>6<RESULT__END>
+DOLPHIN_TEST_RESULT expected=6 actual=6
+✅ | Test 'while increment with scope test' passed!
+
