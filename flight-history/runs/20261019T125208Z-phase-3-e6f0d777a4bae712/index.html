@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en" class="report-passed"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dolphin · Phase 3 of 5 · compiler flight report</title>
+<style>
+:root{color-scheme:dark;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#070d18;color:#e9f5f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 69% 5%,#123247 0%,transparent 47%),radial-gradient(ellipse at 2% 65%,#11242d 0%,transparent 38%),#070d18}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:linear-gradient(#8bcbdc 1px,transparent 1px),linear-gradient(90deg,#8bcbdc 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}
+main{position:relative;max-width:1240px;margin:auto;padding:35px 36px 90px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #294457;padding-bottom:22px}
+.brand{font-size:13px;letter-spacing:.18em;font-weight:800}.brand span{color:#64f2ce}.topmeta,.eyebrow,.kicker,h2{text-transform:uppercase;letter-spacing:.2em;font-size:11px;color:#8fa9b5}
+.topmeta{text-align:right}.topmeta a{color:#64f2ce;text-decoration:none}.topmeta a:hover,.run-context a:hover{text-decoration:underline}.run-context{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:1px;background:#294457;border:1px solid #294457;margin-top:30px}.run-context>div{min-width:0;background:#0b1926;padding:16px 21px}
+.run-context small{display:block;color:#7e9aa7;text-transform:uppercase;letter-spacing:.18em;font-size:10px;margin-bottom:10px}.run-context strong,.run-context a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#e6f9f5;font-size:14px;font-weight:600;text-decoration:none}.run-context .ref{color:#64f2ce}.hero{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);min-height:650px;align-items:center;position:relative;border-bottom:1px solid #294457;background:radial-gradient(ellipse at 76% 48%,#1741503d,transparent 45%)}
+.intro{position:relative;z-index:2;padding:48px 0}.eyebrow{color:#64f2ce}h1.phase-panel{margin:24px 0 23px;padding:23px 29px 25px;width:max-content;max-width:100%;background:linear-gradient(135deg,#173b4bea,#0a1d2ddf 60%,#081323ed);border:1px solid #3d7c83;border-radius:5px;box-shadow:18px 22px 0 #030b1370,22px 30px 60px #0009,inset 0 1px 22px #3ceaca12;transform:perspective(1000px) rotateY(-7deg) rotateX(2deg);transform-origin:left center;transition:transform .4s,box-shadow .4s}
+h1.phase-panel:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(0deg);box-shadow:8px 13px 0 #030b1370,18px 25px 55px #0009,inset 0 1px 22px #3ceaca12}.phase-heading{display:flex;align-items:baseline;gap:14px;white-space:nowrap;line-height:1}
+.phase-heading span{color:#70b7bd;font-size:13px;font-weight:700;letter-spacing:.22em;align-self:center;writing-mode:vertical-rl;transform:rotate(180deg)}.phase-heading strong{font-size:clamp(108px,12vw,166px);line-height:.85;letter-spacing:-.095em;color:#f0fbfc;text-shadow:0 0 34px #67efdd56}.phase-heading small{color:#64f2ce;font-size:clamp(31px,3vw,48px);letter-spacing:-.04em;font-weight:600}.phase-heading.alternate strong{font-size:clamp(48px,6vw,80px);letter-spacing:-.06em}h1.phase-panel em{display:block;font-style:normal;color:#64f2ce;font-size:clamp(25px,3vw,39px);letter-spacing:-.055em;margin-top:16px;line-height:1.1}
+.subtitle{max-width:430px;font-size:14px;line-height:1.8;color:#a6bdc5}.chip{display:inline-flex;align-items:center;gap:10px;border:1px solid #336454;border-radius:100px;padding:10px 15px;margin-top:22px;color:#a4fbe4;font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:#102c2b}
+.chip:before{content:"";width:7px;height:7px;border-radius:50%;background:#64f2ce;box-shadow:0 0 12px #64f2ce}.chip.alert{border-color:#763b50;color:#ffc1ce;background:#331c2a}.chip.alert:before{background:#ff728d;box-shadow:0 0 12px #ff728d}
+.flight-plan{max-width:435px;margin-top:31px}.flight-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.flight-step{position:relative;padding:12px 11px 11px;background:#101f2e;border:1px solid #2b4652;transform:perspective(350px) rotateX(10deg);box-shadow:4px 6px 0 #030b1359}.flight-step small{display:block;color:#688c99;font-size:8px;letter-spacing:.13em}.flight-step strong{display:block;font-size:19px;color:#9bbbc0;margin-top:5px}.flight-step.past{opacity:.68}.flight-step.current{background:#13463f;border-color:#64f2ce;box-shadow:0 0 25px #41e3bd3a,5px 7px 0 #05221fa6;transform:perspective(350px) translateY(-5px) rotateX(5deg)}.flight-step.current small,.flight-step.current strong{color:#d3fff1}.flight-step.current:before{content:"";position:absolute;top:-4px;left:7px;right:7px;height:2px;background:#64f2ce;box-shadow:0 0 12px #64f2ce}
+.finishing-phase{display:flex;gap:10px;align-items:center;margin-top:16px;padding:10px 13px;border:1px dashed #385562;color:#91aeba;font-size:10px;letter-spacing:.1em}.finishing-phase>span{color:#64f2ce;font-size:17px}.finishing-phase strong{color:#c5e0de;white-space:nowrap}.finishing-phase small{margin-left:auto;color:#6e929f;text-align:right;font-size:9px}
+.visual{position:relative;height:650px;min-width:0;isolation:isolate}.visual:before{content:"";position:absolute;top:21%;left:7%;right:7%;height:70%;border:1px solid #3bafaf4f;border-radius:50%;transform:perspective(700px) rotateX(73deg);box-shadow:0 0 35px #26dbbd29,inset 0 0 65px #42e6ce17;pointer-events:none}.visual:after{content:"";position:absolute;inset:45px;background:linear-gradient(#56d2c38a,#56d2c38a) left top/26px 1px no-repeat,linear-gradient(#56d2c38a,#56d2c38a) left top/1px 26px no-repeat,linear-gradient(#56d2c38a,#56d2c38a) right bottom/26px 1px no-repeat,linear-gradient(#56d2c38a,#56d2c38a) right bottom/1px 26px no-repeat;pointer-events:none;opacity:.65}#globe{position:absolute;inset:0;cursor:grab;touch-action:none}#globe:active{cursor:grabbing}#globe canvas{display:block;width:100%;height:100%}
+.fallback{position:absolute;top:50%;left:50%;width:min(70%,370px);aspect-ratio:1;border:1px solid #3fa9b0;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 35% 32%,#1b6174,#0c2c41 45%,#071726 72%);box-shadow:0 0 0 16px #398ca00d,0 0 90px #37c2d228,inset -28px -15px 35px #0008}
+.fallback:after{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-linear-gradient(0deg,transparent 0 23px,#72e1df38 24px 25px),repeating-linear-gradient(90deg,transparent 0 35px,#72e1df2c 36px 37px);mask-image:radial-gradient(circle,#000 65%,transparent 71%)}#globe.ready .fallback{display:none}
+.orbital-label{position:absolute;z-index:2;left:5%;top:10%;pointer-events:none}.orbital-label.bottom{left:auto;right:5%;top:auto;bottom:10%;text-align:right}.orbital-label strong{display:block;font-size:11px;color:#c5f6ee;letter-spacing:.15em}.orbital-label small{display:block;color:#66919d;margin-top:8px;letter-spacing:.12em;font-size:10px}
+#globe-tooltip{position:absolute;z-index:5;pointer-events:none;max-width:250px;padding:9px 12px;background:#0a1c29ed;border:1px solid #64f2ce;color:#e9f5f6;font-size:11px;line-height:1.5;box-shadow:0 8px 32px #0008}#globe-tooltip[hidden]{display:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#294457;border:1px solid #294457;margin:34px 0 54px}.stat{background:#0b1926;padding:23px 27px}.stat b{display:block;font-size:36px;margin-top:12px;letter-spacing:-.06em}.stat small{color:#90aab9;text-transform:uppercase;letter-spacing:.16em;font-size:10px}
+.stat.fail b,.case.fail .status{color:#ff788f}.stat.pass b,.case.pass .status{color:#64f2ce}h2{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}h2 span{color:#64f2ce}
+.case{border:1px solid #284352;background:#0b1b28b9;margin:8px 0;overflow:hidden;transition:border-color .2s,background .2s}.case:hover{background:#112536}.case[open]{border-color:#64f2ce}.case.fail[open]{border-color:#ff788f}
+summary{cursor:pointer;display:flex;align-items:center;gap:18px;padding:20px;list-style:none}summary::-webkit-details-marker{display:none}summary strong{font-size:13px;font-weight:600}
+.status{font-size:11px;letter-spacing:.1em;min-width:42px}.kind{color:#93d5f3;border:1px solid #31566d;padding:4px 8px;text-transform:uppercase;letter-spacing:.1em;font-size:9px}.kind.negative{color:#fcb8ca;border-color:#73405a}.kind.unknown{color:#829eaf}
+.path{margin-left:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#829eaf;font-size:11px}.time{min-width:70px;text-align:right;color:#9ab3c0;font-size:12px}
+.details{padding:0 20px 20px}a{color:#64f2ce}.outcomes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#294457;border:1px solid #294457;margin-bottom:20px}.outcomes>div{background:#112534;padding:15px 19px}.outcomes small{display:block;color:#90aab9;text-transform:uppercase;letter-spacing:.15em;font-size:10px;margin-bottom:8px}.outcomes strong{font-size:18px}
+.failure-message{color:#ffc1ce;background:#331c2a;border-left:2px solid #ff788f;padding:14px 18px;margin-bottom:20px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.trace{margin-top:20px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail-grid section{min-width:0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;height:30px}.section-head h3{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#90aab9;font-weight:500;margin:0}.section-head a{font-size:10px;white-space:nowrap}
+pre{background:#07111c;padding:20px;overflow:auto;white-space:pre-wrap;word-break:break-word;max-height:500px;font-size:12px;line-height:1.6;margin:0}pre.source{color:#b4f6e1;border-left:2px solid #3cbbab}.empty-source{background:#07111c;color:#7996a5;padding:25px;font-size:12px;font-style:italic}
+footer{border-top:1px solid #294457;padding-top:25px;margin-top:56px;color:#90a4bb;font-size:11px;letter-spacing:.08em}
+.report-failed{background:#16090d;color:#fff0ed}.report-failed body{background:radial-gradient(ellipse at 69% 5%,#63242b 0%,transparent 47%),radial-gradient(ellipse at 2% 65%,#3b151e 0%,transparent 38%),#16090d}
+.report-failed body:before{background-image:linear-gradient(#f59b9b 1px,transparent 1px),linear-gradient(90deg,#f59b9b 1px,transparent 1px)}.report-failed .topbar,.report-failed .hero,.report-failed footer{border-color:#71343d}
+.report-failed .brand span,.report-failed .topmeta a,.report-failed .eyebrow,.report-failed h1.phase-panel em,.report-failed .phase-heading small,.report-failed .run-context .ref,.report-failed h2 span,.report-failed a{color:#ff8d8d}
+.report-failed .topmeta,.report-failed h2,.report-failed .subtitle,.report-failed footer{color:#d3a6aa}.report-failed .hero{background:radial-gradient(ellipse at 76% 48%,#ed4b4930,transparent 45%)}
+.report-failed .run-context,.report-failed .stats{background:#71343d;border-color:#71343d}.report-failed .run-context>div,.report-failed .stat{background:#281217}.report-failed .run-context small,.report-failed .stat small{color:#cc9da3}
+.report-failed h1.phase-panel{background:linear-gradient(135deg,#682b32ed,#35151de8 60%,#210e14ed);border-color:#d15b64;box-shadow:18px 22px 0 #10050870,22px 30px 60px #0009,inset 0 1px 22px #ff6a4b20}
+.report-failed .phase-heading span{color:#ef9b9e}.report-failed .phase-heading strong{color:#fff2eb;text-shadow:0 0 34px #ff655b70}.report-failed .chip.alert{background:#60202b;border-color:#ff6b77;color:#ffe2df;font-weight:800;box-shadow:0 0 28px #ff4b4b24}
+.report-failed .flight-step{background:#301820;border-color:#6f3640}.report-failed .flight-step small,.report-failed .finishing-phase small{color:#bd868e}.report-failed .flight-step strong,.report-failed .finishing-phase{color:#d7a5ab}
+.report-failed .flight-step.current{background:#6a2531;border-color:#ff7b83;box-shadow:0 0 25px #ff4b4b38,5px 7px 0 #240810a6}.report-failed .flight-step.current:before{background:#ff8d8d;box-shadow:0 0 12px #ff8d8d}.report-failed .flight-step.current small,.report-failed .flight-step.current strong,.report-failed .finishing-phase strong{color:#ffe4de}
+.report-failed .finishing-phase{border-color:#71343d}.report-failed .finishing-phase>span{color:#ff8d8d}.report-failed .visual:before{border-color:#ed6b6b70;box-shadow:0 0 35px #ef4e4e32,inset 0 0 65px #ff6c6c20}
+.report-failed .visual:after{background:linear-gradient(#ef8888aa,#ef8888aa) left top/26px 1px no-repeat,linear-gradient(#ef8888aa,#ef8888aa) left top/1px 26px no-repeat,linear-gradient(#ef8888aa,#ef8888aa) right bottom/26px 1px no-repeat,linear-gradient(#ef8888aa,#ef8888aa) right bottom/1px 26px no-repeat}
+.report-failed .orbital-label strong{color:#ffd4cc}.report-failed .orbital-label small{color:#c58891}.report-failed #globe-tooltip{background:#2b1019ed;border-color:#ff8d8d;color:#fff0ed}
+.report-failed .fallback{border-color:#ef8888;background:radial-gradient(circle at 35% 32%,#944149,#491d29 45%,#210e18 72%);box-shadow:0 0 0 16px #e0737312,0 0 90px #ef4e4e40,inset -28px -15px 35px #0008}.report-failed .fallback:after{background:repeating-linear-gradient(0deg,transparent 0 23px,#ffad9c38 24px 25px),repeating-linear-gradient(90deg,transparent 0 35px,#ffad9c2c 36px 37px)}
+.report-failed .stat.fail{background:#5a1d29;box-shadow:inset 0 3px 0 #ff6b77}.report-failed .stat.fail small{color:#ffb8b8}.report-failed .stat.fail b{color:#ff9393}
+.report-failed .case{background:#25151cd9;border-color:#63313d}.report-failed .case:hover{background:#35202a}
+.case.fail{border-color:#dc5263;border-left:5px solid #ff6174;background:linear-gradient(110deg,#571e2cf2,#32141ef2);box-shadow:0 4px 22px #cc203b12}
+.case.fail:hover,.report-failed .case.fail:hover{background:linear-gradient(110deg,#722638,#471b29);border-color:#ff8d9b}.case.fail[open],.report-failed .case.fail[open]{border-color:#ff8d9b;background:#35141f;box-shadow:0 0 0 1px #ff61742b,0 8px 28px #cc203b1c}
+.case.fail>summary{background:#8b25351f}.case.fail summary strong{color:#ffe0df}.case.fail .status{background:#b72e44;border:1px solid #ff8d9b;color:#fff1ed;padding:6px 9px;font-weight:800;text-align:center;letter-spacing:.12em}
+.case.fail .kind{background:#4b1d2d;border-color:#a95166;color:#ffd0d6}.case.fail .path,.case.fail .time,.case.fail .section-head h3,.case.fail .outcomes small{color:#dfa4af}
+.case.fail .outcomes{background:#854052;border-color:#854052}.case.fail .outcomes>div{background:#4a1d2b}.case.fail .outcomes strong{color:#ffe0df}.case.fail pre,.case.fail .empty-source{background:#210e16}.case.fail pre.source{color:#ffe1d4;border-color:#ee7d8f}.case.fail a{color:#ffafad}
+@media(max-width:800px){main{padding:22px 20px 65px}.hero{grid-template-columns:1fr}.intro{padding:55px 0 0}.visual{height:470px;margin-top:-30px}.stats{margin-top:25px}}
+@media(max-width:560px){.topmeta{font-size:9px}.run-context{grid-template-columns:1fr 1fr}.run-context>div:nth-child(2){grid-column:1 / -1;grid-row:2}.run-context strong,.run-context a{font-size:12px}h1.phase-panel{padding:19px 21px}.phase-heading strong{font-size:clamp(88px,26vw,120px)}.phase-heading small{font-size:31px}.visual{height:350px}.visual:after{inset:20px}.finishing-phase{flex-wrap:wrap}.finishing-phase small{width:100%;text-align:left;margin-left:27px}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:16px}summary{flex-wrap:wrap;gap:10px}.path{width:100%;order:5;margin-left:52px}.detail-grid{grid-template-columns:1fr}.orbital-label{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.case,h1.phase-panel{transition:none}}
+</style><link data-flight-history="" rel="stylesheet" href="../../history.css"><script data-flight-history="" src="../../navigation.js" defer></script></head><body><nav id="flight-navigation" class="flight-nav" aria-label="Flight report history" data-history-root="../../" data-run-id="20261019T125208Z-phase-3-e6f0d777a4bae712"><a class="flight-nav-home" href="../../">◈ ALL FLIGHTS</a><span class="flight-nav-current">ARCHIVED FLIGHT <strong>Phase 3</strong></span><div class="flight-nav-links"><a data-flight-direction="older" hidden>← Previous report</a><a data-flight-direction="newer" hidden>Next report →</a><a class="flight-nav-latest" href="../../../flight-report/">Latest report ↗</a></div></nav><main><nav class="topbar"><div class="brand">◈ DOLPHIN <span>/</span> MISSION CONTROL</div><div class="topmeta"><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/663423">VIEW PIPELINE ↗</a></div></nav>
+<section class="run-context" aria-label="Run details"><div><small>Branch / ref</small><strong class="ref">phase3</strong></div>
+<div><small>Report captured · UTC</small><strong>19 Oct 2026 · 12:52:08</strong></div><div><small>Commit</small><strong><a href="https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/48dcd8c4ac43ad6473620bbd8c677b3c0ba0cba3" title="48dcd8c4ac43ad6473620bbd8c677b3c0ba0cba3">48dcd8c4ac43 ↗</a></strong></div></section>
+<header class="hero"><div class="intro"><div class="eyebrow">◈ DOLPHIN / FLIGHT SEQUENCE</div><h1 class="phase-panel"><div class="phase-heading"><span>PHASE</span><strong>03</strong><small>/ 05</small></div><em>Flight report.</em></h1>
+<div class="subtitle">End-to-end tests flown through the Dolphin CLI. Failed source tests include an automatic Menhir traced rerun.</div>
+<div class="chip ">All tests passed / zero failures</div><div class="flight-plan"><div class="flight-steps" aria-label="Phase 3 of 5"><div class="flight-step past"><small>PHASE</small><strong>01</strong></div><div class="flight-step past"><small>PHASE</small><strong>02</strong></div><div class="flight-step current"><small>PHASE</small><strong>03</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>04</strong></div><div class="flight-step upcoming"><small>PHASE</small><strong>05</strong></div></div><div class="finishing-phase"><span>↗</span><strong>FINISHING PHASE</strong><small>AFTER 05 · OUTSIDE THE FIVE PHASES</small></div></div></div>
+<div class="visual"><div class="orbital-label"><strong>ORBITAL TELEMETRY</strong><small>PHASE 03 / 05 / 28 SIGNALS</small></div>
+<div id="globe"><div class="fallback"></div><div id="globe-tooltip" hidden></div></div>
+<div class="orbital-label bottom"><strong>DRAG TO ROTATE</strong><small>HOVER A SIGNAL TO INSPECT</small></div></div></header>
+<section class="stats" aria-label="Test summary"><div class="stat"><small>Total tests</small><b>28</b></div><div class="stat pass"><small>Tests passed</small><b>28</b></div>
+<div class="stat fail"><small>Tests failed</small><b>0</b></div><div class="stat"><small>Mission time</small><b>0.24s</b></div></section>
+<h2>Signal manifest <span>↘ INSPECT EACH FLIGHT</span></h2><details id="test-0" class="case pass"><summary><span class="status">PASS</span><strong>break for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/break_for_loop_test.json</span><span class="time">0.129s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-break_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+for (;;) {
+    break;
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-break_for_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;break for loop&#x27; ...
+Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test &#x27;break for loop&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-1" class="case pass"><summary><span class="status">PASS</span><strong>break_outside_loop_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/break_outside_loop_test.json</span><span class="time">0.016s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-break_outside_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>break;
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-break_outside_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;break_outside_loop_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/break_outside_loop_test.dlp&quot; @ 1:0-6[0m): Invalid loop-exiting break outside of a loop.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;break_outside_loop_test&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-2" class="case pass"><summary><span class="status">PASS</span><strong>continue_outside_loop_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/continue_outside_loop_test.json</span><span class="time">0.015s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-continue_outside_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>continue;
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-continue_outside_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;continue_outside_loop_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/continue_outside_loop_test.dlp&quot; @ 1:0-9[0m): Invalid loop-exiting continue outside of a loop.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;continue_outside_loop_test&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-3" class="case pass"><summary><span class="status">PASS</span><strong>crazy test with loops and ext fun call</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/crazy_loops_external_funs_test.json</span><span class="time">0.145s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>43</strong></div><div><small>Actual</small><strong>43</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-crazy_loops_external_funs_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0;
+for (var i = 1; i &lt;= 100; i = i+1) {
+    while (true) { 
+        break;
+    }
+    for (var j = 0; i &lt; 10; j = j+1) {
+        i = i + j/5;
+        x = x + i;
+        if (x%2 == 1 || x%5 == 1 || x%9 == 1 || x%21 == 1) print_integer(x);
+    }
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-crazy_loops_external_funs_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;crazy test with loops and ext fun call&#x27; ...
+1
+3
+5
+7
+10
+19
+25
+33
+43
+Program returned: &lt;RESULT__START&gt;43&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=43 actual=43
+✅ | Test &#x27;crazy test with loops and ext fun call&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-4" class="case pass"><summary><span class="status">PASS</span><strong>empty/infinite for-loop with instant return</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/empty_for_loop_test.json</span><span class="time">0.135s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>0</strong></div><div><small>Actual</small><strong>0</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-empty_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>for (;;) {
+    return 0;
+}
+return 1;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-empty_for_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;empty/infinite for-loop with instant return&#x27; ...
+Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test &#x27;empty/infinite for-loop with instant return&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-5" class="case pass"><summary><span class="status">PASS</span><strong>for continue runs the update before rechecking the condition</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/for_continue_update_test.json</span><span class="time">0.124s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_continue_update_test.dlp">Download source ↗</a></div><pre class="source"><code>var i = 0, updates = 0;
+for (; i &lt; 3; updates = updates + 1) {
+    i = i + 1;
+    continue;
+}
+return updates;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_continue_update_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;for continue runs the update before rechecking the condition&#x27; ...
+Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test &#x27;for continue runs the update before rechecking the condition&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-6" class="case pass"><summary><span class="status">PASS</span><strong>for_init_scope_escape_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_init_scope_escape_test.json</span><span class="time">0.027s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_init_scope_escape_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0, limit = 2; i &lt; limit; i = i + 1) {
+    break;
+}
+var after = limit;
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_init_scope_escape_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;for_init_scope_escape_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/for_init_scope_escape_test.dlp&quot; @ 4:12-17[0m): Unbound identifier: limit
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;for_init_scope_escape_test&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-7" class="case pass"><summary><span class="status">PASS</span><strong>for_non_boolean_condition_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_non_boolean_condition_test.json</span><span class="time">0.012s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_non_boolean_condition_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0; i + 1; i = i + 1) {
+    break;
+}
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_non_boolean_condition_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;for_non_boolean_condition_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/for_non_boolean_condition_test.dlp&quot; @ 1:0-3:1[0m): Type mismatch: expected bool but found int.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;for_non_boolean_condition_test&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-8" class="case pass"><summary><span class="status">PASS</span><strong>for_update_type_mismatch_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/for_update_type_mismatch_test.json</span><span class="time">0.013s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-for_update_type_mismatch_test.dlp">Download source ↗</a></div><pre class="source"><code>for (var i = 0; i &lt; 2; i = true) {
+    break;
+}
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-for_update_type_mismatch_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;for_update_type_mismatch_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/for_update_type_mismatch_test.dlp&quot; @ 1:23-31[0m): Type mismatch: expected int but found bool.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;for_update_type_mismatch_test&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-9" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an out-of-range integer literal</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_integer_overflow_test.json</span><span class="time">0.015s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_integer_overflow_test.dlp">Download source ↗</a></div><pre class="source"><code>return 999999999999999999999999999999999999;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_integer_overflow_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;lexer rejects an out-of-range integer literal&#x27; ...
+src/tests/phase3/lexer_integer_overflow_test.dlp:1:8: Lexer error: Integer literal out of range: 999999999999999999999999999999999999
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;lexer rejects an out-of-range integer literal&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-10" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects a single ampersand</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_single_ampersand_test.json</span><span class="time">0.013s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_single_ampersand_test.dlp">Download source ↗</a></div><pre class="source"><code>return true &amp; false;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_single_ampersand_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;lexer rejects a single ampersand&#x27; ...
+src/tests/phase3/lexer_single_ampersand_test.dlp:1:13: Lexer error: Unexpected character: &amp;
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;lexer rejects a single ampersand&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-11" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects a single pipe</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_single_pipe_test.json</span><span class="time">0.005s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_single_pipe_test.dlp">Download source ↗</a></div><pre class="source"><code>return true | false;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_single_pipe_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;lexer rejects a single pipe&#x27; ...
+src/tests/phase3/lexer_single_pipe_test.dlp:1:13: Lexer error: Unexpected character: |
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;lexer rejects a single pipe&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-12" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an unexpected character</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_unexpected_character_test.json</span><span class="time">0.008s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_unexpected_character_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = @;
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_unexpected_character_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;lexer rejects an unexpected character&#x27; ...
+src/tests/phase3/lexer_unexpected_character_test.dlp:1:9: Lexer error: Unexpected character: @
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;lexer rejects an unexpected character&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-13" class="case pass"><summary><span class="status">PASS</span><strong>lexer rejects an unterminated block comment</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/lexer_unterminated_comment_test.json</span><span class="time">0.007s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-lexer_unterminated_comment_test.dlp">Download source ↗</a></div><pre class="source"><code>/* This comment never closes
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-lexer_unterminated_comment_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;lexer rejects an unterminated block comment&#x27; ...
+src/tests/phase3/lexer_unterminated_comment_test.dlp:3:1: Lexer error: Unterminated comment
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;lexer rejects an unterminated block comment&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-14" class="case pass"><summary><span class="status">PASS</span><strong>multi_variables_forward_reference_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/multi_variables_forward_reference_test.json</span><span class="time">0.007s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_forward_reference_test.dlp">Download source ↗</a></div><pre class="source"><code>var first = second, second = 2;
+return second;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-multi_variables_forward_reference_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;multi_variables_forward_reference_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/multi_variables_forward_reference_test.dlp&quot; @ 1:12-18[0m): Unbound identifier: second
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;multi_variables_forward_reference_test&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-15" class="case pass"><summary><span class="status">PASS</span><strong>multiple lines multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/multi_variables_normal_test.json</span><span class="time">0.111s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_normal_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1;
+var y = 2;
+var z = 3;
+var a = 4;
+var b = 5;
+return x-y+z-a+b;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-multi_variables_normal_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;multiple lines multiples variables&#x27; ...
+Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test &#x27;multiple lines multiples variables&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-16" class="case pass"><summary><span class="status">PASS</span><strong>ONE LINE multiples variables</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/multi_variables_oneline_test.json</span><span class="time">0.122s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_oneline_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1, y = 2, z = 3, a = 4, b = 5;
+return x-y+z-a+b;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-multi_variables_oneline_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;ONE LINE multiples variables&#x27; ...
+Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test &#x27;ONE LINE multiples variables&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-17" class="case pass"><summary><span class="status">PASS</span><strong>multi_variables_type_mismatch_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/multi_variables_type_mismatch_test.json</span><span class="time">0.007s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-multi_variables_type_mismatch_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1, flag: bool = x, y = 2;
+return y;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-multi_variables_type_mismatch_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;multi_variables_type_mismatch_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/multi_variables_type_mismatch_test.dlp&quot; @ 1:11-25[0m): Type mismatch: expected bool but found int.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;multi_variables_type_mismatch_test&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-18" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects an unclosed loop body</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_brace_test.json</span><span class="time">0.010s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_brace_test.dlp">Download source ↗</a></div><pre class="source"><code>while (true) { break;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_brace_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;parser rejects an unclosed loop body&#x27; ...
+src/tests/phase3/parser_missing_brace_test.dlp:2:1: Parser error: Unexpected end of file
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;parser rejects an unclosed loop body&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-19" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing variable initializer</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_initializer_test.json</span><span class="time">0.009s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_initializer_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = ;
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_initializer_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;parser rejects a missing variable initializer&#x27; ...
+src/tests/phase3/parser_missing_initializer_test.dlp:1:9: Parser error: Unexpected token &quot;;&quot;
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;parser rejects a missing variable initializer&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-20" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing binary operand</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_operand_test.json</span><span class="time">0.004s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_operand_test.dlp">Download source ↗</a></div><pre class="source"><code>return 1 + ;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_operand_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;parser rejects a missing binary operand&#x27; ...
+src/tests/phase3/parser_missing_operand_test.dlp:1:12: Parser error: Unexpected token &quot;;&quot;
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;parser rejects a missing binary operand&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-21" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects an unclosed condition parenthesis</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_parenthesis_test.json</span><span class="time">0.006s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_parenthesis_test.dlp">Download source ↗</a></div><pre class="source"><code>if (true { return 0; }
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_parenthesis_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;parser rejects an unclosed condition parenthesis&#x27; ...
+src/tests/phase3/parser_missing_parenthesis_test.dlp:1:10: Parser error: Unexpected token &quot;{&quot;
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;parser rejects an unclosed condition parenthesis&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-22" class="case pass"><summary><span class="status">PASS</span><strong>parser rejects a missing return semicolon</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/parser_missing_semicolon_test.json</span><span class="time">0.005s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-parser_missing_semicolon_test.dlp">Download source ↗</a></div><pre class="source"><code>return 0
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-parser_missing_semicolon_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;parser rejects a missing return semicolon&#x27; ...
+src/tests/phase3/parser_missing_semicolon_test.dlp:2:1: Parser error: Unexpected end of file
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;parser rejects a missing return semicolon&#x27; failed as expected.
+
+</pre></section></div></div></details>
+<details id="test-23" class="case pass"><summary><span class="status">PASS</span><strong>return_assignment_expr_test</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/return_assignment_expr_test.json</span><span class="time">0.105s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>2</strong></div><div><small>Actual</small><strong>2</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-return_assignment_expr_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 1;
+return x = x+1;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-return_assignment_expr_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;return_assignment_expr_test&#x27; ...
+Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test &#x27;return_assignment_expr_test&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-24" class="case pass"><summary><span class="status">PASS</span><strong>scoping for loop</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/scoping_for_loop_test.json</span><span class="time">0.103s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>9</strong></div><div><small>Actual</small><strong>9</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-scoping_for_loop_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+for (var i = 0; i &lt; 5; i = i+1) {
+    i = i + 1;
+    x = x + i;
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-scoping_for_loop_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;scoping for loop&#x27; ...
+Program returned: &lt;RESULT__START&gt;9&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=9 actual=9
+✅ | Test &#x27;scoping for loop&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-25" class="case pass"><summary><span class="status">PASS</span><strong>while continue rechecks the condition instead of breaking</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/while_continue_test.json</span><span class="time">0.107s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>3</strong></div><div><small>Actual</small><strong>3</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_continue_test.dlp">Download source ↗</a></div><pre class="source"><code>var i = 0;
+while (i &lt; 3) {
+    i = i + 1;
+    continue;
+}
+return i;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-while_continue_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;while continue rechecks the condition instead of breaking&#x27; ...
+Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=3 actual=3
+✅ | Test &#x27;while continue rechecks the condition instead of breaking&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-26" class="case pass"><summary><span class="status">PASS</span><strong>while increment with scope test</strong><span class="kind positive">Positive</span><span class="path">src/tests/phase3/while_increment_test.json</span><span class="time">0.100s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>6</strong></div><div><small>Actual</small><strong>6</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_increment_test.dlp">Download source ↗</a></div><pre class="source"><code>var x = 0; 
+while (x &lt; 5) {
+    x = x + 2;
+}
+return x;</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-while_increment_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;while increment with scope test&#x27; ...
+Program returned: &lt;RESULT__START&gt;6&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=6 actual=6
+✅ | Test &#x27;while increment with scope test&#x27; passed!
+
+</pre></section></div></div></details>
+<details id="test-27" class="case pass"><summary><span class="status">PASS</span><strong>while_non_boolean_condition_test</strong><span class="kind negative">Negative</span><span class="path">src/tests/phase3/while_non_boolean_condition_test.json</span><span class="time">0.004s</span></summary><div class="details"><div class="outcomes"><div><small>Expected</small><strong>Compiler rejection</strong></div><div><small>Actual</small><strong>Compiler rejection</strong></div></div><div class="detail-grid"><section><div class="section-head"><h3>Source program</h3><a href="sources/phase3-while_non_boolean_condition_test.dlp">Download source ↗</a></div><pre class="source"><code>while (1) {
+    break;
+}
+return 0;
+</code></pre></section><section><div class="section-head"><h3>Execution log</h3><a href="logs/phase3-while_non_boolean_condition_test.log">Download log ↗</a></div><pre>
+--------------------
+🚂 | Running &#x27;while_non_boolean_condition_test&#x27; ...
+Error: ([36m&quot;src/tests/phase3/while_non_boolean_condition_test.dlp&quot; @ 1:0-3:1[0m): Type mismatch: expected bool but found int.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test &#x27;while_non_boolean_condition_test&#x27; failed as expected.
+
+</pre></section></div></div></details><footer>DOLPHIN CI / PARALLEL EXECUTION · UP TO 8 WORKERS / <a href="junit.xml">JUNIT XML</a> / <a href="summary.json">JSON TELEMETRY</a></footer>
+</main><script id="telemetry-data" type="application/json">[{"index": 0, "name": "break for loop", "duration": 0.129, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 1, "name": "break_outside_loop_test", "duration": 0.016, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 2, "name": "continue_outside_loop_test", "duration": 0.015, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 3, "name": "crazy test with loops and ext fun call", "duration": 0.145, "failed": false, "kind": "Positive", "expected": "43", "actual": "43"}, {"index": 4, "name": "empty/infinite for-loop with instant return", "duration": 0.135, "failed": false, "kind": "Positive", "expected": "0", "actual": "0"}, {"index": 5, "name": "for continue runs the update before rechecking the condition", "duration": 0.124, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 6, "name": "for_init_scope_escape_test", "duration": 0.027, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 7, "name": "for_non_boolean_condition_test", "duration": 0.012, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 8, "name": "for_update_type_mismatch_test", "duration": 0.013, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 9, "name": "lexer rejects an out-of-range integer literal", "duration": 0.015, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 10, "name": "lexer rejects a single ampersand", "duration": 0.013, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 11, "name": "lexer rejects a single pipe", "duration": 0.005, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 12, "name": "lexer rejects an unexpected character", "duration": 0.008, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 13, "name": "lexer rejects an unterminated block comment", "duration": 0.007, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 14, "name": "multi_variables_forward_reference_test", "duration": 0.007, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 15, "name": "multiple lines multiples variables", "duration": 0.111, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 16, "name": "ONE LINE multiples variables", "duration": 0.122, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 17, "name": "multi_variables_type_mismatch_test", "duration": 0.007, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 18, "name": "parser rejects an unclosed loop body", "duration": 0.01, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 19, "name": "parser rejects a missing variable initializer", "duration": 0.009, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 20, "name": "parser rejects a missing binary operand", "duration": 0.004, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 21, "name": "parser rejects an unclosed condition parenthesis", "duration": 0.006, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 22, "name": "parser rejects a missing return semicolon", "duration": 0.005, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}, {"index": 23, "name": "return_assignment_expr_test", "duration": 0.105, "failed": false, "kind": "Positive", "expected": "2", "actual": "2"}, {"index": 24, "name": "scoping for loop", "duration": 0.103, "failed": false, "kind": "Positive", "expected": "9", "actual": "9"}, {"index": 25, "name": "while continue rechecks the condition instead of breaking", "duration": 0.107, "failed": false, "kind": "Positive", "expected": "3", "actual": "3"}, {"index": 26, "name": "while increment with scope test", "duration": 0.1, "failed": false, "kind": "Positive", "expected": "6", "actual": "6"}, {"index": 27, "name": "while_non_boolean_condition_test", "duration": 0.004, "failed": false, "kind": "Negative", "expected": "Compiler rejection", "actual": "Compiler rejection"}]</script><script type="module">export async function mountGlobe(root, telemetry, tooltip, options = {}) {
+  const failed = options.failed ?? telemetry.some((test) => test.failed);
+  const palette = failed
+  ? { surface: 0x290d19, emissive: 0x431321, ambient: 0xffb6a6, key: 0xff645a, rim: 0xe64a77, grid: 0xb75064, coast: 0xffaa94, glow: 0xff4b68, orbit: 0xf47d82, secondOrbit: 0xb85375, satellite: 0xffdfce, secondSatellite: 0xf299b1, stars: 0xdba2ac }
+  : { surface: 0x071a2b, emissive: 0x092739, ambient: 0x98d8ee, key: 0x31eed8, rim: 0x56a9ff, grid: 0x3b9da8, coast: 0x79d9d8, glow: 0x21b9dd, orbit: 0x53ccdc, secondOrbit: 0x3686b6, satellite: 0xe3fcff, secondSatellite: 0x80caf2, stars: 0x9bcee5 };
+
+  const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js");
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+  camera.position.set(0, 0, 7.5);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  root.appendChild(renderer.domElement);
+
+  const globe = new THREE.Group();
+  globe.rotation.set(-0.18, -0.45, 0.18);
+  scene.add(globe);
+  const radius = 1.68;
+  const sphere = new THREE.Mesh(
+    new THREE.SphereGeometry(radius, 64, 48),
+    new THREE.MeshPhongMaterial({ color: palette.surface, emissive: palette.emissive, shininess: 42, transparent: true, opacity: 0.94 })
+  );
+  globe.add(sphere);
+  scene.add(new THREE.AmbientLight(palette.ambient, 0.9));
+  const key = new THREE.PointLight(palette.key, 60, 16);
+  key.position.set(-3, 3, 5);
+  scene.add(key);
+  const rim = new THREE.PointLight(palette.rim, 80, 15);
+  rim.position.set(3, -2, -3);
+  scene.add(rim);
+
+  const position = (latitude, longitude, distance = radius) => {
+    const lat = latitude * Math.PI / 180;
+    const lon = longitude * Math.PI / 180;
+    return new THREE.Vector3(
+      distance * Math.cos(lat) * Math.sin(lon),
+      distance * Math.sin(lat),
+      distance * Math.cos(lat) * Math.cos(lon)
+    );
+  };
+  const trace = (points, color, opacity, group = globe) => {
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color, transparent: true, opacity, depthWrite: false }));
+    group.add(line);
+    return line;
+  };
+
+  for (let latitude = -75; latitude <= 75; latitude += 15) {
+    const points = [];
+    for (let longitude = -180; longitude <= 180; longitude += 3) points.push(position(latitude, longitude, radius * 1.006));
+    trace(points, palette.grid, latitude === 0 ? 0.4 : 0.17);
+  }
+  for (let longitude = -180; longitude < 180; longitude += 15) {
+    const points = [];
+    for (let latitude = -90; latitude <= 90; latitude += 3) points.push(position(latitude, longitude, radius * 1.006));
+    trace(points, palette.grid, longitude === 0 ? 0.34 : 0.14);
+  }
+
+  const coastlines = [
+    [[72,-165],[64,-150],[60,-141],[58,-135],[52,-129],[49,-124],[42,-124],[33,-117],[24,-110],[18,-98],[10,-83],[15,-88],[21,-86],[30,-89],[30,-97],[26,-97],[29,-103],[31,-106],[32,-111],[38,-112],[42,-119],[49,-124],[52,-130],[58,-136],[60,-151],[67,-163],[72,-165]],
+    [[72,-165],[72,-145],[68,-136],[63,-130],[60,-116],[54,-110],[51,-96],[45,-83],[42,-79],[38,-74],[30,-80],[25,-80],[18,-87]],
+    [[12,-72],[8,-77],[2,-80],[-5,-81],[-13,-77],[-18,-70],[-23,-70],[-30,-71],[-34,-72],[-42,-72],[-55,-68],[-52,-72],[-46,-75],[-39,-73],[-33,-71],[-27,-70],[-22,-70],[-18,-69],[-16,-75],[-12,-77],[-4,-81],[1,-78],[6,-77],[11,-73],[12,-72]],
+    [[37,-10],[43,-9],[48,-5],[51,2],[54,8],[58,11],[60,5],[64,10],[68,17],[71,26],[70,33],[65,29],[60,30],[56,38],[53,41],[50,30],[46,29],[43,24],[40,20],[38,16],[36,10],[38,0],[37,-10]],
+    [[37,-17],[35,-6],[32,10],[31,32],[26,35],[22,38],[12,44],[11,51],[2,42],[-5,40],[-12,41],[-19,36],[-27,33],[-34,26],[-35,18],[-29,16],[-22,14],[-18,12],[-11,14],[-5,11],[4,9],[5,2],[12,-16],[22,-17],[30,-10],[37,-17]],
+    [[37,-10],[43,-9],[51,2],[55,10],[55,22],[59,31],[57,43],[55,51],[59,61],[63,67],[66,77],[70,87],[73,100],[72,120],[66,135],[59,142],[53,142],[50,135],[46,142],[44,135],[39,128],[35,129],[32,121],[22,114],[17,109],[10,108],[1,104],[-6,107],[-9,114],[-7,118],[1,117],[7,125],[15,120],[22,110],[20,105],[11,104],[8,98],[13,92],[21,89],[24,83],[17,74],[8,77],[6,81],[8,75],[19,73],[25,69],[24,64],[28,58],[30,49],[37,49],[39,45],[37,36],[40,29],[37,20],[37,-10]],
+    [[-11,113],[-17,122],[-23,114],[-32,115],[-35,118],[-38,140],[-33,151],[-27,153],[-21,149],[-16,145],[-11,137],[-12,130],[-11,113]],
+    [[60,-45],[65,-53],[70,-52],[77,-43],[83,-40],[82,-20],[76,-18],[70,-23],[65,-38],[60,-45]]
+  ];
+  for (const outline of coastlines) {
+    trace(outline.map(([latitude, longitude]) => position(latitude, longitude, radius * 1.013)), palette.coast, 0.58);
+  }
+
+  const atmosphere = new THREE.Mesh(
+    new THREE.SphereGeometry(radius * 1.13, 64, 32),
+    new THREE.ShaderMaterial({
+      transparent: true,
+      side: THREE.BackSide,
+      depthWrite: false,
+      uniforms: { glowColor: { value: new THREE.Color(palette.glow) } },
+      vertexShader: "varying vec3 vNormal; varying vec3 vPosition; void main(){vNormal=normalize(normalMatrix*normal);vPosition=normalize(-(modelViewMatrix*vec4(position,1.0)).xyz);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}",
+      fragmentShader: "uniform vec3 glowColor; varying vec3 vNormal; varying vec3 vPosition; void main(){float intensity=pow(0.68-dot(vNormal,vPosition),3.0);gl_FragColor=vec4(glowColor,clamp(intensity*0.62,0.0,0.43));}"
+    })
+  );
+  globe.add(atmosphere);
+
+  const orbit = new THREE.Group();
+  orbit.rotation.set(0.42, -0.3, -0.35);
+  globe.add(orbit);
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(radius * 1.47, 0.004, 4, 180),
+    new THREE.MeshBasicMaterial({ color: palette.orbit, transparent: true, opacity: 0.32 })
+  );
+  orbit.add(ring);
+  const satellite = new THREE.Mesh(new THREE.OctahedronGeometry(0.048), new THREE.MeshBasicMaterial({ color: palette.satellite }));
+  satellite.position.set(radius * 1.47, 0, 0);
+  orbit.add(satellite);
+  const secondOrbit = new THREE.Group();
+  secondOrbit.rotation.set(1.3, 0.25, 0.32);
+  globe.add(secondOrbit);
+  secondOrbit.add(new THREE.Mesh(
+    new THREE.TorusGeometry(radius * 1.65, 0.003, 4, 200),
+    new THREE.MeshBasicMaterial({ color: palette.secondOrbit, transparent: true, opacity: 0.28 })
+  ));
+  const secondSatellite = new THREE.Mesh(
+    new THREE.OctahedronGeometry(0.035),
+    new THREE.MeshBasicMaterial({ color: palette.secondSatellite })
+  );
+  secondSatellite.position.set(Math.cos(2) * radius * 1.65, Math.sin(2) * radius * 1.65, 0);
+  secondOrbit.add(secondSatellite);
+
+  const markerGeometry = new THREE.SphereGeometry(0.052, 12, 8);
+  const haloGeometry = new THREE.RingGeometry(0.082, 0.092, 32);
+  const markers = [];
+  telemetry.forEach((test, index) => {
+    const latitude = 52 - (index * 137.508) % 104;
+    const longitude = ((index * 222.492 + 70) % 360) - 180;
+    const location = position(latitude, longitude, radius * 1.035);
+    const color = test.failed ? 0xff607f : 0x72f7d8;
+    const marker = new THREE.Mesh(markerGeometry, new THREE.MeshBasicMaterial({ color }));
+    marker.position.copy(location);
+    marker.userData = test;
+    globe.add(marker);
+    markers.push(marker);
+    const halo = new THREE.Mesh(haloGeometry, new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.55, side: THREE.DoubleSide, depthWrite: false }));
+    halo.position.copy(location.clone().multiplyScalar(1.014));
+    halo.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), location.clone().normalize());
+    globe.add(halo);
+    const start = position(23, -32, radius * 1.025);
+    const middle = start.clone().add(location).multiplyScalar(0.5).normalize().multiplyScalar(radius * 1.26);
+    const route = new THREE.QuadraticBezierCurve3(start, middle, location);
+    trace(route.getPoints(40), color, test.failed ? 0.72 : 0.24);
+  });
+
+  const stars = new Float32Array(900 * 3);
+  for (let index = 0; index < stars.length; index += 3) {
+    const distance = 12 + Math.random() * 18;
+    const angle = Math.random() * Math.PI * 2;
+    const height = Math.random() * 2 - 1;
+    stars[index] = Math.sqrt(1 - height * height) * Math.cos(angle) * distance;
+    stars[index + 1] = height * distance;
+    stars[index + 2] = Math.sqrt(1 - height * height) * Math.sin(angle) * distance;
+  }
+  const starGeometry = new THREE.BufferGeometry();
+  starGeometry.setAttribute("position", new THREE.BufferAttribute(stars, 3));
+  scene.add(new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: palette.stars, size: 0.026, transparent: true, opacity: 0.68, sizeAttenuation: true })));
+
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let dragging = false;
+  let dragDistance = 0;
+  let lastX = 0;
+  let lastY = 0;
+  let hovered = null;
+  let cameraX = 0;
+  let cameraY = 0;
+  root.addEventListener("pointerdown", (event) => {
+    dragging = true;
+    dragDistance = 0;
+    lastX = event.clientX;
+    lastY = event.clientY;
+    root.setPointerCapture(event.pointerId);
+  });
+  root.addEventListener("pointerup", () => { dragging = false; });
+  root.addEventListener("pointercancel", () => { dragging = false; });
+  root.addEventListener("pointerleave", () => {
+    if (!dragging) tooltip.hidden = true;
+    cameraX = 0;
+    cameraY = 0;
+  });
+  root.addEventListener("pointermove", (event) => {
+    const bounds = root.getBoundingClientRect();
+    cameraX = (event.clientX - bounds.left) / bounds.width * 2 - 1;
+    cameraY = (event.clientY - bounds.top) / bounds.height * 2 - 1;
+    if (dragging) {
+      dragDistance += Math.abs(event.clientX - lastX) + Math.abs(event.clientY - lastY);
+      globe.rotation.y += (event.clientX - lastX) * 0.006;
+      globe.rotation.x = THREE.MathUtils.clamp(globe.rotation.x + (event.clientY - lastY) * 0.006, -1.1, 1.1);
+      lastX = event.clientX;
+      lastY = event.clientY;
+      tooltip.hidden = true;
+      return;
+    }
+    pointer.set((event.clientX - bounds.left) / bounds.width * 2 - 1, -(event.clientY - bounds.top) / bounds.height * 2 + 1);
+    raycaster.setFromCamera(pointer, camera);
+    const hit = raycaster.intersectObjects([sphere, ...markers])[0];
+    hovered = hit && hit.object !== sphere ? hit.object : null;
+    if (hovered) {
+      tooltip.textContent = hovered.userData.description || `${hovered.userData.failed ? "✕" : "✓"} ${hovered.userData.name} · ${hovered.userData.kind} · ${hovered.userData.actual} / ${hovered.userData.expected}`;
+      tooltip.style.left = `${event.clientX - bounds.left + 12}px`;
+      tooltip.style.top = `${event.clientY - bounds.top - 34}px`;
+      tooltip.hidden = false;
+    } else {
+      tooltip.hidden = true;
+    }
+    root.style.cursor = hovered ? "pointer" : "grab";
+  });
+  root.addEventListener("click", () => {
+    if (!hovered || dragDistance > 5) return;
+    if (options.onSelect) {
+      options.onSelect(hovered.userData);
+      return;
+    }
+    const row = document.getElementById(`test-${hovered.userData.index}`);
+    if (row) {
+      row.open = true;
+      row.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "center" });
+    }
+  });
+
+  const resize = () => {
+    const width = root.clientWidth;
+    const height = root.clientHeight;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  };
+  const observer = new ResizeObserver(resize);
+  observer.observe(root);
+  resize();
+  root.classList.add("ready");
+  const clock = new THREE.Clock();
+  const animate = () => {
+    requestAnimationFrame(animate);
+    const elapsed = clock.getElapsedTime();
+    if (document.hidden) return;
+    if (!reducedMotion.matches) {
+      if (!dragging) globe.rotation.y += 0.0018;
+      camera.position.x += (cameraX * 0.3 - camera.position.x) * 0.035;
+      camera.position.y += (-cameraY * 0.2 - camera.position.y) * 0.035;
+      camera.lookAt(0, 0, 0);
+      satellite.position.set(Math.cos(elapsed * 0.35) * radius * 1.47, Math.sin(elapsed * 0.35) * radius * 1.47, 0);
+      secondSatellite.position.set(Math.cos(elapsed * -0.23 + 2) * radius * 1.65, Math.sin(elapsed * -0.23 + 2) * radius * 1.65, 0);
+    }
+    markers.forEach((marker, index) => {
+      marker.scale.setScalar(1 + (reducedMotion.matches ? 0 : Math.sin(elapsed * 2.5 + index * 1.7) * 0.22));
+    });
+    renderer.render(scene, camera);
+  };
+  animate();
+}
+
+const root = document.getElementById("globe");
+const data = document.getElementById("telemetry-data");
+if (root && data) {
+  mountGlobe(root, JSON.parse(data.textContent), document.getElementById("globe-tooltip"))
+    .catch(() => { root.classList.add("offline"); });
+}
+</script></body></html>
