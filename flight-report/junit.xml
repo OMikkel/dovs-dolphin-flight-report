@@ -1,33 +1,33 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="Dolphin phase 3" tests="30" failures="0" time="0.858"><testcase classname="phase3" name="break for loop" file="src/tests/phase3/break_for_loop_test.json" time="0.563"><system-out>
+<testsuite name="Dolphin phase 3" tests="30" failures="0" time="0.69"><testcase classname="phase3" name="break for loop" file="src/tests/phase3/break_for_loop_test.json" time="0.424"><system-out>
 --------------------
 🚂 | Running 'break for loop' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'break for loop' passed!
 
-</system-out></testcase><testcase classname="phase3" name="break_outside_loop_test" file="src/tests/phase3/break_outside_loop_test.json" time="0.019"><system-out>
+</system-out></testcase><testcase classname="phase3" name="break_outside_loop_test" file="src/tests/phase3/break_outside_loop_test.json" time="0.025"><system-out>
 --------------------
 🚂 | Running 'break_outside_loop_test' ...
 Error: ([36m"src/tests/phase3/break_outside_loop_test.dlp" @ 1:0-6[0m): Invalid loop-exiting break outside of a loop.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'break_outside_loop_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="continue_outside_loop_test" file="src/tests/phase3/continue_outside_loop_test.json" time="0.029"><system-out>
+</system-out></testcase><testcase classname="phase3" name="continue_outside_loop_test" file="src/tests/phase3/continue_outside_loop_test.json" time="0.018"><system-out>
 --------------------
 🚂 | Running 'continue_outside_loop_test' ...
 Error: ([36m"src/tests/phase3/continue_outside_loop_test.dlp" @ 1:0-9[0m): Invalid loop-exiting continue outside of a loop.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'continue_outside_loop_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="Rejects 9223372036854775808 above boundary value" file="src/tests/phase3/correct_rejects_illegal_number_test.json" time="0.019"><system-out>
+</system-out></testcase><testcase classname="phase3" name="Rejects 9223372036854775808 above boundary value" file="src/tests/phase3/correct_rejects_illegal_number_test.json" time="0.02"><system-out>
 --------------------
 🚂 | Running 'Rejects 9223372036854775808 above boundary value' ...
 src/tests/phase3/correct_rejects_illegal_number_test.dlp:1:8: Parser error: Unexpected token "9223372036854775808"
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'Rejects 9223372036854775808 above boundary value' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="crazy test with loops and ext fun call" file="src/tests/phase3/crazy_loops_external_funs_test.json" time="0.461"><system-out>
+</system-out></testcase><testcase classname="phase3" name="crazy test with loops and ext fun call" file="src/tests/phase3/crazy_loops_external_funs_test.json" time="0.381"><system-out>
 --------------------
 🚂 | Running 'crazy test with loops and ext fun call' ...
 1
@@ -43,42 +43,42 @@ Program returned: &lt;RESULT__START&gt;43&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=43 actual=43
 ✅ | Test 'crazy test with loops and ext fun call' passed!
 
-</system-out></testcase><testcase classname="phase3" name="empty/infinite for-loop with instant return" file="src/tests/phase3/empty_for_loop_test.json" time="0.541"><system-out>
+</system-out></testcase><testcase classname="phase3" name="empty/infinite for-loop with instant return" file="src/tests/phase3/empty_for_loop_test.json" time="0.499"><system-out>
 --------------------
 🚂 | Running 'empty/infinite for-loop with instant return' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'empty/infinite for-loop with instant return' passed!
 
-</system-out></testcase><testcase classname="phase3" name="for continue runs the update before rechecking the condition" file="src/tests/phase3/for_continue_update_test.json" time="0.546"><system-out>
+</system-out></testcase><testcase classname="phase3" name="for continue runs the update before rechecking the condition" file="src/tests/phase3/for_continue_update_test.json" time="0.479"><system-out>
 --------------------
 🚂 | Running 'for continue runs the update before rechecking the condition' ...
 Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'for continue runs the update before rechecking the condition' passed!
 
-</system-out></testcase><testcase classname="phase3" name="for_init_scope_escape_test" file="src/tests/phase3/for_init_scope_escape_test.json" time="0.021"><system-out>
+</system-out></testcase><testcase classname="phase3" name="for_init_scope_escape_test" file="src/tests/phase3/for_init_scope_escape_test.json" time="0.025"><system-out>
 --------------------
 🚂 | Running 'for_init_scope_escape_test' ...
 Error: ([36m"src/tests/phase3/for_init_scope_escape_test.dlp" @ 4:12-17[0m): Unbound identifier: limit
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_init_scope_escape_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="for_non_boolean_condition_test" file="src/tests/phase3/for_non_boolean_condition_test.json" time="0.009"><system-out>
+</system-out></testcase><testcase classname="phase3" name="for_non_boolean_condition_test" file="src/tests/phase3/for_non_boolean_condition_test.json" time="0.01"><system-out>
 --------------------
 🚂 | Running 'for_non_boolean_condition_test' ...
 Error: ([36m"src/tests/phase3/for_non_boolean_condition_test.dlp" @ 1:0-3:1[0m): Type mismatch: expected bool but found int.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_non_boolean_condition_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="for_update_type_mismatch_test" file="src/tests/phase3/for_update_type_mismatch_test.json" time="0.006"><system-out>
+</system-out></testcase><testcase classname="phase3" name="for_update_type_mismatch_test" file="src/tests/phase3/for_update_type_mismatch_test.json" time="0.011"><system-out>
 --------------------
 🚂 | Running 'for_update_type_mismatch_test' ...
 Error: ([36m"src/tests/phase3/for_update_type_mismatch_test.dlp" @ 1:23-31[0m): Type mismatch: expected int but found bool.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'for_update_type_mismatch_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects an out-of-range integer literal" file="src/tests/phase3/lexer_integer_overflow_test.json" time="0.011"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects an out-of-range integer literal" file="src/tests/phase3/lexer_integer_overflow_test.json" time="0.008"><system-out>
 --------------------
 🚂 | Running 'lexer rejects an out-of-range integer literal' ...
 src/tests/phase3/lexer_integer_overflow_test.dlp:1:8: Lexer error: Integer literal out of range: 999999999999999999999999999999999999
@@ -92,7 +92,7 @@ src/tests/phase3/lexer_single_ampersand_test.dlp:1:13: Lexer error: Unexpected c
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects a single ampersand' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects a single pipe" file="src/tests/phase3/lexer_single_pipe_test.json" time="0.009"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects a single pipe" file="src/tests/phase3/lexer_single_pipe_test.json" time="0.006"><system-out>
 --------------------
 🚂 | Running 'lexer rejects a single pipe' ...
 src/tests/phase3/lexer_single_pipe_test.dlp:1:13: Lexer error: Unexpected character: |
@@ -106,112 +106,112 @@ src/tests/phase3/lexer_unexpected_character_test.dlp:1:9: Lexer error: Unexpecte
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects an unexpected character' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="lexer rejects an unterminated block comment" file="src/tests/phase3/lexer_unterminated_comment_test.json" time="0.011"><system-out>
+</system-out></testcase><testcase classname="phase3" name="lexer rejects an unterminated block comment" file="src/tests/phase3/lexer_unterminated_comment_test.json" time="0.009"><system-out>
 --------------------
 🚂 | Running 'lexer rejects an unterminated block comment' ...
 src/tests/phase3/lexer_unterminated_comment_test.dlp:3:1: Lexer error: Unterminated comment
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'lexer rejects an unterminated block comment' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="multi_variables_forward_reference_test" file="src/tests/phase3/multi_variables_forward_reference_test.json" time="0.016"><system-out>
+</system-out></testcase><testcase classname="phase3" name="multi_variables_forward_reference_test" file="src/tests/phase3/multi_variables_forward_reference_test.json" time="0.007"><system-out>
 --------------------
 🚂 | Running 'multi_variables_forward_reference_test' ...
 Error: ([36m"src/tests/phase3/multi_variables_forward_reference_test.dlp" @ 1:12-18[0m): Unbound identifier: second
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'multi_variables_forward_reference_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="multiple lines multiples variables" file="src/tests/phase3/multi_variables_normal_test.json" time="0.619"><system-out>
+</system-out></testcase><testcase classname="phase3" name="multiple lines multiples variables" file="src/tests/phase3/multi_variables_normal_test.json" time="0.452"><system-out>
 --------------------
 🚂 | Running 'multiple lines multiples variables' ...
 Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'multiple lines multiples variables' passed!
 
-</system-out></testcase><testcase classname="phase3" name="ONE LINE multiples variables" file="src/tests/phase3/multi_variables_oneline_test.json" time="0.522"><system-out>
+</system-out></testcase><testcase classname="phase3" name="ONE LINE multiples variables" file="src/tests/phase3/multi_variables_oneline_test.json" time="0.456"><system-out>
 --------------------
 🚂 | Running 'ONE LINE multiples variables' ...
 Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'ONE LINE multiples variables' passed!
 
-</system-out></testcase><testcase classname="phase3" name="multi_variables_type_mismatch_test" file="src/tests/phase3/multi_variables_type_mismatch_test.json" time="0.007"><system-out>
+</system-out></testcase><testcase classname="phase3" name="multi_variables_type_mismatch_test" file="src/tests/phase3/multi_variables_type_mismatch_test.json" time="0.009"><system-out>
 --------------------
 🚂 | Running 'multi_variables_type_mismatch_test' ...
 Error: ([36m"src/tests/phase3/multi_variables_type_mismatch_test.dlp" @ 1:11-25[0m): Type mismatch: expected bool but found int.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'multi_variables_type_mismatch_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed loop body" file="src/tests/phase3/parser_missing_brace_test.json" time="0.006"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed loop body" file="src/tests/phase3/parser_missing_brace_test.json" time="0.009"><system-out>
 --------------------
 🚂 | Running 'parser rejects an unclosed loop body' ...
 src/tests/phase3/parser_missing_brace_test.dlp:2:1: Parser error: Unexpected end of file
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects an unclosed loop body' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects a missing variable initializer" file="src/tests/phase3/parser_missing_initializer_test.json" time="0.01"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects a missing variable initializer" file="src/tests/phase3/parser_missing_initializer_test.json" time="0.035"><system-out>
 --------------------
 🚂 | Running 'parser rejects a missing variable initializer' ...
 src/tests/phase3/parser_missing_initializer_test.dlp:1:9: Parser error: Unexpected token ";"
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects a missing variable initializer' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects a missing binary operand" file="src/tests/phase3/parser_missing_operand_test.json" time="0.07"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects a missing binary operand" file="src/tests/phase3/parser_missing_operand_test.json" time="0.026"><system-out>
 --------------------
 🚂 | Running 'parser rejects a missing binary operand' ...
 src/tests/phase3/parser_missing_operand_test.dlp:1:12: Parser error: Unexpected token ";"
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects a missing binary operand' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed condition parenthesis" file="src/tests/phase3/parser_missing_parenthesis_test.json" time="0.075"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects an unclosed condition parenthesis" file="src/tests/phase3/parser_missing_parenthesis_test.json" time="0.009"><system-out>
 --------------------
 🚂 | Running 'parser rejects an unclosed condition parenthesis' ...
 src/tests/phase3/parser_missing_parenthesis_test.dlp:1:10: Parser error: Unexpected token "{"
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects an unclosed condition parenthesis' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="parser rejects a missing return semicolon" file="src/tests/phase3/parser_missing_semicolon_test.json" time="0.012"><system-out>
+</system-out></testcase><testcase classname="phase3" name="parser rejects a missing return semicolon" file="src/tests/phase3/parser_missing_semicolon_test.json" time="0.008"><system-out>
 --------------------
 🚂 | Running 'parser rejects a missing return semicolon' ...
 src/tests/phase3/parser_missing_semicolon_test.dlp:2:1: Parser error: Unexpected end of file
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'parser rejects a missing return semicolon' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="return_assignment_expr_test" file="src/tests/phase3/return_assignment_expr_test.json" time="0.493"><system-out>
+</system-out></testcase><testcase classname="phase3" name="return_assignment_expr_test" file="src/tests/phase3/return_assignment_expr_test.json" time="0.424"><system-out>
 --------------------
 🚂 | Running 'return_assignment_expr_test' ...
 Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=2 actual=2
 ✅ | Test 'return_assignment_expr_test' passed!
 
-</system-out></testcase><testcase classname="phase3" name="scoping for loop" file="src/tests/phase3/scoping_for_loop_test.json" time="0.51"><system-out>
+</system-out></testcase><testcase classname="phase3" name="scoping for loop" file="src/tests/phase3/scoping_for_loop_test.json" time="0.408"><system-out>
 --------------------
 🚂 | Running 'scoping for loop' ...
 Program returned: &lt;RESULT__START&gt;9&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=9 actual=9
 ✅ | Test 'scoping for loop' passed!
 
-</system-out></testcase><testcase classname="phase3" name="while continue rechecks the condition instead of breaking" file="src/tests/phase3/while_continue_test.json" time="0.368"><system-out>
+</system-out></testcase><testcase classname="phase3" name="while continue rechecks the condition instead of breaking" file="src/tests/phase3/while_continue_test.json" time="0.242"><system-out>
 --------------------
 🚂 | Running 'while continue rechecks the condition instead of breaking' ...
 Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=3 actual=3
 ✅ | Test 'while continue rechecks the condition instead of breaking' passed!
 
-</system-out></testcase><testcase classname="phase3" name="while increment with scope test" file="src/tests/phase3/while_increment_test.json" time="0.301"><system-out>
+</system-out></testcase><testcase classname="phase3" name="while increment with scope test" file="src/tests/phase3/while_increment_test.json" time="0.263"><system-out>
 --------------------
 🚂 | Running 'while increment with scope test' ...
 Program returned: &lt;RESULT__START&gt;6&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=6 actual=6
 ✅ | Test 'while increment with scope test' passed!
 
-</system-out></testcase><testcase classname="phase3" name="while_non_boolean_condition_test" file="src/tests/phase3/while_non_boolean_condition_test.json" time="0.011"><system-out>
+</system-out></testcase><testcase classname="phase3" name="while_non_boolean_condition_test" file="src/tests/phase3/while_non_boolean_condition_test.json" time="0.012"><system-out>
 --------------------
 🚂 | Running 'while_non_boolean_condition_test' ...
 Error: ([36m"src/tests/phase3/while_non_boolean_condition_test.dlp" @ 1:0-3:1[0m): Type mismatch: expected bool but found int.
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'while_non_boolean_condition_test' failed as expected.
 
-</system-out></testcase><testcase classname="phase3" name="Accepts -9223372036854775808 boundary value" file="src/tests/phase3/wrong_negation_rejects_legal_number_test.json" time="0.294"><system-out>
+</system-out></testcase><testcase classname="phase3" name="Accepts -9223372036854775808 boundary value" file="src/tests/phase3/wrong_negation_rejects_legal_number_test.json" time="0.194"><system-out>
 --------------------
 🚂 | Running 'Accepts -9223372036854775808 boundary value' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
