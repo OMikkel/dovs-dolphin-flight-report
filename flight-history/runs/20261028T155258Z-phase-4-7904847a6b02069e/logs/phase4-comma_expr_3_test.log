@@ -1,0 +1,20 @@
+
+--------------------
+🚂 | Running 'comma expression 3' ...
+DOLPHIN_TEST_RESULT expected=0 actual=rejected
+Source program:
+int main () {
+    for ( var i: int = 0, j: int = 9
+        ; i < 10 
+        ; i = i+1, j=j-1 /* obs: comma expression here */ )
+    {
+        print_integer(i);
+        print_integer(j);
+    }
+    return 0;
+}
+
+❌ | Test 'comma expression 3' failed unexpectedly:
+--------------------
+src/tests/phase4/comma_expr_3_test.dlp:2:28: Parser error: Unexpected token ":"
+

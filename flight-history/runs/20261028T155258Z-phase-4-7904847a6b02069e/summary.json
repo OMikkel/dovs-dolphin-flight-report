@@ -1,0 +1,77 @@
+{
+  "phase": "4",
+  "generated_at": "2026-10-28T15:52:58.289774+00:00",
+  "run": {
+    "branch": "phase4",
+    "captured_at": "2026-10-28T15:52:58.289774+00:00",
+    "commit": "61ac3ecf2f7492f002ade3a21e045e9ed48668f7",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/61ac3ecf2f7492f002ade3a21e045e9ed48668f7",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/672795"
+  },
+  "total": 5,
+  "passed": 1,
+  "failed": 4,
+  "duration_seconds": 0.029,
+  "tests": [
+    {
+      "name": "comma expression 2",
+      "file": "src/tests/phase4/comma_expr_2_test.json",
+      "duration": 0.028,
+      "failure": "\u274c | Test 'comma expression 2' failed unexpectedly: CfgBuilder.CFGConstructionError(\"terminate the current block before starting a new one\")",
+      "log": "ci-reports/logs/phase4-comma_expr_2_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Test execution failed",
+      "source_file": "ci-reports/sources/phase4-comma_expr_2_test.dlp",
+      "trace_log": "ci-reports/logs/phase4-comma_expr_2_test-trace.log"
+    },
+    {
+      "name": "comma expression 3",
+      "file": "src/tests/phase4/comma_expr_3_test.json",
+      "duration": 0.023,
+      "failure": "\u274c | Test 'comma expression 3' failed unexpectedly:\nsrc/tests/phase4/comma_expr_3_test.dlp:2:28: Parser error: Unexpected token \":\"",
+      "log": "ci-reports/logs/phase4-comma_expr_3_test.log",
+      "kind": "Positive",
+      "expected": "0",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase4-comma_expr_3_test.dlp",
+      "trace_log": "ci-reports/logs/phase4-comma_expr_3_test-trace.log"
+    },
+    {
+      "name": "comma expression 1",
+      "file": "src/tests/phase4/comma_expr_test.json",
+      "duration": 0.021,
+      "failure": "\u274c | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError(\"terminate the current block before starting a new one\")",
+      "log": "ci-reports/logs/phase4-comma_expr_test.log",
+      "kind": "Positive",
+      "expected": "2",
+      "actual": "Test execution failed",
+      "source_file": "ci-reports/sources/phase4-comma_expr_test.dlp",
+      "trace_log": "ci-reports/logs/phase4-comma_expr_test-trace.log"
+    },
+    {
+      "name": "function declarations",
+      "file": "src/tests/phase4/func_decls_test.json",
+      "duration": 0.025,
+      "failure": "\u274c | Test 'function declarations' failed unexpectedly: CfgBuilder.CFGConstructionError(\"terminate the current block before starting a new one\")",
+      "log": "ci-reports/logs/phase4-func_decls_test.log",
+      "kind": "Positive",
+      "expected": "0",
+      "actual": "Test execution failed",
+      "source_file": "ci-reports/sources/phase4-func_decls_test.dlp",
+      "trace_log": "ci-reports/logs/phase4-func_decls_test-trace.log"
+    },
+    {
+      "name": "negative function declarations",
+      "file": "src/tests/phase4/negative_func_decls_test.json",
+      "duration": 0.011,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-negative_func_decls_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase4-negative_func_decls_test.dlp",
+      "trace_log": null
+    }
+  ]
+}

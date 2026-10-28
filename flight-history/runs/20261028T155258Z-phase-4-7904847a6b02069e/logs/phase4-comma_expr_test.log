@@ -1,0 +1,12 @@
+
+--------------------
+🚂 | Running 'comma expression 1' ...
+❌ | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+/* valid program */
+int main () {
+    var x = 0;
+    x = (1,2); /* valid expression statement */
+    return x;  /* returns 2 */
+}
+

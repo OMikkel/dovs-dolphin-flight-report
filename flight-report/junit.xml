@@ -1,4 +1,1969 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="Dolphin phase build" tests="1" failures="1" time="0.0"><testcase classname="phasebuild" name="compiler build" file="dolphin/Makefile" time="0.0"><failure message="make build failed; see the CI job log">The compiler build failed before tests could run. See the CI job log for the build error.
-</failure><system-out>The compiler build failed before tests could run. See the CI job log for the build error.
+<testsuite name="Dolphin phase 4" tests="5" failures="4" time="0.029"><testcase classname="phase4" name="comma expression 2" file="src/tests/phase4/comma_expr_2_test.json" time="0.028"><failure message="❌ | Test 'comma expression 2' failed unexpectedly: CfgBuilder.CFGConstructionError(&quot;terminate the current block before starting a new one&quot;)">
+--------------------
+🚂 | Running 'comma expression 2' ...
+❌ | Test 'comma expression 2' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int main () {
+    var x = 0;
+    x = 1,x = 2; /* invalid expression statement                      */
+                 /* the programmer should use semi-colon instead ;)   */
+    return x;
+}
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'comma expression 2' ...
+State 0:
+Lookahead token is now INT (0-3)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (4-8)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (9-10)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (10-11)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (12-13)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now VAR (18-21)
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (22-23)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (24-25)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (26-27)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (27-28)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now IDENT (33-34)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (IDENT) to state 103
+State 103:
+Lookahead token is now ASSIGN (35-36)
+Shifting (ASSIGN) to state 107
+State 107:
+Lookahead token is now INT_LIT (37-38)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now COMMA (38-39)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 108:
+Shifting (COMMA) to state 35
+State 35:
+Lookahead token is now IDENT (39-40)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now ASSIGN (41-42)
+Shifting (ASSIGN) to state 70
+State 70:
+Lookahead token is now INT_LIT (43-44)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (44-45)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 71:
+Reducing production expr_base -&gt; IDENT ASSIGN expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 36:
+Reducing production expr_base -&gt; expr COMMA expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 108:
+Reducing production option(expr_stmt) -&gt; IDENT ASSIGN expr
+State 136:
+Shifting (SEMICOLON) to state 137
+State 137:
+Lookahead token is now RETURN (179-185)
+Reducing production statement -&gt; option(expr_stmt) SEMICOLON
+State 142:
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (186-187)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (187-188)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (189-190)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now EOF (190-190)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl
+State 170:
+Reducing production program -&gt; nonempty_list(fun_decl)
+State 168:
+Shifting (EOF) to state 169
+State 169:
+Reducing production main -&gt; program EOF
+State 171:
+Accepting
+❌ | Test 'comma expression 2' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int main () {
+    var x = 0;
+    x = 1,x = 2; /* invalid expression statement                      */
+                 /* the programmer should use semi-colon instead ;)   */
+    return x;
+}
+
+</failure><system-out>
+--------------------
+🚂 | Running 'comma expression 2' ...
+❌ | Test 'comma expression 2' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int main () {
+    var x = 0;
+    x = 1,x = 2; /* invalid expression statement                      */
+                 /* the programmer should use semi-colon instead ;)   */
+    return x;
+}
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'comma expression 2' ...
+State 0:
+Lookahead token is now INT (0-3)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (4-8)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (9-10)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (10-11)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (12-13)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now VAR (18-21)
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (22-23)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (24-25)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (26-27)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (27-28)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now IDENT (33-34)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (IDENT) to state 103
+State 103:
+Lookahead token is now ASSIGN (35-36)
+Shifting (ASSIGN) to state 107
+State 107:
+Lookahead token is now INT_LIT (37-38)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now COMMA (38-39)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 108:
+Shifting (COMMA) to state 35
+State 35:
+Lookahead token is now IDENT (39-40)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now ASSIGN (41-42)
+Shifting (ASSIGN) to state 70
+State 70:
+Lookahead token is now INT_LIT (43-44)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (44-45)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 71:
+Reducing production expr_base -&gt; IDENT ASSIGN expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 36:
+Reducing production expr_base -&gt; expr COMMA expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 108:
+Reducing production option(expr_stmt) -&gt; IDENT ASSIGN expr
+State 136:
+Shifting (SEMICOLON) to state 137
+State 137:
+Lookahead token is now RETURN (179-185)
+Reducing production statement -&gt; option(expr_stmt) SEMICOLON
+State 142:
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (186-187)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (187-188)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (189-190)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now EOF (190-190)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl
+State 170:
+Reducing production program -&gt; nonempty_list(fun_decl)
+State 168:
+Shifting (EOF) to state 169
+State 169:
+Reducing production main -&gt; program EOF
+State 171:
+Accepting
+❌ | Test 'comma expression 2' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int main () {
+    var x = 0;
+    x = 1,x = 2; /* invalid expression statement                      */
+                 /* the programmer should use semi-colon instead ;)   */
+    return x;
+}
+
+</system-out></testcase><testcase classname="phase4" name="comma expression 3" file="src/tests/phase4/comma_expr_3_test.json" time="0.023"><failure message="❌ | Test 'comma expression 3' failed unexpectedly:&#10;src/tests/phase4/comma_expr_3_test.dlp:2:28: Parser error: Unexpected token &quot;:&quot;">
+--------------------
+🚂 | Running 'comma expression 3' ...
+DOLPHIN_TEST_RESULT expected=0 actual=rejected
+Source program:
+int main () {
+    for ( var i: int = 0, j: int = 9
+        ; i &lt; 10 
+        ; i = i+1, j=j-1 /* obs: comma expression here */ )
+    {
+        print_integer(i);
+        print_integer(j);
+    }
+    return 0;
+}
+
+❌ | Test 'comma expression 3' failed unexpectedly:
+--------------------
+src/tests/phase4/comma_expr_3_test.dlp:2:28: Parser error: Unexpected token ":"
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'comma expression 3' ...
+State 0:
+Lookahead token is now INT (0-3)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (4-8)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (9-10)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (10-11)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (12-13)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now FOR (18-21)
+Shifting (FOR) to state 121
+State 121:
+Lookahead token is now LPAREN (22-23)
+Shifting (LPAREN) to state 122
+State 122:
+Lookahead token is now VAR (24-27)
+Shifting (VAR) to state 123
+State 123:
+Lookahead token is now IDENT (28-29)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now COLON (29-30)
+Shifting (COLON) to state 82
+State 82:
+Lookahead token is now INT (31-34)
+Shifting (INT) to state 83
+State 83:
+Lookahead token is now ASSIGN (35-36)
+Reducing production option(preceded(COLON,vtype)) -&gt; COLON INT
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (37-38)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now COMMA (38-39)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Shifting (COMMA) to state 35
+State 35:
+Lookahead token is now IDENT (40-41)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now COLON (41-42)
+Initiating error handling
+DOLPHIN_TEST_RESULT expected=0 actual=rejected
+Source program:
+int main () {
+    for ( var i: int = 0, j: int = 9
+        ; i &lt; 10 
+        ; i = i+1, j=j-1 /* obs: comma expression here */ )
+    {
+        print_integer(i);
+        print_integer(j);
+    }
+    return 0;
+}
+
+❌ | Test 'comma expression 3' failed unexpectedly:
+--------------------
+src/tests/phase4/comma_expr_3_test.dlp:2:28: Parser error: Unexpected token ":"
+
+</failure><system-out>
+--------------------
+🚂 | Running 'comma expression 3' ...
+DOLPHIN_TEST_RESULT expected=0 actual=rejected
+Source program:
+int main () {
+    for ( var i: int = 0, j: int = 9
+        ; i &lt; 10 
+        ; i = i+1, j=j-1 /* obs: comma expression here */ )
+    {
+        print_integer(i);
+        print_integer(j);
+    }
+    return 0;
+}
+
+❌ | Test 'comma expression 3' failed unexpectedly:
+--------------------
+src/tests/phase4/comma_expr_3_test.dlp:2:28: Parser error: Unexpected token ":"
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'comma expression 3' ...
+State 0:
+Lookahead token is now INT (0-3)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (4-8)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (9-10)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (10-11)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (12-13)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now FOR (18-21)
+Shifting (FOR) to state 121
+State 121:
+Lookahead token is now LPAREN (22-23)
+Shifting (LPAREN) to state 122
+State 122:
+Lookahead token is now VAR (24-27)
+Shifting (VAR) to state 123
+State 123:
+Lookahead token is now IDENT (28-29)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now COLON (29-30)
+Shifting (COLON) to state 82
+State 82:
+Lookahead token is now INT (31-34)
+Shifting (INT) to state 83
+State 83:
+Lookahead token is now ASSIGN (35-36)
+Reducing production option(preceded(COLON,vtype)) -&gt; COLON INT
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (37-38)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now COMMA (38-39)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Shifting (COMMA) to state 35
+State 35:
+Lookahead token is now IDENT (40-41)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now COLON (41-42)
+Initiating error handling
+DOLPHIN_TEST_RESULT expected=0 actual=rejected
+Source program:
+int main () {
+    for ( var i: int = 0, j: int = 9
+        ; i &lt; 10 
+        ; i = i+1, j=j-1 /* obs: comma expression here */ )
+    {
+        print_integer(i);
+        print_integer(j);
+    }
+    return 0;
+}
+
+❌ | Test 'comma expression 3' failed unexpectedly:
+--------------------
+src/tests/phase4/comma_expr_3_test.dlp:2:28: Parser error: Unexpected token ":"
+
+</system-out></testcase><testcase classname="phase4" name="comma expression 1" file="src/tests/phase4/comma_expr_test.json" time="0.021"><failure message="❌ | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError(&quot;terminate the current block before starting a new one&quot;)">
+--------------------
+🚂 | Running 'comma expression 1' ...
+❌ | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+/* valid program */
+int main () {
+    var x = 0;
+    x = (1,2); /* valid expression statement */
+    return x;  /* returns 2 */
+}
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'comma expression 1' ...
+State 0:
+Lookahead token is now INT (20-23)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (24-28)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (29-30)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (30-31)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (32-33)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now VAR (38-41)
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (42-43)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (44-45)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (46-47)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (47-48)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now IDENT (53-54)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (IDENT) to state 103
+State 103:
+Lookahead token is now ASSIGN (55-56)
+Shifting (ASSIGN) to state 107
+State 107:
+Lookahead token is now LPAREN (57-58)
+Shifting (LPAREN) to state 16
+State 16:
+Lookahead token is now INT_LIT (58-59)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now COMMA (59-60)
+Reducing production expr_base -&gt; INT_LIT
+State 73:
+Reducing production expr -&gt; expr_base
+State 75:
+Shifting (COMMA) to state 35
+State 35:
+Lookahead token is now INT_LIT (60-61)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now RPAREN (61-62)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 36:
+Reducing production expr_base -&gt; expr COMMA expr
+State 73:
+Shifting (RPAREN) to state 74
+State 74:
+Lookahead token is now SEMICOLON (62-63)
+Reducing production expr -&gt; LPAREN expr_base RPAREN
+State 108:
+Reducing production option(expr_stmt) -&gt; IDENT ASSIGN expr
+State 136:
+Shifting (SEMICOLON) to state 137
+State 137:
+Lookahead token is now RETURN (101-107)
+Reducing production statement -&gt; option(expr_stmt) SEMICOLON
+State 142:
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (108-109)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (109-110)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (128-129)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now EOF (129-129)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl
+State 170:
+Reducing production program -&gt; nonempty_list(fun_decl)
+State 168:
+Shifting (EOF) to state 169
+State 169:
+Reducing production main -&gt; program EOF
+State 171:
+Accepting
+❌ | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+/* valid program */
+int main () {
+    var x = 0;
+    x = (1,2); /* valid expression statement */
+    return x;  /* returns 2 */
+}
+
+</failure><system-out>
+--------------------
+🚂 | Running 'comma expression 1' ...
+❌ | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+/* valid program */
+int main () {
+    var x = 0;
+    x = (1,2); /* valid expression statement */
+    return x;  /* returns 2 */
+}
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'comma expression 1' ...
+State 0:
+Lookahead token is now INT (20-23)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (24-28)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (29-30)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (30-31)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (32-33)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now VAR (38-41)
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (42-43)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (44-45)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (46-47)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (47-48)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now IDENT (53-54)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (IDENT) to state 103
+State 103:
+Lookahead token is now ASSIGN (55-56)
+Shifting (ASSIGN) to state 107
+State 107:
+Lookahead token is now LPAREN (57-58)
+Shifting (LPAREN) to state 16
+State 16:
+Lookahead token is now INT_LIT (58-59)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now COMMA (59-60)
+Reducing production expr_base -&gt; INT_LIT
+State 73:
+Reducing production expr -&gt; expr_base
+State 75:
+Shifting (COMMA) to state 35
+State 35:
+Lookahead token is now INT_LIT (60-61)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now RPAREN (61-62)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 36:
+Reducing production expr_base -&gt; expr COMMA expr
+State 73:
+Shifting (RPAREN) to state 74
+State 74:
+Lookahead token is now SEMICOLON (62-63)
+Reducing production expr -&gt; LPAREN expr_base RPAREN
+State 108:
+Reducing production option(expr_stmt) -&gt; IDENT ASSIGN expr
+State 136:
+Shifting (SEMICOLON) to state 137
+State 137:
+Lookahead token is now RETURN (101-107)
+Reducing production statement -&gt; option(expr_stmt) SEMICOLON
+State 142:
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (108-109)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (109-110)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (128-129)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now EOF (129-129)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl
+State 170:
+Reducing production program -&gt; nonempty_list(fun_decl)
+State 168:
+Shifting (EOF) to state 169
+State 169:
+Reducing production main -&gt; program EOF
+State 171:
+Accepting
+❌ | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+/* valid program */
+int main () {
+    var x = 0;
+    x = (1,2); /* valid expression statement */
+    return x;  /* returns 2 */
+}
+
+</system-out></testcase><testcase classname="phase4" name="function declarations" file="src/tests/phase4/func_decls_test.json" time="0.025"><failure message="❌ | Test 'function declarations' failed unexpectedly: CfgBuilder.CFGConstructionError(&quot;terminate the current block before starting a new one&quot;)">
+--------------------
+🚂 | Running 'function declarations' ...
+❌ | Test 'function declarations' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int int_func (a: int, b: int) {
+    return a + b;
+}
+
+bool bool_func (a: bool, b: bool) {
+    return a &amp;&amp; b;
+}
+
+void void_func (a: int, b: int) {
+}
+
+int main () {
+    var a = 1;
+    var b = 2;
+    var c = int_func (a, b);
+    var d = bool_func (true, false);
+    void_func(a, b);
+    return 0;
+}
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'function declarations' ...
+State 0:
+Lookahead token is now INT (0-3)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (4-12)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (13-14)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now IDENT (14-15)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (15-16)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (17-20)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now COMMA (20-21)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Shifting (COMMA) to state 150
+State 150:
+Lookahead token is now IDENT (22-23)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (23-24)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (25-28)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now RPAREN (28-29)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args
+State 151:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args COMMA separated_nonempty_list(COMMA,f_args)
+State 8:
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt; separated_nonempty_list(COMMA,f_args)
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (30-31)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now RETURN (36-42)
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (43-44)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now PLUS (45-46)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Shifting (PLUS) to state 37
+State 37:
+Lookahead token is now IDENT (47-48)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (48-49)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 38:
+Reducing production expr_base -&gt; expr PLUS expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (50-51)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now BOOL (53-57)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Shifting (BOOL) to state 160
+State 160:
+Lookahead token is now IDENT (58-67)
+Shifting (IDENT) to state 161
+State 161:
+Lookahead token is now LPAREN (68-69)
+Shifting (LPAREN) to state 162
+State 162:
+Lookahead token is now IDENT (69-70)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (70-71)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now BOOL (72-76)
+Shifting (BOOL) to state 7
+State 7:
+Lookahead token is now COMMA (76-77)
+Reducing production f_args -&gt; IDENT COLON BOOL
+State 149:
+Shifting (COMMA) to state 150
+State 150:
+Lookahead token is now IDENT (78-79)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (79-80)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now BOOL (81-85)
+Shifting (BOOL) to state 7
+State 7:
+Lookahead token is now RPAREN (85-86)
+Reducing production f_args -&gt; IDENT COLON BOOL
+State 149:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args
+State 151:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args COMMA separated_nonempty_list(COMMA,f_args)
+State 8:
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt; separated_nonempty_list(COMMA,f_args)
+State 163:
+Shifting (RPAREN) to state 164
+State 164:
+Lookahead token is now LBRACE (87-88)
+Shifting (LBRACE) to state 165
+State 165:
+Lookahead token is now RETURN (93-99)
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (100-101)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now LAND (102-104)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Shifting (LAND) to state 53
+State 53:
+Lookahead token is now IDENT (105-106)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (106-107)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 54:
+Reducing production expr_base -&gt; expr LAND expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (108-109)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 166:
+Shifting (RBRACE) to state 167
+State 167:
+Lookahead token is now VOID (111-115)
+Reducing production fun_decl -&gt; BOOL IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Shifting (VOID) to state 1
+State 1:
+Lookahead token is now IDENT (116-125)
+Shifting (IDENT) to state 2
+State 2:
+Lookahead token is now LPAREN (126-127)
+Shifting (LPAREN) to state 3
+State 3:
+Lookahead token is now IDENT (127-128)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (128-129)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (130-133)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now COMMA (133-134)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Shifting (COMMA) to state 150
+State 150:
+Lookahead token is now IDENT (135-136)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (136-137)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (138-141)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now RPAREN (141-142)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args
+State 151:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args COMMA separated_nonempty_list(COMMA,f_args)
+State 8:
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt; separated_nonempty_list(COMMA,f_args)
+State 9:
+Shifting (RPAREN) to state 10
+State 10:
+Lookahead token is now LBRACE (143-144)
+Shifting (LBRACE) to state 11
+State 11:
+Lookahead token is now RBRACE (145-146)
+Reducing production list(statement) -&gt;
+State 147:
+Shifting (RBRACE) to state 148
+State 148:
+Lookahead token is now INT (148-151)
+Reducing production fun_decl -&gt; VOID IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (152-156)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (157-158)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (158-159)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (160-161)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now VAR (166-169)
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (170-171)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (172-173)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (174-175)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (175-176)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now VAR (181-184)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (185-186)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (187-188)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (189-190)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (190-191)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now VAR (196-199)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (200-201)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (202-203)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now IDENT (204-212)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now LPAREN (213-214)
+Shifting (LPAREN) to state 20
+State 20:
+Lookahead token is now IDENT (214-215)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now COMMA (215-216)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 32:
+Shifting (COMMA) to state 61
+State 61:
+Lookahead token is now IDENT (217-218)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now RPAREN (218-219)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 63:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr
+State 62:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr COMMA separated_nonempty_list(COMMA,expr)
+State 28:
+Reducing production loption(separated_nonempty_list(COMMA,expr)) -&gt; separated_nonempty_list(COMMA,expr)
+State 68:
+Shifting (RPAREN) to state 69
+State 69:
+Lookahead token is now SEMICOLON (219-220)
+Reducing production expr_base -&gt; IDENT LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now VAR (225-228)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (229-230)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (231-232)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now IDENT (233-242)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now LPAREN (243-244)
+Shifting (LPAREN) to state 20
+State 20:
+Lookahead token is now TRUE (244-248)
+Shifting (TRUE) to state 14
+State 14:
+Lookahead token is now COMMA (248-249)
+Reducing production expr_base -&gt; TRUE
+State 31:
+Reducing production expr -&gt; expr_base
+State 32:
+Shifting (COMMA) to state 61
+State 61:
+Lookahead token is now FALSE (250-255)
+Shifting (FALSE) to state 27
+State 27:
+Lookahead token is now RPAREN (255-256)
+Reducing production expr_base -&gt; FALSE
+State 31:
+Reducing production expr -&gt; expr_base
+State 63:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr
+State 62:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr COMMA separated_nonempty_list(COMMA,expr)
+State 28:
+Reducing production loption(separated_nonempty_list(COMMA,expr)) -&gt; separated_nonempty_list(COMMA,expr)
+State 68:
+Shifting (RPAREN) to state 69
+State 69:
+Lookahead token is now SEMICOLON (256-257)
+Reducing production expr_base -&gt; IDENT LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now IDENT (262-271)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (IDENT) to state 103
+State 103:
+Lookahead token is now LPAREN (271-272)
+Shifting (LPAREN) to state 104
+State 104:
+Lookahead token is now IDENT (272-273)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now COMMA (273-274)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 32:
+Shifting (COMMA) to state 61
+State 61:
+Lookahead token is now IDENT (275-276)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now RPAREN (276-277)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 63:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr
+State 62:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr COMMA separated_nonempty_list(COMMA,expr)
+State 28:
+Reducing production loption(separated_nonempty_list(COMMA,expr)) -&gt; separated_nonempty_list(COMMA,expr)
+State 105:
+Shifting (RPAREN) to state 106
+State 106:
+Lookahead token is now SEMICOLON (277-278)
+Reducing production option(expr_stmt) -&gt; IDENT LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN
+State 136:
+Shifting (SEMICOLON) to state 137
+State 137:
+Lookahead token is now RETURN (283-289)
+Reducing production statement -&gt; option(expr_stmt) SEMICOLON
+State 142:
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now INT_LIT (290-291)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (291-292)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (293-294)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now EOF (294-294)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl
+State 173:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl nonempty_list(fun_decl)
+State 173:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl nonempty_list(fun_decl)
+State 173:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl nonempty_list(fun_decl)
+State 170:
+Reducing production program -&gt; nonempty_list(fun_decl)
+State 168:
+Shifting (EOF) to state 169
+State 169:
+Reducing production main -&gt; program EOF
+State 171:
+Accepting
+❌ | Test 'function declarations' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int int_func (a: int, b: int) {
+    return a + b;
+}
+
+bool bool_func (a: bool, b: bool) {
+    return a &amp;&amp; b;
+}
+
+void void_func (a: int, b: int) {
+}
+
+int main () {
+    var a = 1;
+    var b = 2;
+    var c = int_func (a, b);
+    var d = bool_func (true, false);
+    void_func(a, b);
+    return 0;
+}
+
+</failure><system-out>
+--------------------
+🚂 | Running 'function declarations' ...
+❌ | Test 'function declarations' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int int_func (a: int, b: int) {
+    return a + b;
+}
+
+bool bool_func (a: bool, b: bool) {
+    return a &amp;&amp; b;
+}
+
+void void_func (a: int, b: int) {
+}
+
+int main () {
+    var a = 1;
+    var b = 2;
+    var c = int_func (a, b);
+    var d = bool_func (true, false);
+    void_func(a, b);
+    return 0;
+}
+
+
+
+--- Menhir traced rerun ---
+Traced rerun exited with status 1 (original verdict retained)
+
+
+--------------------
+🚂 | Running 'function declarations' ...
+State 0:
+Lookahead token is now INT (0-3)
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (4-12)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (13-14)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now IDENT (14-15)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (15-16)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (17-20)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now COMMA (20-21)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Shifting (COMMA) to state 150
+State 150:
+Lookahead token is now IDENT (22-23)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (23-24)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (25-28)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now RPAREN (28-29)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args
+State 151:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args COMMA separated_nonempty_list(COMMA,f_args)
+State 8:
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt; separated_nonempty_list(COMMA,f_args)
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (30-31)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now RETURN (36-42)
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (43-44)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now PLUS (45-46)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Shifting (PLUS) to state 37
+State 37:
+Lookahead token is now IDENT (47-48)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (48-49)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 38:
+Reducing production expr_base -&gt; expr PLUS expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (50-51)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now BOOL (53-57)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Shifting (BOOL) to state 160
+State 160:
+Lookahead token is now IDENT (58-67)
+Shifting (IDENT) to state 161
+State 161:
+Lookahead token is now LPAREN (68-69)
+Shifting (LPAREN) to state 162
+State 162:
+Lookahead token is now IDENT (69-70)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (70-71)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now BOOL (72-76)
+Shifting (BOOL) to state 7
+State 7:
+Lookahead token is now COMMA (76-77)
+Reducing production f_args -&gt; IDENT COLON BOOL
+State 149:
+Shifting (COMMA) to state 150
+State 150:
+Lookahead token is now IDENT (78-79)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (79-80)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now BOOL (81-85)
+Shifting (BOOL) to state 7
+State 7:
+Lookahead token is now RPAREN (85-86)
+Reducing production f_args -&gt; IDENT COLON BOOL
+State 149:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args
+State 151:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args COMMA separated_nonempty_list(COMMA,f_args)
+State 8:
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt; separated_nonempty_list(COMMA,f_args)
+State 163:
+Shifting (RPAREN) to state 164
+State 164:
+Lookahead token is now LBRACE (87-88)
+Shifting (LBRACE) to state 165
+State 165:
+Lookahead token is now RETURN (93-99)
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now IDENT (100-101)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now LAND (102-104)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Shifting (LAND) to state 53
+State 53:
+Lookahead token is now IDENT (105-106)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now SEMICOLON (106-107)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 54:
+Reducing production expr_base -&gt; expr LAND expr
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (108-109)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 166:
+Shifting (RBRACE) to state 167
+State 167:
+Lookahead token is now VOID (111-115)
+Reducing production fun_decl -&gt; BOOL IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Shifting (VOID) to state 1
+State 1:
+Lookahead token is now IDENT (116-125)
+Shifting (IDENT) to state 2
+State 2:
+Lookahead token is now LPAREN (126-127)
+Shifting (LPAREN) to state 3
+State 3:
+Lookahead token is now IDENT (127-128)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (128-129)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (130-133)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now COMMA (133-134)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Shifting (COMMA) to state 150
+State 150:
+Lookahead token is now IDENT (135-136)
+Shifting (IDENT) to state 4
+State 4:
+Lookahead token is now COLON (136-137)
+Shifting (COLON) to state 5
+State 5:
+Lookahead token is now INT (138-141)
+Shifting (INT) to state 6
+State 6:
+Lookahead token is now RPAREN (141-142)
+Reducing production f_args -&gt; IDENT COLON INT
+State 149:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args
+State 151:
+Reducing production separated_nonempty_list(COMMA,f_args) -&gt; f_args COMMA separated_nonempty_list(COMMA,f_args)
+State 8:
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt; separated_nonempty_list(COMMA,f_args)
+State 9:
+Shifting (RPAREN) to state 10
+State 10:
+Lookahead token is now LBRACE (143-144)
+Shifting (LBRACE) to state 11
+State 11:
+Lookahead token is now RBRACE (145-146)
+Reducing production list(statement) -&gt;
+State 147:
+Shifting (RBRACE) to state 148
+State 148:
+Lookahead token is now INT (148-151)
+Reducing production fun_decl -&gt; VOID IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Shifting (INT) to state 152
+State 152:
+Lookahead token is now IDENT (152-156)
+Shifting (IDENT) to state 153
+State 153:
+Lookahead token is now LPAREN (157-158)
+Shifting (LPAREN) to state 154
+State 154:
+Lookahead token is now RPAREN (158-159)
+Reducing production loption(separated_nonempty_list(COMMA,f_args)) -&gt;
+State 155:
+Shifting (RPAREN) to state 156
+State 156:
+Lookahead token is now LBRACE (160-161)
+Shifting (LBRACE) to state 157
+State 157:
+Lookahead token is now VAR (166-169)
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (170-171)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (172-173)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (174-175)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (175-176)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now VAR (181-184)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (185-186)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (187-188)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now INT_LIT (189-190)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (190-191)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now VAR (196-199)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (200-201)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (202-203)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now IDENT (204-212)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now LPAREN (213-214)
+Shifting (LPAREN) to state 20
+State 20:
+Lookahead token is now IDENT (214-215)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now COMMA (215-216)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 32:
+Shifting (COMMA) to state 61
+State 61:
+Lookahead token is now IDENT (217-218)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now RPAREN (218-219)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 63:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr
+State 62:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr COMMA separated_nonempty_list(COMMA,expr)
+State 28:
+Reducing production loption(separated_nonempty_list(COMMA,expr)) -&gt; separated_nonempty_list(COMMA,expr)
+State 68:
+Shifting (RPAREN) to state 69
+State 69:
+Lookahead token is now SEMICOLON (219-220)
+Reducing production expr_base -&gt; IDENT LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now VAR (225-228)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (VAR) to state 80
+State 80:
+Lookahead token is now IDENT (229-230)
+Shifting (IDENT) to state 81
+State 81:
+Lookahead token is now ASSIGN (231-232)
+Reducing production option(preceded(COLON,vtype)) -&gt;
+State 85:
+Shifting (ASSIGN) to state 86
+State 86:
+Lookahead token is now IDENT (233-242)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now LPAREN (243-244)
+Shifting (LPAREN) to state 20
+State 20:
+Lookahead token is now TRUE (244-248)
+Shifting (TRUE) to state 14
+State 14:
+Lookahead token is now COMMA (248-249)
+Reducing production expr_base -&gt; TRUE
+State 31:
+Reducing production expr -&gt; expr_base
+State 32:
+Shifting (COMMA) to state 61
+State 61:
+Lookahead token is now FALSE (250-255)
+Shifting (FALSE) to state 27
+State 27:
+Lookahead token is now RPAREN (255-256)
+Reducing production expr_base -&gt; FALSE
+State 31:
+Reducing production expr -&gt; expr_base
+State 63:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr
+State 62:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr COMMA separated_nonempty_list(COMMA,expr)
+State 28:
+Reducing production loption(separated_nonempty_list(COMMA,expr)) -&gt; separated_nonempty_list(COMMA,expr)
+State 68:
+Shifting (RPAREN) to state 69
+State 69:
+Lookahead token is now SEMICOLON (256-257)
+Reducing production expr_base -&gt; IDENT LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN
+State 31:
+Reducing production expr -&gt; expr_base
+State 87:
+Reducing production single_declaration -&gt; IDENT option(preceded(COLON,vtype)) ASSIGN expr
+State 88:
+Reducing production separated_nonempty_list(COMMA,single_declaration) -&gt; single_declaration
+State 91:
+Reducing production declaration_block -&gt; separated_nonempty_list(COMMA,single_declaration)
+State 92:
+Shifting (SEMICOLON) to state 93
+State 93:
+Lookahead token is now IDENT (262-271)
+Reducing production statement -&gt; VAR declaration_block SEMICOLON
+State 142:
+Shifting (IDENT) to state 103
+State 103:
+Lookahead token is now LPAREN (271-272)
+Shifting (LPAREN) to state 104
+State 104:
+Lookahead token is now IDENT (272-273)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now COMMA (273-274)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 32:
+Shifting (COMMA) to state 61
+State 61:
+Lookahead token is now IDENT (275-276)
+Shifting (IDENT) to state 19
+State 19:
+Lookahead token is now RPAREN (276-277)
+Reducing production expr_base -&gt; IDENT
+State 31:
+Reducing production expr -&gt; expr_base
+State 63:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr
+State 62:
+Reducing production separated_nonempty_list(COMMA,expr) -&gt; expr COMMA separated_nonempty_list(COMMA,expr)
+State 28:
+Reducing production loption(separated_nonempty_list(COMMA,expr)) -&gt; separated_nonempty_list(COMMA,expr)
+State 105:
+Shifting (RPAREN) to state 106
+State 106:
+Lookahead token is now SEMICOLON (277-278)
+Reducing production option(expr_stmt) -&gt; IDENT LPAREN loption(separated_nonempty_list(COMMA,expr)) RPAREN
+State 136:
+Shifting (SEMICOLON) to state 137
+State 137:
+Lookahead token is now RETURN (283-289)
+Reducing production statement -&gt; option(expr_stmt) SEMICOLON
+State 142:
+Shifting (RETURN) to state 94
+State 94:
+Lookahead token is now INT_LIT (290-291)
+Shifting (INT_LIT) to state 18
+State 18:
+Lookahead token is now SEMICOLON (291-292)
+Reducing production expr_base -&gt; INT_LIT
+State 31:
+Reducing production expr -&gt; expr_base
+State 97:
+Reducing production option(expr) -&gt; expr
+State 95:
+Shifting (SEMICOLON) to state 96
+State 96:
+Lookahead token is now RBRACE (293-294)
+Reducing production statement -&gt; RETURN option(expr) SEMICOLON
+State 142:
+Reducing production list(statement) -&gt;
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 143:
+Reducing production list(statement) -&gt; statement list(statement)
+State 158:
+Shifting (RBRACE) to state 159
+State 159:
+Lookahead token is now EOF (294-294)
+Reducing production fun_decl -&gt; INT IDENT LPAREN loption(separated_nonempty_list(COMMA,f_args)) RPAREN LBRACE list(statement) RBRACE
+State 172:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl
+State 173:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl nonempty_list(fun_decl)
+State 173:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl nonempty_list(fun_decl)
+State 173:
+Reducing production nonempty_list(fun_decl) -&gt; fun_decl nonempty_list(fun_decl)
+State 170:
+Reducing production program -&gt; nonempty_list(fun_decl)
+State 168:
+Shifting (EOF) to state 169
+State 169:
+Reducing production main -&gt; program EOF
+State 171:
+Accepting
+❌ | Test 'function declarations' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
+Source program:
+int int_func (a: int, b: int) {
+    return a + b;
+}
+
+bool bool_func (a: bool, b: bool) {
+    return a &amp;&amp; b;
+}
+
+void void_func (a: int, b: int) {
+}
+
+int main () {
+    var a = 1;
+    var b = 2;
+    var c = int_func (a, b);
+    var d = bool_func (true, false);
+    void_func(a, b);
+    return 0;
+}
+
+</system-out></testcase><testcase classname="phase4" name="negative function declarations" file="src/tests/phase4/negative_func_decls_test.json" time="0.011"><system-out>
+--------------------
+🚂 | Running 'negative function declarations' ...
+src/tests/phase4/negative_func_decls_test.dlp:5:19: Parser error: Unexpected token ","
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'negative function declarations' failed as expected.
+
 </system-out></testcase></testsuite>
