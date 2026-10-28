@@ -1,0 +1,113 @@
+{
+  "phase": "4",
+  "generated_at": "2026-10-28T22:03:08.378680+00:00",
+  "run": {
+    "branch": "phase4",
+    "captured_at": "2026-10-28T22:03:08.378680+00:00",
+    "commit": "71c0868bc0854a2a9b1cbf81eaf1b7cb793a6d19",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/71c0868bc0854a2a9b1cbf81eaf1b7cb793a6d19",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/673023"
+  },
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "duration_seconds": 0.305,
+  "tests": [
+    {
+      "name": "comma expression 2",
+      "file": "src/tests/phase4/comma_expr_2_test.json",
+      "duration": 0.012,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-comma_expr_2_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase4-comma_expr_2_test.dlp",
+      "trace_log": null
+    },
+    {
+      "name": "comma expression 3",
+      "file": "src/tests/phase4/comma_expr_3_test.json",
+      "duration": 0.2,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-comma_expr_3_test.log",
+      "kind": "Positive",
+      "expected": "0",
+      "actual": "0",
+      "source_file": "ci-reports/sources/phase4-comma_expr_3_test.dlp",
+      "trace_log": null
+    },
+    {
+      "name": "comma expression 1",
+      "file": "src/tests/phase4/comma_expr_test.json",
+      "duration": 0.293,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-comma_expr_test.log",
+      "kind": "Positive",
+      "expected": "2",
+      "actual": "2",
+      "source_file": "ci-reports/sources/phase4-comma_expr_test.dlp",
+      "trace_log": null
+    },
+    {
+      "name": "for loop with comma",
+      "file": "src/tests/phase4/for_comma_test.json",
+      "duration": 0.298,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-for_comma_test.log",
+      "kind": "Positive",
+      "expected": "4",
+      "actual": "4",
+      "source_file": "ci-reports/sources/phase4-for_comma_test.dlp",
+      "trace_log": null
+    },
+    {
+      "name": "function declarations",
+      "file": "src/tests/phase4/func_decls_test.json",
+      "duration": 0.301,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-func_decls_test.log",
+      "kind": "Positive",
+      "expected": "0",
+      "actual": "0",
+      "source_file": "ci-reports/sources/phase4-func_decls_test.dlp",
+      "trace_log": null
+    },
+    {
+      "name": "in-program comma",
+      "file": "src/tests/phase4/in_program_comma_test.json",
+      "duration": 0.3,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-in_program_comma_test.log",
+      "kind": "Positive",
+      "expected": "5",
+      "actual": "5",
+      "source_file": "ci-reports/sources/phase4-in_program_comma_test.dlp",
+      "trace_log": null
+    },
+    {
+      "name": "negative function declarations",
+      "file": "src/tests/phase4/negative_func_decls_test.json",
+      "duration": 0.018,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-negative_func_decls_test.log",
+      "kind": "Negative",
+      "expected": "Compiler rejection",
+      "actual": "Compiler rejection",
+      "source_file": "ci-reports/sources/phase4-negative_func_decls_test.dlp",
+      "trace_log": null
+    },
+    {
+      "name": "self recursion",
+      "file": "src/tests/phase4/self_recursion_test.json",
+      "duration": 0.275,
+      "failure": "",
+      "log": "ci-reports/logs/phase4-self_recursion_test.log",
+      "kind": "Positive",
+      "expected": "4",
+      "actual": "4",
+      "source_file": "ci-reports/sources/phase4-self_recursion_test.dlp",
+      "trace_log": null
+    }
+  ]
+}

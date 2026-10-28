@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="Dolphin phase 4" tests="5" failures="0" time="0.189"><testcase classname="phase4" name="comma expression 2" file="src/tests/phase4/comma_expr_2_test.json" time="0.026"><system-out>
+<testsuite name="Dolphin phase 4" tests="8" failures="0" time="0.305"><testcase classname="phase4" name="comma expression 2" file="src/tests/phase4/comma_expr_2_test.json" time="0.012"><system-out>
 --------------------
 🚂 | Running 'comma expression 2' ...
 src/tests/phase4/comma_expr_2_test.dlp:3:10: Parser error: Unexpected token ","
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'comma expression 2' failed as expected.
 
-</system-out></testcase><testcase classname="phase4" name="comma expression 3" file="src/tests/phase4/comma_expr_3_test.json" time="0.156"><system-out>
+</system-out></testcase><testcase classname="phase4" name="comma expression 3" file="src/tests/phase4/comma_expr_3_test.json" time="0.2"><system-out>
 --------------------
 🚂 | Running 'comma expression 3' ...
 0
@@ -33,25 +33,46 @@ Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'comma expression 3' passed!
 
-</system-out></testcase><testcase classname="phase4" name="comma expression 1" file="src/tests/phase4/comma_expr_test.json" time="0.186"><system-out>
+</system-out></testcase><testcase classname="phase4" name="comma expression 1" file="src/tests/phase4/comma_expr_test.json" time="0.293"><system-out>
 --------------------
 🚂 | Running 'comma expression 1' ...
 Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=2 actual=2
 ✅ | Test 'comma expression 1' passed!
 
-</system-out></testcase><testcase classname="phase4" name="function declarations" file="src/tests/phase4/func_decls_test.json" time="0.129"><system-out>
+</system-out></testcase><testcase classname="phase4" name="for loop with comma" file="src/tests/phase4/for_comma_test.json" time="0.298"><system-out>
+--------------------
+🚂 | Running 'for loop with comma' ...
+Program returned: &lt;RESULT__START&gt;4&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=4 actual=4
+✅ | Test 'for loop with comma' passed!
+
+</system-out></testcase><testcase classname="phase4" name="function declarations" file="src/tests/phase4/func_decls_test.json" time="0.301"><system-out>
 --------------------
 🚂 | Running 'function declarations' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
 ✅ | Test 'function declarations' passed!
 
-</system-out></testcase><testcase classname="phase4" name="negative function declarations" file="src/tests/phase4/negative_func_decls_test.json" time="0.021"><system-out>
+</system-out></testcase><testcase classname="phase4" name="in-program comma" file="src/tests/phase4/in_program_comma_test.json" time="0.3"><system-out>
+--------------------
+🚂 | Running 'in-program comma' ...
+Program returned: &lt;RESULT__START&gt;5&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=5 actual=5
+✅ | Test 'in-program comma' passed!
+
+</system-out></testcase><testcase classname="phase4" name="negative function declarations" file="src/tests/phase4/negative_func_decls_test.json" time="0.018"><system-out>
 --------------------
 🚂 | Running 'negative function declarations' ...
 src/tests/phase4/negative_func_decls_test.dlp:5:19: Parser error: Unexpected token ","
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
 ✅ | Test 'negative function declarations' failed as expected.
+
+</system-out></testcase><testcase classname="phase4" name="self recursion" file="src/tests/phase4/self_recursion_test.json" time="0.275"><system-out>
+--------------------
+🚂 | Running 'self recursion' ...
+Program returned: &lt;RESULT__START&gt;4&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=4 actual=4
+✅ | Test 'self recursion' passed!
 
 </system-out></testcase></testsuite>
