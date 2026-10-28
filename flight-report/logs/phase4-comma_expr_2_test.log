@@ -1,12 +1,7 @@
 
 --------------------
 🚂 | Running 'comma expression 2' ...
-❌ | Test 'comma expression 2' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
-Source program:
-int main () {
-    var x = 0;
-    x = 1,x = 2; /* invalid expression statement                      */
-                 /* the programmer should use semi-colon instead ;)   */
-    return x;
-}
+src/tests/phase4/comma_expr_2_test.dlp:3:10: Parser error: Unexpected token ","
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'comma expression 2' failed as expected.
 

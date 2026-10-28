@@ -1,12 +1,7 @@
 
 --------------------
 🚂 | Running 'comma expression 1' ...
-❌ | Test 'comma expression 1' failed unexpectedly: CfgBuilder.CFGConstructionError("terminate the current block before starting a new one")
-Source program:
-/* valid program */
-int main () {
-    var x = 0;
-    x = (1,2); /* valid expression statement */
-    return x;  /* returns 2 */
-}
+Program returned: <RESULT__START>2<RESULT__END>
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test 'comma expression 1' passed!
 
