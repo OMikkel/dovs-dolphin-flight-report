@@ -1,22 +1,22 @@
 {
   "phase": "3",
-  "generated_at": "2026-10-27T23:05:19.768886+00:00",
+  "generated_at": "2026-10-28T09:47:41.157910+00:00",
   "run": {
     "branch": "main",
-    "captured_at": "2026-10-27T23:05:19.768886+00:00",
-    "commit": "9c794d013177b488c9faff92d8717a94120f74c0",
-    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/9c794d013177b488c9faff92d8717a94120f74c0",
-    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/672048"
+    "captured_at": "2026-10-28T09:47:41.157910+00:00",
+    "commit": "b9e87e963db129f6b981c7ecc7f6b70c2eec151f",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/b9e87e963db129f6b981c7ecc7f6b70c2eec151f",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/672480"
   },
   "total": 30,
   "passed": 30,
   "failed": 0,
-  "duration_seconds": 0.69,
+  "duration_seconds": 0.581,
   "tests": [
     {
       "name": "break for loop",
       "file": "src/tests/phase3/break_for_loop_test.json",
-      "duration": 0.424,
+      "duration": 0.361,
       "failure": "",
       "log": "ci-reports/logs/phase3-break_for_loop_test.log",
       "kind": "Positive",
@@ -28,7 +28,7 @@
     {
       "name": "break_outside_loop_test",
       "file": "src/tests/phase3/break_outside_loop_test.json",
-      "duration": 0.025,
+      "duration": 0.017,
       "failure": "",
       "log": "ci-reports/logs/phase3-break_outside_loop_test.log",
       "kind": "Negative",
@@ -40,7 +40,7 @@
     {
       "name": "continue_outside_loop_test",
       "file": "src/tests/phase3/continue_outside_loop_test.json",
-      "duration": 0.018,
+      "duration": 0.02,
       "failure": "",
       "log": "ci-reports/logs/phase3-continue_outside_loop_test.log",
       "kind": "Negative",
@@ -52,7 +52,7 @@
     {
       "name": "Rejects 9223372036854775808 above boundary value",
       "file": "src/tests/phase3/correct_rejects_illegal_number_test.json",
-      "duration": 0.02,
+      "duration": 0.033,
       "failure": "",
       "log": "ci-reports/logs/phase3-correct_rejects_illegal_number_test.log",
       "kind": "Negative",
@@ -64,7 +64,7 @@
     {
       "name": "crazy test with loops and ext fun call",
       "file": "src/tests/phase3/crazy_loops_external_funs_test.json",
-      "duration": 0.381,
+      "duration": 0.422,
       "failure": "",
       "log": "ci-reports/logs/phase3-crazy_loops_external_funs_test.log",
       "kind": "Positive",
@@ -76,7 +76,7 @@
     {
       "name": "empty/infinite for-loop with instant return",
       "file": "src/tests/phase3/empty_for_loop_test.json",
-      "duration": 0.499,
+      "duration": 0.357,
       "failure": "",
       "log": "ci-reports/logs/phase3-empty_for_loop_test.log",
       "kind": "Positive",
@@ -88,7 +88,7 @@
     {
       "name": "for continue runs the update before rechecking the condition",
       "file": "src/tests/phase3/for_continue_update_test.json",
-      "duration": 0.479,
+      "duration": 0.359,
       "failure": "",
       "log": "ci-reports/logs/phase3-for_continue_update_test.log",
       "kind": "Positive",
@@ -100,7 +100,7 @@
     {
       "name": "for_init_scope_escape_test",
       "file": "src/tests/phase3/for_init_scope_escape_test.json",
-      "duration": 0.025,
+      "duration": 0.037,
       "failure": "",
       "log": "ci-reports/logs/phase3-for_init_scope_escape_test.log",
       "kind": "Negative",
@@ -112,7 +112,7 @@
     {
       "name": "for_non_boolean_condition_test",
       "file": "src/tests/phase3/for_non_boolean_condition_test.json",
-      "duration": 0.01,
+      "duration": 0.028,
       "failure": "",
       "log": "ci-reports/logs/phase3-for_non_boolean_condition_test.log",
       "kind": "Negative",
@@ -124,7 +124,7 @@
     {
       "name": "for_update_type_mismatch_test",
       "file": "src/tests/phase3/for_update_type_mismatch_test.json",
-      "duration": 0.011,
+      "duration": 0.022,
       "failure": "",
       "log": "ci-reports/logs/phase3-for_update_type_mismatch_test.log",
       "kind": "Negative",
@@ -136,7 +136,7 @@
     {
       "name": "lexer rejects an out-of-range integer literal",
       "file": "src/tests/phase3/lexer_integer_overflow_test.json",
-      "duration": 0.008,
+      "duration": 0.026,
       "failure": "",
       "log": "ci-reports/logs/phase3-lexer_integer_overflow_test.log",
       "kind": "Negative",
@@ -148,7 +148,7 @@
     {
       "name": "lexer rejects a single ampersand",
       "file": "src/tests/phase3/lexer_single_ampersand_test.json",
-      "duration": 0.01,
+      "duration": 0.015,
       "failure": "",
       "log": "ci-reports/logs/phase3-lexer_single_ampersand_test.log",
       "kind": "Negative",
@@ -160,7 +160,7 @@
     {
       "name": "lexer rejects a single pipe",
       "file": "src/tests/phase3/lexer_single_pipe_test.json",
-      "duration": 0.006,
+      "duration": 0.015,
       "failure": "",
       "log": "ci-reports/logs/phase3-lexer_single_pipe_test.log",
       "kind": "Negative",
@@ -172,7 +172,7 @@
     {
       "name": "lexer rejects an unexpected character",
       "file": "src/tests/phase3/lexer_unexpected_character_test.json",
-      "duration": 0.007,
+      "duration": 0.021,
       "failure": "",
       "log": "ci-reports/logs/phase3-lexer_unexpected_character_test.log",
       "kind": "Negative",
@@ -196,7 +196,7 @@
     {
       "name": "multi_variables_forward_reference_test",
       "file": "src/tests/phase3/multi_variables_forward_reference_test.json",
-      "duration": 0.007,
+      "duration": 0.024,
       "failure": "",
       "log": "ci-reports/logs/phase3-multi_variables_forward_reference_test.log",
       "kind": "Negative",
@@ -208,7 +208,7 @@
     {
       "name": "multiple lines multiples variables",
       "file": "src/tests/phase3/multi_variables_normal_test.json",
-      "duration": 0.452,
+      "duration": 0.373,
       "failure": "",
       "log": "ci-reports/logs/phase3-multi_variables_normal_test.log",
       "kind": "Positive",
@@ -220,7 +220,7 @@
     {
       "name": "ONE LINE multiples variables",
       "file": "src/tests/phase3/multi_variables_oneline_test.json",
-      "duration": 0.456,
+      "duration": 0.424,
       "failure": "",
       "log": "ci-reports/logs/phase3-multi_variables_oneline_test.log",
       "kind": "Positive",
@@ -232,7 +232,7 @@
     {
       "name": "multi_variables_type_mismatch_test",
       "file": "src/tests/phase3/multi_variables_type_mismatch_test.json",
-      "duration": 0.009,
+      "duration": 0.007,
       "failure": "",
       "log": "ci-reports/logs/phase3-multi_variables_type_mismatch_test.log",
       "kind": "Negative",
@@ -244,7 +244,7 @@
     {
       "name": "parser rejects an unclosed loop body",
       "file": "src/tests/phase3/parser_missing_brace_test.json",
-      "duration": 0.009,
+      "duration": 0.015,
       "failure": "",
       "log": "ci-reports/logs/phase3-parser_missing_brace_test.log",
       "kind": "Negative",
@@ -256,7 +256,7 @@
     {
       "name": "parser rejects a missing variable initializer",
       "file": "src/tests/phase3/parser_missing_initializer_test.json",
-      "duration": 0.035,
+      "duration": 0.014,
       "failure": "",
       "log": "ci-reports/logs/phase3-parser_missing_initializer_test.log",
       "kind": "Negative",
@@ -268,7 +268,7 @@
     {
       "name": "parser rejects a missing binary operand",
       "file": "src/tests/phase3/parser_missing_operand_test.json",
-      "duration": 0.026,
+      "duration": 0.012,
       "failure": "",
       "log": "ci-reports/logs/phase3-parser_missing_operand_test.log",
       "kind": "Negative",
@@ -280,7 +280,7 @@
     {
       "name": "parser rejects an unclosed condition parenthesis",
       "file": "src/tests/phase3/parser_missing_parenthesis_test.json",
-      "duration": 0.009,
+      "duration": 0.034,
       "failure": "",
       "log": "ci-reports/logs/phase3-parser_missing_parenthesis_test.log",
       "kind": "Negative",
@@ -292,7 +292,7 @@
     {
       "name": "parser rejects a missing return semicolon",
       "file": "src/tests/phase3/parser_missing_semicolon_test.json",
-      "duration": 0.008,
+      "duration": 0.011,
       "failure": "",
       "log": "ci-reports/logs/phase3-parser_missing_semicolon_test.log",
       "kind": "Negative",
@@ -304,7 +304,7 @@
     {
       "name": "return_assignment_expr_test",
       "file": "src/tests/phase3/return_assignment_expr_test.json",
-      "duration": 0.424,
+      "duration": 0.339,
       "failure": "",
       "log": "ci-reports/logs/phase3-return_assignment_expr_test.log",
       "kind": "Positive",
@@ -316,7 +316,7 @@
     {
       "name": "scoping for loop",
       "file": "src/tests/phase3/scoping_for_loop_test.json",
-      "duration": 0.408,
+      "duration": 0.325,
       "failure": "",
       "log": "ci-reports/logs/phase3-scoping_for_loop_test.log",
       "kind": "Positive",
@@ -328,7 +328,7 @@
     {
       "name": "while continue rechecks the condition instead of breaking",
       "file": "src/tests/phase3/while_continue_test.json",
-      "duration": 0.242,
+      "duration": 0.215,
       "failure": "",
       "log": "ci-reports/logs/phase3-while_continue_test.log",
       "kind": "Positive",
@@ -340,7 +340,7 @@
     {
       "name": "while increment with scope test",
       "file": "src/tests/phase3/while_increment_test.json",
-      "duration": 0.263,
+      "duration": 0.219,
       "failure": "",
       "log": "ci-reports/logs/phase3-while_increment_test.log",
       "kind": "Positive",
@@ -352,7 +352,7 @@
     {
       "name": "while_non_boolean_condition_test",
       "file": "src/tests/phase3/while_non_boolean_condition_test.json",
-      "duration": 0.012,
+      "duration": 0.005,
       "failure": "",
       "log": "ci-reports/logs/phase3-while_non_boolean_condition_test.log",
       "kind": "Negative",
@@ -364,7 +364,7 @@
     {
       "name": "Accepts -9223372036854775808 boundary value",
       "file": "src/tests/phase3/wrong_negation_rejects_legal_number_test.json",
-      "duration": 0.194,
+      "duration": 0.199,
       "failure": "",
       "log": "ci-reports/logs/phase3-wrong_negation_rejects_legal_number_test.log",
       "kind": "Positive",
