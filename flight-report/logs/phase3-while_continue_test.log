@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'while continue rechecks the condition instead of breaking' ...
-Program returned: <RESULT__START>3<RESULT__END>
-DOLPHIN_TEST_RESULT expected=3 actual=3
-✅ | Test 'while continue rechecks the condition instead of breaking' passed!
-
