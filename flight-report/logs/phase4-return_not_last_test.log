@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'return_not_last_test' ...
-Program returned: <RESULT__START>67<RESULT__END>
-DOLPHIN_TEST_RESULT expected=67 actual=67
-✅ | Test 'return_not_last_test' passed!
-

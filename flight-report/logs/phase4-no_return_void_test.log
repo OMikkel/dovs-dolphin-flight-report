@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'no_return_void_test' ...
-Program returned: <RESULT__START>0<RESULT__END>
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'no_return_void_test' passed!
-

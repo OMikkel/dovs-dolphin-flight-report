@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'separate env for function calls' ...
-Program returned: <RESULT__START>1<RESULT__END>
-DOLPHIN_TEST_RESULT expected=1 actual=1
-✅ | Test 'separate env for function calls' passed!
-
