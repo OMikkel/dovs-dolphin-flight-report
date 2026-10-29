@@ -1,2 +1,0 @@
-var first = second, second = 2;
-return second;

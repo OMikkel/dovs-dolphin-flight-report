@@ -1,0 +1,10 @@
+int transform(n: int, x: int) {
+    if (n <= 0) {
+        return x;
+    }
+    return transform(n - 1, (x = x + n, x = x * 2, x));
+}
+
+int main() {
+    return transform(3, 1);
+}

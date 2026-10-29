@@ -1,0 +1,42 @@
+int classify(n: int) {
+    if (n < 0) {
+        return 11;
+    }
+    if (n == 0) {
+        return 22;
+    }
+    if (n < 3) {
+        return 33;
+    } else {
+        return classify(n-1) * (n % 3 + 1);
+    }
+}
+
+int scramble(a: int, b: int, c: int) {
+    if (a <= 0) {
+        return classify(b % 5) + c;
+    }
+    return scramble(a-1, c % 7, b % 11) + classify(a % 4);
+}
+
+int loop(n: int) {
+    for (var i = n, j = 0, k = 3; i < 200, j < 150; i = i + classify(j % 4) - 22, j = j + 1, k = k + 2) {
+        if (j % 2 == 0) {
+            n = n + scramble(5, i % 13, k);
+        } else {
+            n = n - scramble(3, k % 9, j);
+        }
+
+        for (var x = 0, y = j; x < 10; x = x + 1, y = y - 1) {
+            n = n + classify((x + y) % 6);
+        }
+    }
+    return n;
+}
+
+int main() {
+    var a = loop(1);
+    var b = scramble(7, a % 17, 3);
+    var c = classify(b % 9);
+    return loop(c % 10);
+}

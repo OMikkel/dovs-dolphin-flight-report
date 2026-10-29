@@ -1,5 +1,0 @@
-var x = 0; 
-for (;;) {
-    break;
-}
-return x;

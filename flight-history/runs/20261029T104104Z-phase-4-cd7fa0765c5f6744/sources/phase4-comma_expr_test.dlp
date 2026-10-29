@@ -1,0 +1,6 @@
+/* valid program */
+int main () {
+    var x = 0;
+    x = (1,2); /* valid expression statement */
+    return x;  /* returns 2 */
+}
