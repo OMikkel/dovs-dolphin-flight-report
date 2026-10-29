@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="Dolphin phase 4" tests="17" failures="0" time="0.838"><testcase classname="phase4" name="comma expression 2" file="src/tests/phase4/comma_expr_2_test.json" time="0.012"><system-out>
+--------------------
+🚂 | Running 'comma expression 2' ...
+src/tests/phase4/comma_expr_2_test.dlp:3:10: Parser error: Unexpected token ","
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'comma expression 2' failed as expected.
+
+</system-out></testcase><testcase classname="phase4" name="comma expression 3" file="src/tests/phase4/comma_expr_3_test.json" time="0.425"><system-out>
+--------------------
+🚂 | Running 'comma expression 3' ...
+0
+9
+1
+8
+2
+7
+3
+6
+4
+5
+5
+4
+6
+3
+7
+2
+8
+1
+9
+0
+Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test 'comma expression 3' passed!
+
+</system-out></testcase><testcase classname="phase4" name="comma expression 1" file="src/tests/phase4/comma_expr_test.json" time="0.426"><system-out>
+--------------------
+🚂 | Running 'comma expression 1' ...
+Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test 'comma expression 1' passed!
+
+</system-out></testcase><testcase classname="phase4" name="comma_funcall_test" file="src/tests/phase4/comma_funcall_test.json" time="0.422"><system-out>
+--------------------
+🚂 | Running 'comma_funcall_test' ...
+Program returned: &lt;RESULT__START&gt;42&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=42 actual=42
+✅ | Test 'comma_funcall_test' passed!
+
+</system-out></testcase><testcase classname="phase4" name="crazy_test" file="src/tests/phase4/crazy_test.json" time="0.365"><system-out>
+--------------------
+🚂 | Running 'crazy_test' ...
+Program returned: &lt;RESULT__START&gt;100392&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=100392 actual=100392
+✅ | Test 'crazy_test' passed!
+
+</system-out></testcase><testcase classname="phase4" name="for loop with comma" file="src/tests/phase4/for_comma_test.json" time="0.465"><system-out>
+--------------------
+🚂 | Running 'for loop with comma' ...
+Program returned: &lt;RESULT__START&gt;4&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=4 actual=4
+✅ | Test 'for loop with comma' passed!
+
+</system-out></testcase><testcase classname="phase4" name="function declarations" file="src/tests/phase4/func_decls_test.json" time="0.41"><system-out>
+--------------------
+🚂 | Running 'function declarations' ...
+Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test 'function declarations' passed!
+
+</system-out></testcase><testcase classname="phase4" name="function_param_order" file="src/tests/phase4/function_param_order_test.json" time="0.368"><system-out>
+--------------------
+🚂 | Running 'function_param_order' ...
+Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test 'function_param_order' passed!
+
+</system-out></testcase><testcase classname="phase4" name="in-program comma" file="src/tests/phase4/in_program_comma_test.json" time="0.357"><system-out>
+--------------------
+🚂 | Running 'in-program comma' ...
+Program returned: &lt;RESULT__START&gt;5&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=5 actual=5
+✅ | Test 'in-program comma' passed!
+
+</system-out></testcase><testcase classname="phase4" name="mutual_rec_hard_test" file="src/tests/phase4/mutual_rec_hard_test.json" time="0.37"><system-out>
+--------------------
+🚂 | Running 'mutual_rec_hard_test' ...
+Program returned: &lt;RESULT__START&gt;190&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=190 actual=190
+✅ | Test 'mutual_rec_hard_test' passed!
+
+</system-out></testcase><testcase classname="phase4" name="mutual recursion factorial" file="src/tests/phase4/mutual_recursion_test.json" time="0.368"><system-out>
+--------------------
+🚂 | Running 'mutual recursion factorial' ...
+Program returned: &lt;RESULT__START&gt;3628800&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=3628800 actual=3628800
+✅ | Test 'mutual recursion factorial' passed!
+
+</system-out></testcase><testcase classname="phase4" name="negative function declarations" file="src/tests/phase4/negative_func_decls_test.json" time="0.045"><system-out>
+--------------------
+🚂 | Running 'negative function declarations' ...
+src/tests/phase4/negative_func_decls_test.dlp:5:19: Parser error: Unexpected token ","
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'negative function declarations' failed as expected.
+
+</system-out></testcase><testcase classname="phase4" name="no_return_void_test" file="src/tests/phase4/no_return_void_test.json" time="0.42"><system-out>
+--------------------
+🚂 | Running 'no_return_void_test' ...
+Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test 'no_return_void_test' passed!
+
+</system-out></testcase><testcase classname="phase4" name="remember_old_env_test" file="src/tests/phase4/remember_old_env_test.json" time="0.331"><system-out>
+--------------------
+🚂 | Running 'remember_old_env_test' ...
+Program returned: &lt;RESULT__START&gt;78&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=78 actual=78
+✅ | Test 'remember_old_env_test' passed!
+
+</system-out></testcase><testcase classname="phase4" name="return_not_last_test" file="src/tests/phase4/return_not_last_test.json" time="0.348"><system-out>
+--------------------
+🚂 | Running 'return_not_last_test' ...
+Program returned: &lt;RESULT__START&gt;67&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=67 actual=67
+✅ | Test 'return_not_last_test' passed!
+
+</system-out></testcase><testcase classname="phase4" name="self recursion" file="src/tests/phase4/self_recursion_test.json" time="0.393"><system-out>
+--------------------
+🚂 | Running 'self recursion' ...
+Program returned: &lt;RESULT__START&gt;4&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=4 actual=4
+✅ | Test 'self recursion' passed!
+
+</system-out></testcase><testcase classname="phase4" name="separate env for function calls" file="src/tests/phase4/separate_env_for_func_calls_test.json" time="0.344"><system-out>
+--------------------
+🚂 | Running 'separate env for function calls' ...
+Program returned: &lt;RESULT__START&gt;1&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=1 actual=1
+✅ | Test 'separate env for function calls' passed!
+
+</system-out></testcase></testsuite>
