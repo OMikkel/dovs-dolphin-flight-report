@@ -1,0 +1,6 @@
+var x = 1;
+var y = 2;
+var z = 3;
+var a = 4;
+var b = 5;
+return x-y+z-a+b;
