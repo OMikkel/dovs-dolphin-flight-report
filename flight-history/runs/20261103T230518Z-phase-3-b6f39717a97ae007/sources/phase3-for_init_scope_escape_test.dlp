@@ -1,0 +1,5 @@
+for (var i = 0, limit = 2; i < limit; i = i + 1) {
+    break;
+}
+var after = limit;
+return 0;
