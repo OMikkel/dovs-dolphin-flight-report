@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'multi_variables_type_mismatch_test' ...
-Error: ([36m"src/tests/phase3/multi_variables_type_mismatch_test.dlp" @ 1:11-25[0m): Type mismatch: expected bool but found int.
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'multi_variables_type_mismatch_test' failed as expected.
-

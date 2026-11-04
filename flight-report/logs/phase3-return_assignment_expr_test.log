@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'return_assignment_expr_test' ...
-Program returned: <RESULT__START>2<RESULT__END>
-DOLPHIN_TEST_RESULT expected=2 actual=2
-✅ | Test 'return_assignment_expr_test' passed!
-
