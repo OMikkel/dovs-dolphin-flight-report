@@ -1,0 +1,28 @@
+{
+  "phase": "build",
+  "generated_at": "2026-11-11T16:00:31.986329+00:00",
+  "run": {
+    "branch": "phase5",
+    "captured_at": "2026-11-11T16:00:31.986329+00:00",
+    "commit": "36e2b5d2c0f543b3b5208e69736f0eefcb21a6f7",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/36e2b5d2c0f543b3b5208e69736f0eefcb21a6f7",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/686189"
+  },
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "duration_seconds": 0.0,
+  "tests": [
+    {
+      "name": "compiler build",
+      "file": "dolphin/Makefile",
+      "duration": 0.0,
+      "failure": "make build failed; see the CI job log",
+      "log": "",
+      "kind": "Build",
+      "expected": "Successful build",
+      "actual": "Build failed",
+      "source_file": null
+    }
+  ]
+}

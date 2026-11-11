@@ -1,6 +1,0 @@
-int main () {
-    var x = 0;
-    x = 1,x = 2; /* invalid expression statement                      */
-                 /* the programmer should use semi-colon instead ;)   */
-    return x;
-}

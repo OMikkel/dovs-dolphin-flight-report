@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="Dolphin phase build" tests="1" failures="1" time="0.0"><testcase classname="phasebuild" name="compiler build" file="dolphin/Makefile" time="0.0"><failure message="make build failed; see the CI job log">The compiler build failed before tests could run. See the CI job log for the build error.
+</failure><system-out>The compiler build failed before tests could run. See the CI job log for the build error.
+</system-out></testcase></testsuite>

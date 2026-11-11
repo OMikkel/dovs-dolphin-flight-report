@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'mutual recursion factorial' ...
-Program returned: <RESULT__START>3628800<RESULT__END>
-DOLPHIN_TEST_RESULT expected=3628800 actual=3628800
-✅ | Test 'mutual recursion factorial' passed!
-
