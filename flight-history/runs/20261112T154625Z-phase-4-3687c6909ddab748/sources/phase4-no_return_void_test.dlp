@@ -1,0 +1,11 @@
+void calculateThings(n: int) {
+    var a = 19;
+    var b = 125;
+    var c = 15;
+    var res = b/c % c + n;
+}
+
+int main() {
+    calculateThings(10);
+    return 0;
+}
