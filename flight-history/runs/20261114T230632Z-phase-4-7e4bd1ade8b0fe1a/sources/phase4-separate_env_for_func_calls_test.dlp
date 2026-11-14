@@ -1,0 +1,9 @@
+void test(x: int) {
+    x = 10;
+}
+
+int main() {
+    var x = 1;
+    test(69);
+    return x;
+}
