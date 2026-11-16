@@ -1,12 +1,12 @@
 {
   "phase": "build",
-  "generated_at": "2026-11-16T13:08:35.818183+00:00",
+  "generated_at": "2026-11-16T14:07:10.408852+00:00",
   "run": {
     "branch": "phase5",
-    "captured_at": "2026-11-16T13:08:35.818183+00:00",
-    "commit": "6345112fb9c39362050c2437eb717c7efc825935",
-    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/6345112fb9c39362050c2437eb717c7efc825935",
-    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/690943"
+    "captured_at": "2026-11-16T14:07:10.408852+00:00",
+    "commit": "1d2291ef84cebde6962fbd67883d60d0fbfe28c8",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/1d2291ef84cebde6962fbd67883d60d0fbfe28c8",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/691000"
   },
   "total": 1,
   "passed": 0,
