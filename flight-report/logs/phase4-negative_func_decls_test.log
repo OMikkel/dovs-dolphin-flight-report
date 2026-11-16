@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'negative function declarations' ...
-src/tests/phase4/negative_func_decls_test.dlp:5:19: Parser error: Unexpected token ","
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'negative function declarations' failed as expected.
-
