@@ -1,22 +1,22 @@
 {
   "phase": "4",
-  "generated_at": "2026-11-17T23:05:28.771447+00:00",
+  "generated_at": "2026-11-18T19:42:46.461580+00:00",
   "run": {
-    "branch": "main",
-    "captured_at": "2026-11-17T23:05:28.771447+00:00",
-    "commit": "eae40d68dde52826e8eaa50f8f954abf8c73bea8",
-    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/eae40d68dde52826e8eaa50f8f954abf8c73bea8",
-    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/692714"
+    "branch": "phase5",
+    "captured_at": "2026-11-18T19:42:46.461580+00:00",
+    "commit": "56414df55a00166926b4bb7bcb22529d8ea33f18",
+    "commit_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/commit/56414df55a00166926b4bb7bcb22529d8ea33f18",
+    "pipeline_url": "https://gitlab.au.dk/au763399/dovs-gitlab/-/pipelines/693794"
   },
   "total": 17,
   "passed": 17,
   "failed": 0,
-  "duration_seconds": 0.834,
+  "duration_seconds": 1.468,
   "tests": [
     {
       "name": "comma expression 2",
       "file": "src/tests/phase4/comma_expr_2_test.json",
-      "duration": 0.008,
+      "duration": 0.023,
       "failure": "",
       "log": "ci-reports/logs/phase4-comma_expr_2_test.log",
       "kind": "Negative",
@@ -28,7 +28,7 @@
     {
       "name": "comma expression 3",
       "file": "src/tests/phase4/comma_expr_3_test.json",
-      "duration": 0.416,
+      "duration": 0.653,
       "failure": "",
       "log": "ci-reports/logs/phase4-comma_expr_3_test.log",
       "kind": "Positive",
@@ -40,7 +40,7 @@
     {
       "name": "comma expression 1",
       "file": "src/tests/phase4/comma_expr_test.json",
-      "duration": 0.415,
+      "duration": 0.82,
       "failure": "",
       "log": "ci-reports/logs/phase4-comma_expr_test.log",
       "kind": "Positive",
@@ -52,7 +52,7 @@
     {
       "name": "comma_funcall_test",
       "file": "src/tests/phase4/comma_funcall_test.json",
-      "duration": 0.341,
+      "duration": 0.849,
       "failure": "",
       "log": "ci-reports/logs/phase4-comma_funcall_test.log",
       "kind": "Positive",
@@ -64,7 +64,7 @@
     {
       "name": "crazy_test",
       "file": "src/tests/phase4/crazy_test.json",
-      "duration": 0.433,
+      "duration": 0.855,
       "failure": "",
       "log": "ci-reports/logs/phase4-crazy_test.log",
       "kind": "Positive",
@@ -76,7 +76,7 @@
     {
       "name": "for loop with comma",
       "file": "src/tests/phase4/for_comma_test.json",
-      "duration": 0.404,
+      "duration": 0.751,
       "failure": "",
       "log": "ci-reports/logs/phase4-for_comma_test.log",
       "kind": "Positive",
@@ -88,7 +88,7 @@
     {
       "name": "function declarations",
       "file": "src/tests/phase4/func_decls_test.json",
-      "duration": 0.432,
+      "duration": 0.906,
       "failure": "",
       "log": "ci-reports/logs/phase4-func_decls_test.log",
       "kind": "Positive",
@@ -100,7 +100,7 @@
     {
       "name": "function_param_order",
       "file": "src/tests/phase4/function_param_order_test.json",
-      "duration": 0.446,
+      "duration": 0.639,
       "failure": "",
       "log": "ci-reports/logs/phase4-function_param_order_test.log",
       "kind": "Positive",
@@ -112,7 +112,7 @@
     {
       "name": "in-program comma",
       "file": "src/tests/phase4/in_program_comma_test.json",
-      "duration": 0.398,
+      "duration": 0.705,
       "failure": "",
       "log": "ci-reports/logs/phase4-in_program_comma_test.log",
       "kind": "Positive",
@@ -124,7 +124,7 @@
     {
       "name": "mutual_rec_hard_test",
       "file": "src/tests/phase4/mutual_rec_hard_test.json",
-      "duration": 0.485,
+      "duration": 0.783,
       "failure": "",
       "log": "ci-reports/logs/phase4-mutual_rec_hard_test.log",
       "kind": "Positive",
@@ -136,7 +136,7 @@
     {
       "name": "mutual recursion factorial",
       "file": "src/tests/phase4/mutual_recursion_test.json",
-      "duration": 0.407,
+      "duration": 0.668,
       "failure": "",
       "log": "ci-reports/logs/phase4-mutual_recursion_test.log",
       "kind": "Positive",
@@ -148,7 +148,7 @@
     {
       "name": "negative function declarations",
       "file": "src/tests/phase4/negative_func_decls_test.json",
-      "duration": 0.011,
+      "duration": 0.007,
       "failure": "",
       "log": "ci-reports/logs/phase4-negative_func_decls_test.log",
       "kind": "Negative",
@@ -160,7 +160,7 @@
     {
       "name": "no_return_void_test",
       "file": "src/tests/phase4/no_return_void_test.json",
-      "duration": 0.406,
+      "duration": 0.708,
       "failure": "",
       "log": "ci-reports/logs/phase4-no_return_void_test.log",
       "kind": "Positive",
@@ -172,7 +172,7 @@
     {
       "name": "remember_old_env_test",
       "file": "src/tests/phase4/remember_old_env_test.json",
-      "duration": 0.386,
+      "duration": 0.697,
       "failure": "",
       "log": "ci-reports/logs/phase4-remember_old_env_test.log",
       "kind": "Positive",
@@ -184,7 +184,7 @@
     {
       "name": "return_not_last_test",
       "file": "src/tests/phase4/return_not_last_test.json",
-      "duration": 0.317,
+      "duration": 0.513,
       "failure": "",
       "log": "ci-reports/logs/phase4-return_not_last_test.log",
       "kind": "Positive",
@@ -196,7 +196,7 @@
     {
       "name": "self recursion",
       "file": "src/tests/phase4/self_recursion_test.json",
-      "duration": 0.391,
+      "duration": 0.616,
       "failure": "",
       "log": "ci-reports/logs/phase4-self_recursion_test.log",
       "kind": "Positive",
@@ -208,7 +208,7 @@
     {
       "name": "separate env for function calls",
       "file": "src/tests/phase4/separate_env_for_func_calls_test.json",
-      "duration": 0.392,
+      "duration": 0.609,
       "failure": "",
       "log": "ci-reports/logs/phase4-separate_env_for_func_calls_test.log",
       "kind": "Positive",
