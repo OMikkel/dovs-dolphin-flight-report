@@ -1,0 +1,7 @@
+
+--------------------
+🚂 | Running 'comma_funcall_test' ...
+Program returned: <RESULT__START>42<RESULT__END>
+DOLPHIN_TEST_RESULT expected=42 actual=42
+✅ | Test 'comma_funcall_test' passed!
+
