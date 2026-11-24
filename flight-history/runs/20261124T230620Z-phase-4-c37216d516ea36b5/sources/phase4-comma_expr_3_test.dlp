@@ -1,0 +1,10 @@
+int main () {
+    for ( var i: int = 0, j: int = 9
+        ; i < 10 
+        ; i = i+1, j=j-1 /* obs: comma expression here */ )
+    {
+        print_integer(i);
+        print_integer(j);
+    }
+    return 0;
+}

@@ -1,0 +1,7 @@
+
+--------------------
+🚂 | Running 'self recursion' ...
+Program returned: <RESULT__START>4<RESULT__END>
+DOLPHIN_TEST_RESULT expected=4 actual=4
+✅ | Test 'self recursion' passed!
+
