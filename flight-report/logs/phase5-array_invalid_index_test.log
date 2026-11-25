@@ -1,0 +1,7 @@
+
+--------------------
+🚂 | Running 'Non-Integer Array Index' ...
+Error: ([36m"src/tests/phase5/array_invalid_index_test.dlp" @ 3:11-18[0m): Type mismatch: expected int but found bool.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'Non-Integer Array Index' failed as expected.
+

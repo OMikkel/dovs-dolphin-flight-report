@@ -1,0 +1,27 @@
+int main(){
+    var cmd_args = get_cmd_args();
+    if (length_of(cmd_args) != 3){
+        output_string("expects exactly two arguments to be passed.", get_stderr());
+        return 0;
+    }
+    var src = open_file(cmd_args[1], "rb");
+    if (src == nil){
+        output_string("could not open source file.", get_stderr());
+        return 0;
+    }
+    var trg = open_file(cmd_args[2], "wb");
+    if (trg == nil){
+        output_string("could not open target file.", get_stderr());
+        return 0;
+    }
+    for(;;){
+        var c = input_byte(src);
+        if(c == get_eof())
+            break;
+        var d = int_to_byte_unsigned(c);
+        output_byte(d, trg);
+    }
+    close_file(src);
+    close_file(trg);
+    return 0;
+}

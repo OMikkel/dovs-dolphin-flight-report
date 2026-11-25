@@ -1,0 +1,9 @@
+int main() {
+    var words: [string] = new string[3];
+
+    words[0] = "hello";
+    words[1] = "world";
+    words[2] = "dolphin";
+
+    return 0;
+}

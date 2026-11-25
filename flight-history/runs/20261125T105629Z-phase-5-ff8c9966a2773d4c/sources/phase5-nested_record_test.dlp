@@ -1,0 +1,17 @@
+record Address {
+    zipcode: int;
+}
+
+record Person {
+    address: Address;
+}
+
+int main() {
+    var p: Person = new Person {
+        address = new Address {
+            zipcode = 8000;
+        };
+    };
+
+    return p.address.zipcode;
+}

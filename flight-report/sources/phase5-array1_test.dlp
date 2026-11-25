@@ -1,0 +1,8 @@
+int main() {
+    var x: [int] = new int[1+3];
+    x[0] = 10;
+    x[1] = 15;
+    x[2] = 20;
+    x[3] = 25;
+    return x[1];
+}

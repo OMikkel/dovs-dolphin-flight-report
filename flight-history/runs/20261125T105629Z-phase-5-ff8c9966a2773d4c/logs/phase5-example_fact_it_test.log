@@ -1,0 +1,9 @@
+
+--------------------
+🚂 | Running 'Example: Iterative Factorial' ...
+120
+39916800
+Program returned: <RESULT__START>0<RESULT__END>
+DOLPHIN_TEST_RESULT expected=0 actual=0
+✅ | Test 'Example: Iterative Factorial' passed!
+

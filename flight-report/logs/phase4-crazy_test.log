@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'crazy_test' ...
-Program returned: <RESULT__START>100392<RESULT__END>
-DOLPHIN_TEST_RESULT expected=100392 actual=100392
-✅ | Test 'crazy_test' passed!
-

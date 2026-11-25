@@ -1,0 +1,7 @@
+
+--------------------
+🚂 | Running 'Array Equality Type Mismatch' ...
+Error: ([36m"src/tests/phase5/array_equality_type_mismatch_test.dlp" @ 4:8-14[0m): Type mismatch: expected [int] but found [bool].
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'Array Equality Type Mismatch' failed as expected.
+

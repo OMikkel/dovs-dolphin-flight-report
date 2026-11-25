@@ -1,0 +1,28 @@
+int main(){
+    var cmd_args = get_cmd_args();
+    if (length_of(cmd_args) != 2){
+        output_string("expects exactly one argument to be passed.", get_stderr());
+        return 0;
+    }
+    var file = open_file(cmd_args[1], "wb");
+    if (file == nil){
+        output_string("could not open source file.", get_stderr());
+        return 0;
+    }
+    var c = new byte[3];
+    c[0] = int_to_byte_unsigned(ascii_ord("a"));
+    c[1] = int_to_byte_unsigned(ascii_ord("b"));
+    c[2] = int_to_byte_unsigned(ascii_ord("c"));
+    output_bytes_array(c, file);
+    output_string(string_concat(string_concat("The position is now ", int_to_string(pos_in_file(file))), ".\n"), get_stdout()); // it should print 3.
+    if(seek_in_file(-2, true, file)){
+        output_string("Failed to seek in file.\n",get_stderr());
+        return 0;
+    }
+    c[0] = int_to_byte_unsigned(ascii_ord("d"));
+    c[1] = int_to_byte_unsigned(ascii_ord("e"));
+    c[2] = int_to_byte_unsigned(ascii_ord("f"));
+    output_bytes_array(c, file); // the file should include "adef" now.
+    close_file(file);
+    return 0;
+}

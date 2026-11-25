@@ -1,0 +1,8 @@
+record Person {
+    name: string
+    age: int;
+}
+
+int main() {
+    return 0;
+}

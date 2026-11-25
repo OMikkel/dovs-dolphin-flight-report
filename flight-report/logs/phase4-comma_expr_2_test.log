@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'comma expression 2' ...
-src/tests/phase4/comma_expr_2_test.dlp:3:10: Parser error: Unexpected token ","
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'comma expression 2' failed as expected.
-

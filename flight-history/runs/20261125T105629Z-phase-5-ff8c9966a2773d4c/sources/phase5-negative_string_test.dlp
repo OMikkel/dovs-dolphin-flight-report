@@ -1,0 +1,4 @@
+int main() {
+    var message: string = "Hello\qWorld";
+    return 0;
+}

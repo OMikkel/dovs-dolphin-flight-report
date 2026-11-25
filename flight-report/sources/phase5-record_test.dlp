@@ -1,0 +1,17 @@
+record Point {
+    x: int;
+    y: int;
+}
+
+record Rectangle {
+    top_left: Point;
+    bottom_right: Point;
+}
+
+int main() {
+    var r: Rectangle = new Rectangle {
+        top_left = new Point { x = 0; y = 10; };
+        bottom_right = new Point { x = 20; y = 0; };
+    };
+    return 0;
+}

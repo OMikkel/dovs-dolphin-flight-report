@@ -1,0 +1,9 @@
+
+--------------------
+🚂 | Running 'Weird crazy test 2' ...
+Error: ([36m"src/tests/phase5/weird_crazy_2_test.dlp" @ 5:4-5[0m): Unbound identifier: x
+Error: ([36m"src/tests/phase5/weird_crazy_2_test.dlp" @ 5:4-8[0m): Type mismatch: expected ['type error'] but found 'type error'.
+Error: ([36m"src/tests/phase5/weird_crazy_2_test.dlp" @ 5:4-25[0m): Type mismatch: expected 'type error' but found string.
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'Weird crazy test 2' failed as expected.
+

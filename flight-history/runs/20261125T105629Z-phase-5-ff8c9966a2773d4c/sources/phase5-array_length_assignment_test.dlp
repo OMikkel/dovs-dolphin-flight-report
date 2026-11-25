@@ -1,0 +1,5 @@
+int main() {
+    var a: [int] = new int[3];
+    length_of(a) = 2;
+    return 0;
+}
