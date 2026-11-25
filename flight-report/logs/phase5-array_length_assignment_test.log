@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'Array Length Cannot Be Assigned' ...
-src/tests/phase5/array_length_assignment_test.dlp:3:18: Parser error: Unexpected token "="
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Array Length Cannot Be Assigned' failed as expected.
-

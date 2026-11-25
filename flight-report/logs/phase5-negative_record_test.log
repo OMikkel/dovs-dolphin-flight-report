@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running '' ...
-src/tests/phase5/negative_record_test.dlp:3:5: Parser error: Unexpected token "age"
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test '' failed as expected.
-

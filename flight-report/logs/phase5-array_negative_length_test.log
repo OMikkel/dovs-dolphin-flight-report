@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'Negative Array Length' ...
-Error: ([36m"src/tests/phase5/array_negative_length_test.dlp" @ 2:19-30[0m): Argument mismatch: expected 0 arguments but found -1.
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Negative Array Length' failed as expected.
-

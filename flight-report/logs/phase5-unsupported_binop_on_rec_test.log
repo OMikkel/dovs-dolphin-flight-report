@@ -1,8 +1,0 @@
-
---------------------
-🚂 | Running 'Unsupported Binary Operation on Records' ...
-Error: ([36m"src/tests/phase5/unsupported_binop_on_rec_test.dlp" @ 6:12-17[0m): Type mismatch: expected int but found Tuple.
-Error: ([36m"src/tests/phase5/unsupported_binop_on_rec_test.dlp" @ 6:12-17[0m): Type mismatch: expected int but found Tuple.
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Unsupported Binary Operation on Records' failed as expected.
-

@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'nested record' ...
-Program returned: <RESULT__START>8000<RESULT__END>
-DOLPHIN_TEST_RESULT expected=8000 actual=8000
-✅ | Test 'nested record' passed!
-

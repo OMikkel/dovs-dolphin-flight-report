@@ -1,5 +1,0 @@
-int main() {
-    var a: [int] = new int[1];
-    var b: [int] = new int[1];
-    return a + b;
-}

@@ -1,8 +1,0 @@
-int main() {
-    var a: [bool] = new bool[1];
-    a[0] = true;
-    if (a[0]) {
-        return 1;
-    }
-    return 0;
-}

@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'Example: Seek in File' ...
-expects exactly one argument to be passed.Program returned: <RESULT__START>0<RESULT__END>
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Seek in File' passed!
-

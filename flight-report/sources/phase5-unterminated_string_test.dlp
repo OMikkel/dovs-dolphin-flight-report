@@ -1,4 +1,0 @@
-int main() {
-    var x = "This string never closes
-    return 0;
-}

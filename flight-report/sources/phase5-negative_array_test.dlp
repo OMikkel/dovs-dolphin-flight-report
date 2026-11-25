@@ -1,7 +1,0 @@
-int main() {
-    var numbers: [int] = new int[5];
-
-    numbers[] = 10;
-
-    return 0;
-}

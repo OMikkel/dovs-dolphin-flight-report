@@ -1,7 +1,0 @@
-record Tuple { x: [string]; y: int; }
-
-int main() {
-    var t: Tuple = new Tuple { x = new string[6]; y = 4; };
-    x[1] = "awdwa\n \\\\";
-    return length_of (t.x[1]);
-}

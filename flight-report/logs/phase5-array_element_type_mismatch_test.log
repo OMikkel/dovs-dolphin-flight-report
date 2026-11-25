@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'Array Element Type Mismatch' ...
-Error: ([36m"src/tests/phase5/array_element_type_mismatch_test.dlp" @ 2:8-30[0m): Type mismatch: expected [int] but found [bool].
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Array Element Type Mismatch' failed as expected.
-

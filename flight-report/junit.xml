@@ -1,828 +1,141 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuite name="Dolphin phase 5" tests="40" failures="0" time="2.905"><testcase classname="phase5" name="Array 1" file="src/tests/phase5/array1_test.json" time="0.7"><system-out>
+<testsuite name="Dolphin phase 4" tests="17" failures="0" time="0.857"><testcase classname="phase4" name="comma expression 2" file="src/tests/phase4/comma_expr_2_test.json" time="0.047"><system-out>
 --------------------
-🚂 | Running 'Array 1' ...
-Program returned: &lt;RESULT__START&gt;15&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=15 actual=15
-✅ | Test 'Array 1' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Boolean Array Elements" file="src/tests/phase5/array_boolean_elements_test.json" time="0.714"><system-out>
---------------------
-🚂 | Running 'Boolean Array Elements' ...
-Program returned: &lt;RESULT__START&gt;1&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=1 actual=1
-✅ | Test 'Boolean Array Elements' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Array Element Type Mismatch" file="src/tests/phase5/array_element_type_mismatch_test.json" time="0.027"><system-out>
---------------------
-🚂 | Running 'Array Element Type Mismatch' ...
-Error: ([36m"src/tests/phase5/array_element_type_mismatch_test.dlp" @ 2:8-30[0m): Type mismatch: expected [int] but found [bool].
+🚂 | Running 'comma expression 2' ...
+src/tests/phase4/comma_expr_2_test.dlp:3:10: Parser error: Unexpected token ","
 DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Array Element Type Mismatch' failed as expected.
+✅ | Test 'comma expression 2' failed as expected.
 
-</system-out></testcase><testcase classname="phase5" name="Array Equality by Reference" file="src/tests/phase5/array_equality_test.json" time="0.814"><system-out>
+</system-out></testcase><testcase classname="phase4" name="comma expression 3" file="src/tests/phase4/comma_expr_3_test.json" time="0.546"><system-out>
 --------------------
-🚂 | Running 'Array Equality by Reference' ...
-Program returned: &lt;RESULT__START&gt;1&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=1 actual=1
-✅ | Test 'Array Equality by Reference' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Array Equality Type Mismatch" file="src/tests/phase5/array_equality_type_mismatch_test.json" time="0.026"><system-out>
---------------------
-🚂 | Running 'Array Equality Type Mismatch' ...
-Error: ([36m"src/tests/phase5/array_equality_type_mismatch_test.dlp" @ 4:8-14[0m): Type mismatch: expected [int] but found [bool].
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Array Equality Type Mismatch' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Non-Integer Array Index" file="src/tests/phase5/array_invalid_index_test.json" time="0.027"><system-out>
---------------------
-🚂 | Running 'Non-Integer Array Index' ...
-Error: ([36m"src/tests/phase5/array_invalid_index_test.dlp" @ 3:11-18[0m): Type mismatch: expected int but found bool.
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Non-Integer Array Index' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Array Length Cannot Be Assigned" file="src/tests/phase5/array_length_assignment_test.json" time="0.025"><system-out>
---------------------
-🚂 | Running 'Array Length Cannot Be Assigned' ...
-src/tests/phase5/array_length_assignment_test.dlp:3:18: Parser error: Unexpected token "="
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Array Length Cannot Be Assigned' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Array Length" file="src/tests/phase5/array_length_test.json" time="0.695"><system-out>
---------------------
-🚂 | Running 'Array Length' ...
-Program returned: &lt;RESULT__START&gt;3&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=3 actual=3
-✅ | Test 'Array Length' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Negative Array Length" file="src/tests/phase5/array_negative_length_test.json" time="0.012"><system-out>
---------------------
-🚂 | Running 'Negative Array Length' ...
-Error: ([36m"src/tests/phase5/array_negative_length_test.dlp" @ 2:19-30[0m): Argument mismatch: expected 0 arguments but found -1.
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Negative Array Length' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Nested Array Elements" file="src/tests/phase5/array_nested_elements_test.json" time="0.783"><system-out>
---------------------
-🚂 | Running 'Nested Array Elements' ...
-Program returned: &lt;RESULT__START&gt;7&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=7 actual=7
-✅ | Test 'Nested Array Elements' passed!
-
-</system-out></testcase><testcase classname="phase5" name="nested strings" file="src/tests/phase5/array_of_strings_test.json" time="0.787"><system-out>
---------------------
-🚂 | Running 'nested strings' ...
-Program returned: &lt;RESULT__START&gt;11&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=11 actual=11
-✅ | Test 'nested strings' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Unsupported Binary Operation on Arrays" file="src/tests/phase5/array_unsupported_binop_test.json" time="0.014"><system-out>
---------------------
-🚂 | Running 'Unsupported Binary Operation on Arrays' ...
-Error: ([36m"src/tests/phase5/array_unsupported_binop_test.dlp" @ 4:11-16[0m): Type mismatch: expected int but found [int].
-Error: ([36m"src/tests/phase5/array_unsupported_binop_test.dlp" @ 4:11-16[0m): Type mismatch: expected int but found [int].
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Unsupported Binary Operation on Arrays' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Zero Length Array" file="src/tests/phase5/array_zero_length_test.json" time="0.776"><system-out>
---------------------
-🚂 | Running 'Zero Length Array' ...
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Zero Length Array' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Equality on Records" file="src/tests/phase5/equality_on_rec_test.json" time="0.769"><system-out>
---------------------
-🚂 | Running 'Equality on Records' ...
-Program returned: &lt;RESULT__START&gt;1&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=1 actual=1
-✅ | Test 'Equality on Records' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Copy File" file="src/tests/phase5/example_copy_file_test.json" time="0.724"><system-out>
---------------------
-🚂 | Running 'Example: Copy File' ...
-expects exactly two arguments to be passed.Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Copy File' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Iterative Factorial" file="src/tests/phase5/example_fact_it_test.json" time="0.805"><system-out>
---------------------
-🚂 | Running 'Example: Iterative Factorial' ...
-120
-39916800
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Iterative Factorial' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Recursive Factorial" file="src/tests/phase5/example_fact_rec_test.json" time="0.789"><system-out>
---------------------
-🚂 | Running 'Example: Recursive Factorial' ...
-120
-39916800
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Recursive Factorial' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Fibonacci Matrix Exponentiation" file="src/tests/phase5/example_fib_lambda_test.json" time="0.782"><system-out>
---------------------
-🚂 | Running 'Example: Fibonacci Matrix Exponentiation' ...
-55
-127
-6875
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Fibonacci Matrix Exponentiation' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Mandelbrot" file="src/tests/phase5/example_mandelbrot_test.json" time="1.086"><system-out>
---------------------
-🚂 | Running 'Example: Mandelbrot' ...
-111111111111111111111111111111111111111111111111111111111111
-111111111111111111111111111111111111111111111111111111111111
-111111111111111111111111111111111111110111111111111111111111
-111111111111111111111111111111111111000011111111111111111111
-111111111111111111111111111111111111000011111111111111111111
-111111111111111111111111111111111111100111111111111111111111
-111111111111111111111111111111011000000000011111111111111111
-111111111111111111111111111110000000000000000001111111111111
-111111111111111111111111111110000000000000000011111111111111
-111111111111111111111111111100000000000000000001111111111111
-111111111111111111111111110000000000000000000000011111111111
-111111111111111110110111111000000000000000000000111111111111
-111111111111111110000000110000000000000000000000111111111111
-111111111111111100000000010000000000000000000000111111111111
-111111111111111100000000010000000000000000000001111111111111
-111110111100000000000000000000000000000000000111111111111111
-111111111111111100000000010000000000000000000000111111111111
-111111111111111100000000010000000000000000000000111111111111
-111111111111111110000000110000000000000000000000111111111111
-111111111111111110110111111000000000000000000000111111111111
-111111111111111111111111111000000000000000000000011111111111
-111111111111111111111111111100000000000000000001111111111111
-111111111111111111111111111110000000000000000011111111111111
-111111111111111111111111111111000000000000000001111111111111
-111111111111111111111111111111011000000000011111111111111111
-111111111111111111111111111111111111100111111111111111111111
-111111111111111111111111111111111111000011111111111111111111
-111111111111111111111111111111111111000011111111111111111111
-111111111111111111111111111111111111110111111111111111111111
-111111111111111111111111111111111111111111111111111111111111
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Mandelbrot' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Matrix" file="src/tests/phase5/example_matrix_test.json" time="0.68"><system-out>
---------------------
-🚂 | Running 'Example: Matrix' ...
-4
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Matrix' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Merge Sort" file="src/tests/phase5/example_merge_sort_test.json" time="0.971"><system-out>
---------------------
-🚂 | Running 'Example: Merge Sort' ...
-4
-1
-2
-5
-3
-
-1
-2
-3
-4
-5
-
-42
-1472
-2036
-3371
-224
-998
-4480
-4153
-1596
-4352
-2892
-2736
-3857
-4621
-3236
-2060
-2044
-1261
-3905
-1967
-307
-2871
-2021
-3575
-1452
-2308
-1673
-303
-3926
-2682
-589
-1037
-2949
-3962
-3193
-4646
-2896
-1681
-3196
-2604
-3651
-1419
-4758
-3374
-3185
-1753
-4218
-712
-2366
-3886
-3226
-2196
-1195
-3802
-366
-1068
-3528
-90
-3821
-4110
-4182
-201
-3312
-2027
-4494
-2962
-1784
-4797
-1843
-2994
-3350
-4512
-716
-1311
-3225
-1209
-2611
-554
-1513
-2479
-348
-3314
-4001
-1662
-4455
-4493
-1975
-3200
-1549
-2990
-4405
-170
-2733
-896
-3866
-3498
-498
-1274
-1727
-3571
-
-42
-90
-170
-201
-224
-303
-307
-348
-366
-498
-554
-589
-712
-716
-896
-998
-1037
-1068
-1195
-1209
-1261
-1274
-1311
-1419
-1452
-1472
-1513
-1549
-1596
-1662
-1673
-1681
-1727
-1753
-1784
-1843
-1967
-1975
-2021
-2027
-2036
-2044
-2060
-2196
-2308
-2366
-2479
-2604
-2611
-2682
-2733
-2736
-2871
-2892
-2896
-2949
-2962
-2990
-2994
-3185
-3193
-3196
-3200
-3225
-3226
-3236
-3312
-3314
-3350
-3371
-3374
-3498
-3528
-3571
-3575
-3651
-3802
-3821
-3857
-3866
-3886
-3905
-3926
-3962
-4001
-4110
-4153
-4182
-4218
-4352
-4405
-4455
-4480
-4493
-4494
-4512
-4621
-4646
-4758
-4797
-
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Merge Sort' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Pascal Triangle" file="src/tests/phase5/example_pascal_test.json" time="0.968"><system-out>
---------------------
-🚂 | Running 'Example: Pascal Triangle' ...
-*
-**
-***
-****
-*****
-******
-*******
-*000000*
-**00000**
-***0000***
-****000****
-*****00*****
-******0******
-**************
-*000000*000000*
-**00000**00000**
-***0000***0000***
-****000****000****
-*****00*****00*****
-******0******0******
-*********************
-*000000*000000*000000*
-**00000**00000**00000**
-***0000***0000***0000***
-****000****000****000****
-*****00*****00*****00*****
-******0******0******0******
-****************************
-*000000*000000*000000*000000*
-**00000**00000**00000**00000**
-***0000***0000***0000***0000***
-****000****000****000****000****
-*****00*****00*****00*****00*****
-******0******0******0******0******
-***********************************
-*000000*000000*000000*000000*000000*
-**00000**00000**00000**00000**00000**
-***0000***0000***0000***0000***0000***
-****000****000****000****000****000****
-*****00*****00*****00*****00*****00*****
-******0******0******0******0******0******
-******************************************
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Pascal Triangle' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Iterative Power" file="src/tests/phase5/example_power_it_test.json" time="0.854"><system-out>
---------------------
-🚂 | Running 'Example: Iterative Power' ...
-16
-216
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Iterative Power' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: Recursive Power" file="src/tests/phase5/example_power_rec_test.json" time="0.688"><system-out>
---------------------
-🚂 | Running 'Example: Recursive Power' ...
-16
-216
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Recursive Power' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Example: N-Queens" file="src/tests/phase5/example_queens_test.json" time="0.809"><system-out>
---------------------
-🚂 | Running 'Example: N-Queens' ...
-1
+🚂 | Running 'comma expression 3' ...
 0
+9
+1
+8
+2
+7
+3
+6
+4
+5
+5
+4
+6
+3
+7
+2
+8
+1
+9
 0
-2
-10
-4
-40
-92
-352
-724
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: N-Queens' passed!
+✅ | Test 'comma expression 3' passed!
 
-</system-out></testcase><testcase classname="phase5" name="Example: Quick Sort" file="src/tests/phase5/example_quick_sort_test.json" time="0.813"><system-out>
+</system-out></testcase><testcase classname="phase4" name="comma expression 1" file="src/tests/phase4/comma_expr_test.json" time="0.418"><system-out>
 --------------------
-🚂 | Running 'Example: Quick Sort' ...
-4
-1
-2
-5
-3
+🚂 | Running 'comma expression 1' ...
+Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test 'comma expression 1' passed!
 
-1
-2
-3
-4
-5
+</system-out></testcase><testcase classname="phase4" name="comma_funcall_test" file="src/tests/phase4/comma_funcall_test.json" time="0.535"><system-out>
+--------------------
+🚂 | Running 'comma_funcall_test' ...
+Program returned: &lt;RESULT__START&gt;42&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=42 actual=42
+✅ | Test 'comma_funcall_test' passed!
 
-42
-1472
-2036
-3371
-224
-998
-4480
-4153
-1596
-4352
-2892
-2736
-3857
-4621
-3236
-2060
-2044
-1261
-3905
-1967
-307
-2871
-2021
-3575
-1452
-2308
-1673
-303
-3926
-2682
-589
-1037
-2949
-3962
-3193
-4646
-2896
-1681
-3196
-2604
-3651
-1419
-4758
-3374
-3185
-1753
-4218
-712
-2366
-3886
-3226
-2196
-1195
-3802
-366
-1068
-3528
-90
-3821
-4110
-4182
-201
-3312
-2027
-4494
-2962
-1784
-4797
-1843
-2994
-3350
-4512
-716
-1311
-3225
-1209
-2611
-554
-1513
-2479
-348
-3314
-4001
-1662
-4455
-4493
-1975
-3200
-1549
-2990
-4405
-170
-2733
-896
-3866
-3498
-498
-1274
-1727
-3571
+</system-out></testcase><testcase classname="phase4" name="crazy_test" file="src/tests/phase4/crazy_test.json" time="0.426"><system-out>
+--------------------
+🚂 | Running 'crazy_test' ...
+Program returned: &lt;RESULT__START&gt;100392&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=100392 actual=100392
+✅ | Test 'crazy_test' passed!
 
-42
-90
-170
-201
-224
-303
-307
-348
-366
-498
-554
-589
-712
-716
-896
-998
-1037
-1068
-1195
-1209
-1261
-1274
-1311
-1419
-1452
-1472
-1513
-1549
-1596
-1662
-1673
-1681
-1727
-1753
-1784
-1843
-1967
-1975
-2021
-2027
-2036
-2044
-2060
-2196
-2308
-2366
-2479
-2604
-2611
-2682
-2733
-2736
-2871
-2892
-2896
-2949
-2962
-2990
-2994
-3185
-3193
-3196
-3200
-3225
-3226
-3236
-3312
-3314
-3350
-3371
-3374
-3498
-3528
-3571
-3575
-3651
-3802
-3821
-3857
-3866
-3886
-3905
-3926
-3962
-4001
-4110
-4153
-4182
-4218
-4352
-4405
-4455
-4480
-4493
-4494
-4512
-4621
-4646
-4758
-4797
+</system-out></testcase><testcase classname="phase4" name="for loop with comma" file="src/tests/phase4/for_comma_test.json" time="0.441"><system-out>
+--------------------
+🚂 | Running 'for loop with comma' ...
+Program returned: &lt;RESULT__START&gt;4&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=4 actual=4
+✅ | Test 'for loop with comma' passed!
 
+</system-out></testcase><testcase classname="phase4" name="function declarations" file="src/tests/phase4/func_decls_test.json" time="0.514"><system-out>
+--------------------
+🚂 | Running 'function declarations' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Quick Sort' passed!
+✅ | Test 'function declarations' passed!
 
-</system-out></testcase><testcase classname="phase5" name="Example: Seek in File" file="src/tests/phase5/example_seek_in_file_test.json" time="0.896"><system-out>
+</system-out></testcase><testcase classname="phase4" name="function_param_order" file="src/tests/phase4/function_param_order_test.json" time="0.405"><system-out>
 --------------------
-🚂 | Running 'Example: Seek in File' ...
-expects exactly one argument to be passed.Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Seek in File' passed!
+🚂 | Running 'function_param_order' ...
+Program returned: &lt;RESULT__START&gt;2&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test 'function_param_order' passed!
 
-</system-out></testcase><testcase classname="phase5" name="Example: Sudoku Solver" file="src/tests/phase5/example_sudoku_test.json" time="0.996"><system-out>
+</system-out></testcase><testcase classname="phase4" name="in-program comma" file="src/tests/phase4/in_program_comma_test.json" time="0.406"><system-out>
 --------------------
-🚂 | Running 'Example: Sudoku Solver' ...
-|9| |3| |8| | | | |
-| |6| |1| | |7|3| |
-| | | | | | | | |4|
-| | | |4| | | | |6|
-| | |8| |1| |5|4| |
-| |5| | | | | | |2|
-| |7| |3| | |1|5| |
-| | |6| | |7| | | |
-| | | | | | |2| | |
+🚂 | Running 'in-program comma' ...
+Program returned: &lt;RESULT__START&gt;5&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=5 actual=5
+✅ | Test 'in-program comma' passed!
 
-|9|4|3|7|8|5|6|2|1|
-|8|6|2|1|4|9|7|3|5|
-|5|1|7|2|3|6|9|8|4|
-|3|9|1|4|5|2|8|7|6|
-|7|2|8|6|1|3|5|4|9|
-|6|5|4|9|7|8|3|1|2|
-|2|7|9|3|6|4|1|5|8|
-|1|8|6|5|2|7|4|9|3|
-|4|3|5|8|9|1|2|6|7|
+</system-out></testcase><testcase classname="phase4" name="mutual_rec_hard_test" file="src/tests/phase4/mutual_rec_hard_test.json" time="0.417"><system-out>
+--------------------
+🚂 | Running 'mutual_rec_hard_test' ...
+Program returned: &lt;RESULT__START&gt;190&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=190 actual=190
+✅ | Test 'mutual_rec_hard_test' passed!
 
+</system-out></testcase><testcase classname="phase4" name="mutual recursion factorial" file="src/tests/phase4/mutual_recursion_test.json" time="0.389"><system-out>
+--------------------
+🚂 | Running 'mutual recursion factorial' ...
+Program returned: &lt;RESULT__START&gt;3628800&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=3628800 actual=3628800
+✅ | Test 'mutual recursion factorial' passed!
+
+</system-out></testcase><testcase classname="phase4" name="negative function declarations" file="src/tests/phase4/negative_func_decls_test.json" time="0.012"><system-out>
+--------------------
+🚂 | Running 'negative function declarations' ...
+src/tests/phase4/negative_func_decls_test.dlp:5:19: Parser error: Unexpected token ","
+DOLPHIN_TEST_RESULT expected=rejected actual=rejected
+✅ | Test 'negative function declarations' failed as expected.
+
+</system-out></testcase><testcase classname="phase4" name="no_return_void_test" file="src/tests/phase4/no_return_void_test.json" time="0.382"><system-out>
+--------------------
+🚂 | Running 'no_return_void_test' ...
 Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
 DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Example: Sudoku Solver' passed!
+✅ | Test 'no_return_void_test' passed!
 
-</system-out></testcase><testcase classname="phase5" name="negative array" file="src/tests/phase5/negative_array_test.json" time="0.008"><system-out>
+</system-out></testcase><testcase classname="phase4" name="remember_old_env_test" file="src/tests/phase4/remember_old_env_test.json" time="0.368"><system-out>
 --------------------
-🚂 | Running 'negative array' ...
-src/tests/phase5/negative_array_test.dlp:4:13: Parser error: Unexpected token "]"
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'negative array' failed as expected.
+🚂 | Running 'remember_old_env_test' ...
+Program returned: &lt;RESULT__START&gt;78&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=78 actual=78
+✅ | Test 'remember_old_env_test' passed!
 
-</system-out></testcase><testcase classname="phase5" name="" file="src/tests/phase5/negative_record_test.json" time="0.012"><system-out>
+</system-out></testcase><testcase classname="phase4" name="return_not_last_test" file="src/tests/phase4/return_not_last_test.json" time="0.387"><system-out>
 --------------------
-🚂 | Running '' ...
-src/tests/phase5/negative_record_test.dlp:3:5: Parser error: Unexpected token "age"
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test '' failed as expected.
+🚂 | Running 'return_not_last_test' ...
+Program returned: &lt;RESULT__START&gt;67&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=67 actual=67
+✅ | Test 'return_not_last_test' passed!
 
-</system-out></testcase><testcase classname="phase5" name="negative string" file="src/tests/phase5/negative_string_test.json" time="0.009"><system-out>
+</system-out></testcase><testcase classname="phase4" name="self recursion" file="src/tests/phase4/self_recursion_test.json" time="0.336"><system-out>
 --------------------
-🚂 | Running 'negative string' ...
-src/tests/phase5/negative_string_test.dlp:2:27: Lexer error: Invalid escape sequence in string literal: scanf: bad input at char number 7: illegal escape character 'q'
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'negative string' failed as expected.
+🚂 | Running 'self recursion' ...
+Program returned: &lt;RESULT__START&gt;4&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=4 actual=4
+✅ | Test 'self recursion' passed!
 
-</system-out></testcase><testcase classname="phase5" name="nested record" file="src/tests/phase5/nested_record_test.json" time="0.867"><system-out>
+</system-out></testcase><testcase classname="phase4" name="separate env for function calls" file="src/tests/phase4/separate_env_for_func_calls_test.json" time="0.318"><system-out>
 --------------------
-🚂 | Running 'nested record' ...
-Program returned: &lt;RESULT__START&gt;8000&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=8000 actual=8000
-✅ | Test 'nested record' passed!
-
-</system-out></testcase><testcase classname="phase5" name="nested records" file="src/tests/phase5/nested_records_test.json" time="0.721"><system-out>
---------------------
-🚂 | Running 'nested records' ...
-Program returned: &lt;RESULT__START&gt;50&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=50 actual=50
-✅ | Test 'nested records' passed!
-
-</system-out></testcase><testcase classname="phase5" name="record" file="src/tests/phase5/record_test.json" time="0.62"><system-out>
---------------------
-🚂 | Running 'record' ...
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'record' passed!
-
-</system-out></testcase><testcase classname="phase5" name="" file="src/tests/phase5/string_array_test.json" time="0.532"><system-out>
---------------------
-🚂 | Running '' ...
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test '' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Unsupported Binary Operation on Records" file="src/tests/phase5/unsupported_binop_on_rec_test.json" time="0.008"><system-out>
---------------------
-🚂 | Running 'Unsupported Binary Operation on Records' ...
-Error: ([36m"src/tests/phase5/unsupported_binop_on_rec_test.dlp" @ 6:12-17[0m): Type mismatch: expected int but found Tuple.
-Error: ([36m"src/tests/phase5/unsupported_binop_on_rec_test.dlp" @ 6:12-17[0m): Type mismatch: expected int but found Tuple.
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Unsupported Binary Operation on Records' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Lexer rejects an unterminated string" file="src/tests/phase5/unterminated_string_test.json" time="0.058"><system-out>
---------------------
-🚂 | Running 'Lexer rejects an unterminated string' ...
-src/tests/phase5/unterminated_string_test.dlp:2:13: Lexer error: Unexpected character: "
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Lexer rejects an unterminated string' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Weird crazy test 2" file="src/tests/phase5/weird_crazy_2_test.json" time="0.065"><system-out>
---------------------
-🚂 | Running 'Weird crazy test 2' ...
-Error: ([36m"src/tests/phase5/weird_crazy_2_test.dlp" @ 5:4-5[0m): Unbound identifier: x
-Error: ([36m"src/tests/phase5/weird_crazy_2_test.dlp" @ 5:4-8[0m): Type mismatch: expected ['type error'] but found 'type error'.
-Error: ([36m"src/tests/phase5/weird_crazy_2_test.dlp" @ 5:4-25[0m): Type mismatch: expected 'type error' but found string.
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Weird crazy test 2' failed as expected.
-
-</system-out></testcase><testcase classname="phase5" name="Weird crazy test" file="src/tests/phase5/weird_crazy_test.json" time="0.523"><system-out>
---------------------
-🚂 | Running 'Weird crazy test' ...
-Program returned: &lt;RESULT__START&gt;9&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=9 actual=9
-✅ | Test 'Weird crazy test' passed!
-
-</system-out></testcase><testcase classname="phase5" name="Wierd strings (lexer)" file="src/tests/phase5/wierd_strings_test.json" time="0.501"><system-out>
---------------------
-🚂 | Running 'Wierd strings (lexer)' ...
-Program returned: &lt;RESULT__START&gt;0&lt;RESULT__END&gt;
-DOLPHIN_TEST_RESULT expected=0 actual=0
-✅ | Test 'Wierd strings (lexer)' passed!
+🚂 | Running 'separate env for function calls' ...
+Program returned: &lt;RESULT__START&gt;1&lt;RESULT__END&gt;
+DOLPHIN_TEST_RESULT expected=1 actual=1
+✅ | Test 'separate env for function calls' passed!
 
 </system-out></testcase></testsuite>

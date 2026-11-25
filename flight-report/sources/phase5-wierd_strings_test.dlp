@@ -1,9 +1,0 @@
-int main() {
-    var x = "\"
-    
-    \n 
-            
-    \t		
-    ";
-    return 0;
-}

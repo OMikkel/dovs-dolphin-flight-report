@@ -1,7 +1,0 @@
-
---------------------
-🚂 | Running 'Lexer rejects an unterminated string' ...
-src/tests/phase5/unterminated_string_test.dlp:2:13: Lexer error: Unexpected character: "
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Lexer rejects an unterminated string' failed as expected.
-

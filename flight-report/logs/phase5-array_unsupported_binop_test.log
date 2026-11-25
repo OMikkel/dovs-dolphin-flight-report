@@ -1,8 +1,0 @@
-
---------------------
-🚂 | Running 'Unsupported Binary Operation on Arrays' ...
-Error: ([36m"src/tests/phase5/array_unsupported_binop_test.dlp" @ 4:11-16[0m): Type mismatch: expected int but found [int].
-Error: ([36m"src/tests/phase5/array_unsupported_binop_test.dlp" @ 4:11-16[0m): Type mismatch: expected int but found [int].
-DOLPHIN_TEST_RESULT expected=rejected actual=rejected
-✅ | Test 'Unsupported Binary Operation on Arrays' failed as expected.
-
