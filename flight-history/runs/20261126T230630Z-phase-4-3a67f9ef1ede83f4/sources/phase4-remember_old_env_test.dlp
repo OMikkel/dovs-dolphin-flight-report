@@ -1,0 +1,14 @@
+int desc(n: int, acc: int) {
+    var saved: int = n * 10 + acc;
+
+    if (n <= 0) {
+        return saved;
+    }
+
+    var child: int = desc(n - 1, acc + n);
+    return saved + child;
+}
+
+int main() {
+    return desc(3, 1);
+}

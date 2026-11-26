@@ -1,0 +1,7 @@
+
+--------------------
+🚂 | Running 'function_param_order' ...
+Program returned: <RESULT__START>2<RESULT__END>
+DOLPHIN_TEST_RESULT expected=2 actual=2
+✅ | Test 'function_param_order' passed!
+
